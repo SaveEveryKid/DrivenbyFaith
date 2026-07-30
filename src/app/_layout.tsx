@@ -4,6 +4,7 @@ import { Stack, useRouter, useSegments } from 'expo-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { AuthProvider, useAuth } from '@/lib/AuthProvider';
+import { SyncProvider } from '@/lib/SyncProvider';
 
 const queryClient = new QueryClient();
 
@@ -92,7 +93,9 @@ export default function RootLayout(): React.ReactElement {
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
-          <RootLayoutInner />
+          <SyncProvider>
+            <RootLayoutInner />
+          </SyncProvider>
         </AuthProvider>
       </QueryClientProvider>
     </ErrorBoundary>
