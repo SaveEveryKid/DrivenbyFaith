@@ -1,22 +1,23 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
 import { useTheme } from '@/hooks/useTheme';
+import { UIFontFamily } from '@/constants/theme';
 
 export default function TabLayout(): React.ReactElement {
-  const { colors } = useTheme();
+  const { palette } = useTheme();
 
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: colors.accent,
-        tabBarInactiveTintColor: colors.textMuted,
+        tabBarActiveTintColor: palette.clay,
+        tabBarInactiveTintColor: palette.inkDim,
         tabBarStyle: {
-          backgroundColor: colors.surface,
-          borderTopColor: colors.border,
+          backgroundColor: palette.bg,
+          borderTopColor: palette.line,
         },
         tabBarLabelStyle: {
-          fontFamily: 'Inter, system-ui, sans-serif',
+          fontFamily: UIFontFamily,
           fontSize: 11,
         },
       }}

@@ -64,7 +64,7 @@ function DevotionalListItem({
   item: DevotionalWithCompletion;
   onPress: () => void;
 }): React.ReactElement {
-  const { colors, typography } = useTheme();
+  const { palette, typography } = useTheme();
 
   const publishDate = new Date(item.devotional.publish_date);
   const formattedDate = publishDate.toLocaleDateString('en-US', {
@@ -83,8 +83,8 @@ function DevotionalListItem({
         paddingVertical: 14,
         paddingHorizontal: 16,
         borderBottomWidth: 1,
-        borderBottomColor: colors.border,
-        backgroundColor: colors.background,
+        borderBottomColor: palette.line,
+        backgroundColor: palette.bg,
       }}
       accessibilityLabel={`${item.devotional.title}, ${formattedDate}${isCompleted ? ', completed' : ''}`}
     >
@@ -99,7 +99,7 @@ function DevotionalListItem({
           style={{
             fontFamily: typography.ui.fontFamily,
             fontSize: typography.ui.sizes.sm,
-            color: colors.textMuted,
+            color: palette.inkDim,
             textTransform: 'uppercase',
             letterSpacing: 0.3,
           }}
@@ -115,7 +115,7 @@ function DevotionalListItem({
             fontFamily: typography.scripture.fontFamily,
             fontSize: typography.ui.sizes.base,
             fontWeight: '500',
-            color: colors.text,
+            color: palette.ink,
             lineHeight: 22,
           }}
           numberOfLines={2}
@@ -126,7 +126,7 @@ function DevotionalListItem({
           style={{
             fontFamily: typography.ui.fontFamily,
             fontSize: typography.ui.sizes.xs,
-            color: colors.textMuted,
+            color: palette.inkDim,
             marginTop: 2,
           }}
         >
@@ -141,7 +141,7 @@ function DevotionalListItem({
             width: 24,
             height: 24,
             borderRadius: 12,
-            backgroundColor: colors.success,
+            backgroundColor: palette.sage,
             alignItems: 'center',
             justifyContent: 'center',
           }}
@@ -161,7 +161,7 @@ function DevotionalListItem({
 // ─── Main Screen ─────────────────────────────────────────────────────────────
 
 export default function LibraryScreen(): React.ReactElement {
-  const { colors, typography } = useTheme();
+  const { palette, typography } = useTheme();
   const { user } = useAuth();
   const router = useRouter();
 
@@ -192,12 +192,12 @@ export default function LibraryScreen(): React.ReactElement {
       <View
         style={{
           flex: 1,
-          backgroundColor: colors.background,
+          backgroundColor: palette.bg,
           alignItems: 'center',
           justifyContent: 'center',
         }}
       >
-        <ActivityIndicator color={colors.accent} size="small" />
+        <ActivityIndicator color={palette.clay} size="small" />
       </View>
     );
   }
@@ -206,7 +206,7 @@ export default function LibraryScreen(): React.ReactElement {
 
   if (isError) {
     return (
-      <View style={{ flex: 1, backgroundColor: colors.background }}>
+      <View style={{ flex: 1, backgroundColor: palette.bg }}>
         <EmptyState
           icon="⚠"
           title="Could not load library"
@@ -215,7 +215,7 @@ export default function LibraryScreen(): React.ReactElement {
             <TouchableOpacity
               onPress={() => refetch()}
               style={{
-                backgroundColor: colors.accent,
+                backgroundColor: palette.clay,
                 paddingVertical: 12,
                 paddingHorizontal: 24,
                 borderRadius: 10,
@@ -242,7 +242,7 @@ export default function LibraryScreen(): React.ReactElement {
 
   if (!items || items.length === 0) {
     return (
-      <View style={{ flex: 1, backgroundColor: colors.background }}>
+      <View style={{ flex: 1, backgroundColor: palette.bg }}>
         <EmptyState
           icon="📚"
           title="Devotional Library"
@@ -255,21 +255,21 @@ export default function LibraryScreen(): React.ReactElement {
   // ── List ─────────────────────────────────────────────────────────────────
 
   return (
-    <View style={{ flex: 1, backgroundColor: colors.background }}>
+    <View style={{ flex: 1, backgroundColor: palette.bg }}>
       {/* Header */}
       <View
         style={{
           paddingHorizontal: 16,
           paddingTop: 60,
           paddingBottom: 12,
-          backgroundColor: colors.background,
+          backgroundColor: palette.bg,
         }}
       >
         <Text
           style={{
             fontFamily: typography.ui.fontFamily,
             fontSize: typography.ui.sizes.sm,
-            color: colors.textMuted,
+            color: palette.inkDim,
             textTransform: 'uppercase',
             letterSpacing: 0.5,
           }}

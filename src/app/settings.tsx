@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, Alert } from 'react-native';
-import { useThemeStore } from '@/stores/themeStore';
-import type { ThemeMode, TextSize } from '@/stores/themeStore';
+import { useThemeStore, type ThemeMode } from '@/stores/themeStore';
+import type { TextSizeLevel } from '@/constants/theme';
+import { UIFontFamily } from '@/constants/theme';
 import { useAuth } from '@/hooks/useAuth';
 import { useTheme } from '@/hooks/useTheme';
 
@@ -11,16 +12,17 @@ const MODE_OPTIONS: { label: string; value: ThemeMode }[] = [
   { label: 'System', value: 'system' },
 ];
 
-const SIZE_OPTIONS: { label: string; value: TextSize }[] = [
+const SIZE_OPTIONS: { label: string; value: TextSizeLevel }[] = [
   { label: 'Small', value: 'small' },
   { label: 'Default', value: 'base' },
   { label: 'Large', value: 'large' },
+  { label: 'Extra Large', value: 'xlarge' },
 ];
 
 export default function SettingsScreen(): React.ReactElement {
-  const { mode, textSize, setMode, setTextSize } = useThemeStore();
+  const { explicitTheme, textSize, setExplicitTheme, setTextSize } = useThemeStore();
   const { signOut, deleteAccount, profile } = useAuth();
-  const { colors } = useTheme();
+  const { palette } = useTheme();
   const [isSigningOut, setIsSigningOut] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -58,7 +60,7 @@ export default function SettingsScreen(): React.ReactElement {
 
   return (
     <ScrollView
-      style={{ flex: 1, backgroundColor: colors.background }}
+      style={{ flex: 1, backgroundColor: palette.bg }}
       contentContainerStyle={{ padding: 24, paddingBottom: 48 }}
     >
       {/* Profile info */}
@@ -69,7 +71,7 @@ export default function SettingsScreen(): React.ReactElement {
               width: 64,
               height: 64,
               borderRadius: 32,
-              backgroundColor: colors.accent,
+              backgroundColor: palette.clay,
               alignItems: 'center',
               justifyContent: 'center',
               marginBottom: 12,
@@ -77,7 +79,7 @@ export default function SettingsScreen(): React.ReactElement {
           >
             <Text
               style={{
-                fontFamily: 'Inter, system-ui, sans-serif',
+                fontFamily: UIFontFamily,
                 fontSize: 24,
                 fontWeight: '700',
                 color: '#FFFFFF',
@@ -88,10 +90,10 @@ export default function SettingsScreen(): React.ReactElement {
           </View>
           <Text
             style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
+              fontFamily: UIFontFamily,
               fontSize: 18,
               fontWeight: '600',
-              color: colors.text,
+              color: palette.ink,
               marginBottom: 4,
             }}
           >
@@ -99,9 +101,9 @@ export default function SettingsScreen(): React.ReactElement {
           </Text>
           <Text
             style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
+              fontFamily: UIFontFamily,
               fontSize: 14,
-              color: colors.textSecondary,
+              color: palette.muted,
             }}
           >
             {profile.dealership && profile.brand
@@ -114,10 +116,10 @@ export default function SettingsScreen(): React.ReactElement {
       {/* Appearance section */}
       <Text
         style={{
-          fontFamily: 'Inter, system-ui, sans-serif',
+          fontFamily: UIFontFamily,
           fontSize: 14,
           fontWeight: '600',
-          color: colors.textSecondary,
+          color: palette.muted,
           textTransform: 'uppercase',
           letterSpacing: 0.5,
           marginBottom: 12,
@@ -128,7 +130,7 @@ export default function SettingsScreen(): React.ReactElement {
 
       <View
         style={{
-          backgroundColor: colors.surfaceElevated,
+          backgroundColor: palette.surface,
           borderRadius: 10,
           overflow: 'hidden',
           marginBottom: 24,
@@ -137,9 +139,9 @@ export default function SettingsScreen(): React.ReactElement {
         {MODE_OPTIONS.map((opt, i) => (
           <TouchableOpacity
             key={opt.value}
-            onPress={() => setMode(opt.value)}
+            onPress={() => setExplicitTheme(opt.value)}
             accessibilityLabel={opt.label}
-            accessibilityState={{ selected: mode === opt.value }}
+            accessibilityState={{ selected: explicitTheme === opt.value }}
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
@@ -147,20 +149,20 @@ export default function SettingsScreen(): React.ReactElement {
               paddingHorizontal: 16,
               paddingVertical: 14,
               borderBottomWidth: i < MODE_OPTIONS.length - 1 ? 1 : 0,
-              borderBottomColor: colors.border,
+              borderBottomColor: palette.line,
             }}
           >
             <Text
               style={{
-                fontFamily: 'Inter, system-ui, sans-serif',
+                fontFamily: UIFontFamily,
                 fontSize: 16,
-                color: colors.text,
+                color: palette.ink,
               }}
             >
               {opt.label}
             </Text>
-            {mode === opt.value && (
-              <Text style={{ color: colors.accent, fontSize: 18 }}>✓</Text>
+            {explicitTheme === opt.value && (
+              <Text style={{ color: palette.clay, fontSize: 18 }}>✓</Text>
             )}
           </TouchableOpacity>
         ))}
@@ -169,10 +171,10 @@ export default function SettingsScreen(): React.ReactElement {
       {/* Text size section */}
       <Text
         style={{
-          fontFamily: 'Inter, system-ui, sans-serif',
+          fontFamily: UIFontFamily,
           fontSize: 14,
           fontWeight: '600',
-          color: colors.textSecondary,
+          color: palette.muted,
           textTransform: 'uppercase',
           letterSpacing: 0.5,
           marginBottom: 12,
@@ -183,7 +185,7 @@ export default function SettingsScreen(): React.ReactElement {
 
       <View
         style={{
-          backgroundColor: colors.surfaceElevated,
+          backgroundColor: palette.surface,
           borderRadius: 10,
           overflow: 'hidden',
           marginBottom: 24,
@@ -202,20 +204,20 @@ export default function SettingsScreen(): React.ReactElement {
               paddingHorizontal: 16,
               paddingVertical: 14,
               borderBottomWidth: i < SIZE_OPTIONS.length - 1 ? 1 : 0,
-              borderBottomColor: colors.border,
+              borderBottomColor: palette.line,
             }}
           >
             <Text
               style={{
-                fontFamily: 'Inter, system-ui, sans-serif',
+                fontFamily: UIFontFamily,
                 fontSize: 16,
-                color: colors.text,
+                color: palette.ink,
               }}
             >
               {opt.label}
             </Text>
             {textSize === opt.value && (
-              <Text style={{ color: colors.accent, fontSize: 18 }}>✓</Text>
+              <Text style={{ color: palette.clay, fontSize: 18 }}>✓</Text>
             )}
           </TouchableOpacity>
         ))}
@@ -224,10 +226,10 @@ export default function SettingsScreen(): React.ReactElement {
       {/* Account section */}
       <Text
         style={{
-          fontFamily: 'Inter, system-ui, sans-serif',
+          fontFamily: UIFontFamily,
           fontSize: 14,
           fontWeight: '600',
-          color: colors.textSecondary,
+          color: palette.muted,
           textTransform: 'uppercase',
           letterSpacing: 0.5,
           marginBottom: 12,
@@ -238,7 +240,7 @@ export default function SettingsScreen(): React.ReactElement {
 
       <View
         style={{
-          backgroundColor: colors.surfaceElevated,
+          backgroundColor: palette.surface,
           borderRadius: 10,
           overflow: 'hidden',
           marginBottom: 24,
@@ -252,14 +254,14 @@ export default function SettingsScreen(): React.ReactElement {
             paddingHorizontal: 16,
             paddingVertical: 14,
             borderBottomWidth: 1,
-            borderBottomColor: colors.border,
+            borderBottomColor: palette.line,
           }}
         >
           <Text
             style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
+              fontFamily: UIFontFamily,
               fontSize: 16,
-              color: colors.text,
+              color: palette.ink,
             }}
           >
             {isSigningOut ? 'Signing out...' : 'Sign Out'}
@@ -277,9 +279,9 @@ export default function SettingsScreen(): React.ReactElement {
         >
           <Text
             style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
+              fontFamily: UIFontFamily,
               fontSize: 16,
-              color: colors.error,
+              color: palette.clay,
             }}
           >
             {isDeleting ? 'Deleting...' : 'Delete Account'}
@@ -290,9 +292,9 @@ export default function SettingsScreen(): React.ReactElement {
       {/* App info */}
       <Text
         style={{
-          fontFamily: 'Inter, system-ui, sans-serif',
+          fontFamily: UIFontFamily,
           fontSize: 13,
-          color: colors.textMuted,
+          color: palette.inkDim,
           textAlign: 'center',
           marginTop: 16,
         }}

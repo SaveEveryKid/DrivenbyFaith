@@ -1,3 +1,40 @@
+// ─── Font Families ──────────────────────────────────────────────────────────
+
+export const UIFontFamily = 'Inter, system-ui, sans-serif' as const;
+export const ScriptureFontFamily = 'Georgia, serif' as const;
+
+// ─── Palette ────────────────────────────────────────────────────────────────
+
+export const lightPalette = {
+  bg: '#FDFBF7',
+  surface: '#FFFFFF',
+  ink: '#3C3C3C',
+  muted: '#6F6F6F',
+  clay: '#9B7343',
+  sage: '#5F6E48',
+  brass: '#B08C57',
+  line: '#E0D1B8',
+  inkDim: '#9B9B9B',
+  scripture: '#3C3C3C',
+} as const;
+
+export const darkPalette = {
+  bg: '#1C1B1A',
+  surface: '#353330',
+  ink: '#E8E4DF',
+  muted: '#B5B0A8',
+  clay: '#C2A87D',
+  sage: '#93A478',
+  brass: '#D2BF9F',
+  line: '#4A4640',
+  inkDim: '#7A756E',
+  scripture: '#E8E4DF',
+} as const;
+
+export type Palette = typeof lightPalette;
+
+// ─── Legacy colors (backward compat) ────────────────────────────────────────
+
 export const colors = {
   light: {
     background: '#FDFBF7',
@@ -31,18 +68,21 @@ export const colors = {
   },
 } as const;
 
+// ─── Typography ─────────────────────────────────────────────────────────────
+
 export const typography = {
   scripture: {
-    fontFamily: 'Georgia, serif',
+    fontFamily: ScriptureFontFamily,
     sizes: {
       small: 16,
       base: 18,
       large: 22,
+      xlarge: 26,
     } as const,
     lineHeight: 1.6,
   },
   ui: {
-    fontFamily: 'Inter, system-ui, sans-serif',
+    fontFamily: UIFontFamily,
     sizes: {
       xs: 12,
       sm: 14,
@@ -55,6 +95,19 @@ export const typography = {
   },
 } as const;
 
+// ─── Text size to font-size / line-height mapping ───────────────────────────
+
+export const textSizeMap = {
+  small: { fontSize: 14, lineHeight: 20 },
+  base: { fontSize: 16, lineHeight: 24 },
+  large: { fontSize: 18, lineHeight: 28 },
+  xlarge: { fontSize: 22, lineHeight: 34 },
+} as const;
+
+export type TextSizeLevel = keyof typeof textSizeMap;
+
+// ─── Motion ─────────────────────────────────────────────────────────────────
+
 export const motion = {
   duration: {
     fast: 150,
@@ -63,6 +116,8 @@ export const motion = {
   },
   easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
 } as const;
+
+// ─── Spacing ────────────────────────────────────────────────────────────────
 
 export const spacing = {
   xs: 4,
