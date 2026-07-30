@@ -5,6 +5,7 @@ import {
   ScrollView,
   ActivityIndicator,
   Animated,
+  TouchableOpacity,
   AccessibilityInfo,
 } from 'react-native';
 import { useRouter } from 'expo-router';
@@ -15,7 +16,10 @@ import { EmptyState } from '@/components/EmptyState';
 import { useTheme } from '@/hooks/useTheme';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { useTodayDevotional, useDevotionalStreak } from '@/hooks/useDevotional';
+import { useLine } from '@/hooks/useLine';
+import { use28th } from '@/hooks/use28th';
 import { useAuth } from '@/hooks/useAuth';
+import { UIFontFamily } from '@/constants/theme';
 
 // ─── Skeleton placeholder ─────────────────────────────────────────────────────
 
@@ -393,6 +397,119 @@ function StreakDisplay(): React.ReactElement {
   );
 }
 
+// ─── Month-End Integrity Card ─────────────────────────────────────────────────
+
+function MonthEndCard(): React.ReactElement | null {
+  const { palette, typography } = useTheme();
+  const router = useRouter();
+  const { isMonthEndWindow, line } = useLine();
+  const { isActive } = use28th();
+
+  if (!isMonthEndWindow && !isActive) return null;
+
+  return (
+    <TouchableOpacity
+      onPress={() => router.push('/28th')}
+      accessibilityLabel="Month-end integrity review"
+      style={{
+        backgroundColor: palette.sage + '18',
+        borderRadius: 10,
+        padding: 16,
+        marginBottom: 16,
+        borderWidth: 1,
+        borderColor: palette.sage + '40',
+      }}
+    >
+      <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 8 }}>
+        <Text style={{ fontSize: 20, marginRight: 8 }}>🛡</Text>
+        <Text
+          style={{
+            fontFamily: UIFontFamily,
+            fontSize: typography.ui.sizes.sm,
+            fontWeight: '600',
+            color: palette.sage,
+            textTransform: 'uppercase',
+            letterSpacing: 0.5,
+          }}
+        >
+          Month-End Review
+        </Text>
+      </View>
+      <Text
+        style={{
+          fontFamily: UIFontFamily,
+          fontSize: typography.ui.sizes.sm,
+          color: palette.ink,
+          lineHeight: 20,
+          marginBottom: 8,
+        }}
+      >
+        The month is closing. Take a few minutes to review your commitments before the pressure of month-end hits.
+      </Text>
+      {line ? (
+        <Text
+          style={{
+            fontFamily: typography.scripture.fontFamily,
+            fontSize: typography.scripture.sizes.small,
+            color: palette.muted,
+            fontStyle: 'italic',
+          }}
+          numberOfLines={2}
+        >
+          "{line.length > 80 ? line.slice(0, 80) + '…' : line}"
+        </Text>
+      ) : (
+        <Text
+          style={{
+            fontFamily: UIFontFamily,
+            fontSize: typography.ui.sizes.xs,
+            color: palette.muted,
+          }}
+        >
+          You have not set a line yet. Now is a good time.
+        </Text>
+      )}
+    </TouchableOpacity>
+  );
+}
+
+// ─── Quick Debrief Link ───────────────────────────────────────────────────────
+
+function QuickDebriefLink(): React.ReactElement {
+  const { palette, typography } = useTheme();
+  const router = useRouter();
+
+  return (
+    <TouchableOpacity
+      onPress={() => router.push('/debrief/new')}
+      accessibilityLabel="Quick debrief"
+      style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 14,
+        marginBottom: 16,
+        backgroundColor: palette.surface,
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: palette.line,
+      }}
+    >
+      <Text style={{ fontSize: 18, marginRight: 8 }}>📋</Text>
+      <Text
+        style={{
+          fontFamily: UIFontFamily,
+          fontSize: typography.ui.sizes.sm,
+          fontWeight: '600',
+          color: palette.ink,
+        }}
+      >
+        Debrief your shift
+      </Text>
+    </TouchableOpacity>
+  );
+}
+
 // ─── Main Screen ─────────────────────────────────────────────────────────────
 
 export default function TodayScreen(): React.ReactElement {
@@ -475,6 +592,12 @@ export default function TodayScreen(): React.ReactElement {
 
       {/* Streak */}
       <StreakDisplay />
+
+      {/* Month-End Integrity Card */}
+      <MonthEndCard />
+
+      {/* Quick Debrief Link */}
+      <QuickDebriefLink />
 
       {/* Devotional Card */}
       {isLoading && <SkeletonBlock />}

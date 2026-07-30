@@ -20,6 +20,7 @@ export interface ProfileRow {
   notification_preferences: Record<string, unknown> | null;
   translation: string;
   line_wont_cross: string | null;
+  line_wont_cross_updated_at: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -57,6 +58,7 @@ export interface ProfileUpdate {
   notification_preferences?: Record<string, unknown> | null;
   translation?: string;
   line_wont_cross?: string | null;
+  line_wont_cross_updated_at?: string | null;
 }
 
 // ─── Devotional ──────────────────────────────────────────────────────────────
@@ -135,6 +137,17 @@ export interface DealDebriefRow {
   client_updated_at: string | null;
 }
 
+// ─── Confession & Repair ──────────────────────────────────────────────────────
+
+export interface ConfessionRepairRow {
+  id: string;
+  user_id: string;
+  entry_date: string;
+  confession: string;
+  repair_step: string;
+  created_at: string;
+}
+
 // ─── Situation ───────────────────────────────────────────────────────────────
 
 export interface SituationRow {
@@ -144,13 +157,20 @@ export interface SituationRow {
   title: string;
   situation_body: string;
   biblical_principle: string;
-  scripture_refs: string[];
+  scripture_refs: ScriptureRef[];
   practical_response: string;
   prayer: string;
   reflection_question: string;
   is_premium: boolean;
   search_vector: unknown;
   created_at: string;
+}
+
+// ─── Scripture reference helper type ─────────────────────────────────────────
+
+export interface ScriptureRef {
+  reference: string;
+  text: string;
 }
 
 export interface SituationSaveRow {
@@ -367,6 +387,11 @@ export interface Database {
       deal_debriefs: {
         Row: DealDebriefRow;
         Insert: MinimalInsert<DealDebriefRow>;
+        Update: MinimalUpdate;
+      };
+      confession_repair: {
+        Row: ConfessionRepairRow;
+        Insert: MinimalInsert<ConfessionRepairRow>;
         Update: MinimalUpdate;
       };
       situations: {

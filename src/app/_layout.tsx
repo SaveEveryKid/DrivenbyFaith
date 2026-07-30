@@ -8,6 +8,17 @@ import { SyncProvider } from '@/lib/SyncProvider';
 
 const queryClient = new QueryClient();
 
+// ─── Deep link configuration ──────────────────────────────────────────────────
+
+const linking = {
+  prefixes: ['drivenbyfaith://'],
+  config: {
+    screens: {
+      'situation/[slug]': 'situation/:slug',
+    },
+  },
+};
+
 // ─── Auth guard — redirects based on auth state ──────────────────────────────
 
 function AuthGuard({ children }: { children: React.ReactNode }): React.ReactElement | null {
@@ -27,7 +38,7 @@ function AuthGuard({ children }: { children: React.ReactNode }): React.ReactElem
       }
     } else if (!isOnboarded) {
       // Authenticated but not onboarded — go to onboarding
-      if (!inAuthGroup || segments[1] !== 'onboarding') {
+      if (!inAuthGroup || (segments.length > 1 && segments[1] !== 'onboarding')) {
         router.replace('/(auth)/onboarding');
       }
     } else {
@@ -74,11 +85,65 @@ function RootLayoutInner(): React.ReactElement {
           }}
         />
         <Stack.Screen
+          name="line"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'The Line',
+          }}
+        />
+        <Stack.Screen
+          name="28th"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'The 28th',
+          }}
+        />
+        <Stack.Screen
           name="devotional/[id]"
           options={{
             presentation: 'modal',
             headerShown: false,
             animation: 'slide_from_bottom',
+          }}
+        />
+        <Stack.Screen
+          name="debrief/new"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'New Debrief',
+          }}
+        />
+        <Stack.Screen
+          name="debrief/index"
+          options={{
+            presentation: 'modal',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="debrief/[id]"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'Debrief',
+          }}
+        />
+        <Stack.Screen
+          name="situation/index"
+          options={{
+            presentation: 'modal',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="situation/[slug]"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'Situation',
           }}
         />
       </Stack>
