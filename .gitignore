@@ -16,3 +16,4 @@ android/.gradle/
 android/app/build/
 android/build/
 *.tsbuildinfo
+node_modules
