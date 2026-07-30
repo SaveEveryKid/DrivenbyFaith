@@ -72,6 +72,14 @@ function RootLayoutInner(): React.ReactElement {
             headerTitle: 'Settings',
           }}
         />
+        <Stack.Screen
+          name="devotional/[id]"
+          options={{
+            presentation: 'modal',
+            headerShown: false,
+            animation: 'slide_from_bottom',
+          }}
+        />
       </Stack>
     </AuthGuard>
   );

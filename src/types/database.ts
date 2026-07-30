@@ -87,6 +87,7 @@ export interface DevotionalCompletionRow {
   reflection_response: string | null;
   challenge_accepted: boolean;
   challenge_completed: boolean;
+  prayer_duration_seconds: number | null;
   client_updated_at: string | null;
 }
 
