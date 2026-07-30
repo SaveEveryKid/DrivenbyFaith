@@ -1,10 +1,10 @@
 // =============================================================================
-// Database types — exact match to migration schema
+// Database types — Supabase-compatible schema definition
 // =============================================================================
 
-// ─── Profiles ────────────────────────────────────────────────────────────────
+// ─── Profile ─────────────────────────────────────────────────────────────────
 
-export interface Profile {
+export interface ProfileRow {
   id: string;
   display_name: string | null;
   dealership: string | null;
@@ -24,9 +24,44 @@ export interface Profile {
   updated_at: string;
 }
 
-// ─── Devotionals ─────────────────────────────────────────────────────────────
+export interface ProfileInsert {
+  id: string;
+  display_name?: string | null;
+  dealership?: string | null;
+  brand?: string | null;
+  role?: string | null;
+  years_in_business?: number | null;
+  faith_context?: 'new_to_faith' | 'coming_back' | 'walking_steady' | 'leading_others' | null;
+  burdens?: string[] | null;
+  timezone?: string;
+  onboarding_complete?: boolean;
+  subscription_tier?: 'free' | 'premium';
+  subscription_expires_at?: string | null;
+  notification_preferences?: Record<string, unknown> | null;
+  translation?: string;
+  line_wont_cross?: string | null;
+}
 
-export interface Devotional {
+export interface ProfileUpdate {
+  display_name?: string | null;
+  dealership?: string | null;
+  brand?: string | null;
+  role?: string | null;
+  years_in_business?: number | null;
+  faith_context?: 'new_to_faith' | 'coming_back' | 'walking_steady' | 'leading_others' | null;
+  burdens?: string[] | null;
+  timezone?: string;
+  onboarding_complete?: boolean;
+  subscription_tier?: 'free' | 'premium';
+  subscription_expires_at?: string | null;
+  notification_preferences?: Record<string, unknown> | null;
+  translation?: string;
+  line_wont_cross?: string | null;
+}
+
+// ─── Devotional ──────────────────────────────────────────────────────────────
+
+export interface DevotionalRow {
   id: string;
   publish_date: string;
   title: string;
@@ -42,7 +77,9 @@ export interface Devotional {
   created_at: string;
 }
 
-export interface DevotionalCompletion {
+// ─── Devotional Completion ───────────────────────────────────────────────────
+
+export interface DevotionalCompletionRow {
   id: string;
   user_id: string;
   devotional_id: string;
@@ -55,7 +92,7 @@ export interface DevotionalCompletion {
 
 // ─── Saturday Ready ──────────────────────────────────────────────────────────
 
-export interface SaturdayReady {
+export interface SaturdayReadyRow {
   id: string;
   release_date: string;
   theme: string;
@@ -69,7 +106,7 @@ export interface SaturdayReady {
   created_at: string;
 }
 
-export interface SaturdayReadyResponse {
+export interface SaturdayReadyResponseRow {
   id: string;
   user_id: string;
   saturday_ready_id: string;
@@ -78,9 +115,9 @@ export interface SaturdayReadyResponse {
   completed_at: string;
 }
 
-// ─── Deal Debriefs ───────────────────────────────────────────────────────────
+// ─── Deal Debrief ────────────────────────────────────────────────────────────
 
-export interface DealDebrief {
+export interface DealDebriefRow {
   id: string;
   user_id: string;
   debrief_date: string;
@@ -97,9 +134,9 @@ export interface DealDebrief {
   client_updated_at: string | null;
 }
 
-// ─── Situations ──────────────────────────────────────────────────────────────
+// ─── Situation ───────────────────────────────────────────────────────────────
 
-export interface Situation {
+export interface SituationRow {
   id: string;
   slug: string;
   category: 'customer' | 'management' | 'coworker' | 'self' | 'family' | 'money' | 'ethics';
@@ -115,23 +152,23 @@ export interface Situation {
   created_at: string;
 }
 
-export interface SituationSave {
+export interface SituationSaveRow {
   id: string;
   user_id: string;
   situation_id: string;
   saved_at: string;
 }
 
-// ─── Coach AI ────────────────────────────────────────────────────────────────
+// ─── Coach ───────────────────────────────────────────────────────────────────
 
-export interface CoachConversation {
+export interface CoachConversationRow {
   id: string;
   user_id: string;
   title: string | null;
   created_at: string;
 }
 
-export interface CoachMessage {
+export interface CoachMessageRow {
   id: string;
   conversation_id: string;
   role: 'user' | 'assistant';
@@ -140,7 +177,7 @@ export interface CoachMessage {
   created_at: string;
 }
 
-export interface CoachUsage {
+export interface CoachUsageRow {
   id: string;
   user_id: string;
   usage_date: string;
@@ -149,7 +186,7 @@ export interface CoachUsage {
 
 // ─── Prayer ──────────────────────────────────────────────────────────────────
 
-export interface PrayerGroup {
+export interface PrayerGroupRow {
   id: string;
   name: string;
   description: string | null;
@@ -159,14 +196,14 @@ export interface PrayerGroup {
   created_at: string;
 }
 
-export interface PrayerGroupMember {
+export interface PrayerGroupMemberRow {
   group_id: string;
   user_id: string;
   role: 'member' | 'leader';
   joined_at: string;
 }
 
-export interface PrayerRequest {
+export interface PrayerRequestRow {
   id: string;
   group_id: string;
   user_id: string;
@@ -181,7 +218,7 @@ export interface PrayerRequest {
   created_at: string;
 }
 
-export interface PrayerInteraction {
+export interface PrayerInteractionRow {
   id: string;
   request_id: string;
   user_id: string;
@@ -190,7 +227,7 @@ export interface PrayerInteraction {
 
 // ─── Discussion ──────────────────────────────────────────────────────────────
 
-export interface DiscussionThread {
+export interface DiscussionThreadRow {
   id: string;
   category: 'floor_life' | 'integrity_questions' | 'family_schedule' | 'leading_others' | 'testimonies' | 'prayer_for_industry';
   title: string;
@@ -203,7 +240,7 @@ export interface DiscussionThread {
   created_at: string;
 }
 
-export interface DiscussionReply {
+export interface DiscussionReplyRow {
   id: string;
   thread_id: string;
   user_id: string;
@@ -216,7 +253,7 @@ export interface DiscussionReply {
 
 // ─── Reading Plans ───────────────────────────────────────────────────────────
 
-export interface ReadingPlan {
+export interface ReadingPlanRow {
   id: string;
   slug: string;
   title: string;
@@ -228,7 +265,7 @@ export interface ReadingPlan {
   created_at: string;
 }
 
-export interface ReadingPlanDay {
+export interface ReadingPlanDayRow {
   id: string;
   plan_id: string;
   day_number: number;
@@ -239,7 +276,7 @@ export interface ReadingPlanDay {
   application: string | null;
 }
 
-export interface ReadingPlanProgress {
+export interface ReadingPlanProgressRow {
   id: string;
   user_id: string;
   plan_id: string;
@@ -251,7 +288,7 @@ export interface ReadingPlanProgress {
 
 // ─── Memory Verses ───────────────────────────────────────────────────────────
 
-export interface MemoryVerse {
+export interface MemoryVerseRow {
   id: string;
   user_id: string;
   reference: string;
@@ -266,14 +303,14 @@ export interface MemoryVerse {
 
 // ─── System ──────────────────────────────────────────────────────────────────
 
-export interface ServiceLog {
+export interface ServiceLogRow {
   id: string;
   user_id: string;
   description: string;
   logged_at: string;
 }
 
-export interface NotificationToken {
+export interface NotificationTokenRow {
   id: string;
   user_id: string;
   expo_push_token: string | null;
@@ -282,7 +319,7 @@ export interface NotificationToken {
   updated_at: string;
 }
 
-export interface Report {
+export interface ReportRow {
   id: string;
   reporter_id: string;
   content_type: 'prayer_request' | 'discussion_thread' | 'discussion_reply';
@@ -291,33 +328,142 @@ export interface Report {
   created_at: string;
 }
 
-// ─── Row type helper ─────────────────────────────────────────────────────────
+// ─── Helper: minimal Insert/Update types ──────────────────────────────────────
+
+type MinimalInsert<T> = Partial<T>;
+type MinimalUpdate = Record<string, unknown>;
+
+// ─── Supabase Database type ──────────────────────────────────────────────────
 
 export interface Database {
-  profiles: Profile;
-  devotionals: Devotional;
-  devotional_completions: DevotionalCompletion;
-  saturday_ready: SaturdayReady;
-  saturday_ready_responses: SaturdayReadyResponse;
-  deal_debriefs: DealDebrief;
-  situations: Situation;
-  situation_saves: SituationSave;
-  coach_conversations: CoachConversation;
-  coach_messages: CoachMessage;
-  coach_usage: CoachUsage;
-  prayer_groups: PrayerGroup;
-  prayer_group_members: PrayerGroupMember;
-  prayer_requests: PrayerRequest;
-  prayer_interactions: PrayerInteraction;
-  discussion_threads: DiscussionThread;
-  discussion_replies: DiscussionReply;
-  reading_plans: ReadingPlan;
-  reading_plan_days: ReadingPlanDay;
-  reading_plan_progress: ReadingPlanProgress;
-  memory_verses: MemoryVerse;
-  service_log: ServiceLog;
-  notification_tokens: NotificationToken;
-  reports: Report;
+  public: {
+    Tables: {
+      profiles: {
+        Row: ProfileRow;
+        Insert: ProfileInsert;
+        Update: ProfileUpdate;
+      };
+      devotionals: {
+        Row: DevotionalRow;
+        Insert: MinimalInsert<DevotionalRow>;
+        Update: MinimalUpdate;
+      };
+      devotional_completions: {
+        Row: DevotionalCompletionRow;
+        Insert: MinimalInsert<DevotionalCompletionRow>;
+        Update: MinimalUpdate;
+      };
+      saturday_ready: {
+        Row: SaturdayReadyRow;
+        Insert: MinimalInsert<SaturdayReadyRow>;
+        Update: MinimalUpdate;
+      };
+      saturday_ready_responses: {
+        Row: SaturdayReadyResponseRow;
+        Insert: MinimalInsert<SaturdayReadyResponseRow>;
+        Update: MinimalUpdate;
+      };
+      deal_debriefs: {
+        Row: DealDebriefRow;
+        Insert: MinimalInsert<DealDebriefRow>;
+        Update: MinimalUpdate;
+      };
+      situations: {
+        Row: SituationRow;
+        Insert: MinimalInsert<SituationRow>;
+        Update: MinimalUpdate;
+      };
+      situation_saves: {
+        Row: SituationSaveRow;
+        Insert: MinimalInsert<SituationSaveRow>;
+        Update: MinimalUpdate;
+      };
+      coach_conversations: {
+        Row: CoachConversationRow;
+        Insert: MinimalInsert<CoachConversationRow>;
+        Update: MinimalUpdate;
+      };
+      coach_messages: {
+        Row: CoachMessageRow;
+        Insert: MinimalInsert<CoachMessageRow>;
+        Update: MinimalUpdate;
+      };
+      coach_usage: {
+        Row: CoachUsageRow;
+        Insert: MinimalInsert<CoachUsageRow>;
+        Update: MinimalUpdate;
+      };
+      prayer_groups: {
+        Row: PrayerGroupRow;
+        Insert: MinimalInsert<PrayerGroupRow>;
+        Update: MinimalUpdate;
+      };
+      prayer_group_members: {
+        Row: PrayerGroupMemberRow;
+        Insert: MinimalInsert<PrayerGroupMemberRow>;
+        Update: MinimalUpdate;
+      };
+      prayer_requests: {
+        Row: PrayerRequestRow;
+        Insert: MinimalInsert<PrayerRequestRow>;
+        Update: MinimalUpdate;
+      };
+      prayer_interactions: {
+        Row: PrayerInteractionRow;
+        Insert: MinimalInsert<PrayerInteractionRow>;
+        Update: MinimalUpdate;
+      };
+      discussion_threads: {
+        Row: DiscussionThreadRow;
+        Insert: MinimalInsert<DiscussionThreadRow>;
+        Update: MinimalUpdate;
+      };
+      discussion_replies: {
+        Row: DiscussionReplyRow;
+        Insert: MinimalInsert<DiscussionReplyRow>;
+        Update: MinimalUpdate;
+      };
+      reading_plans: {
+        Row: ReadingPlanRow;
+        Insert: MinimalInsert<ReadingPlanRow>;
+        Update: MinimalUpdate;
+      };
+      reading_plan_days: {
+        Row: ReadingPlanDayRow;
+        Insert: MinimalInsert<ReadingPlanDayRow>;
+        Update: MinimalUpdate;
+      };
+      reading_plan_progress: {
+        Row: ReadingPlanProgressRow;
+        Insert: MinimalInsert<ReadingPlanProgressRow>;
+        Update: MinimalUpdate;
+      };
+      memory_verses: {
+        Row: MemoryVerseRow;
+        Insert: MinimalInsert<MemoryVerseRow>;
+        Update: MinimalUpdate;
+      };
+      service_log: {
+        Row: ServiceLogRow;
+        Insert: MinimalInsert<ServiceLogRow>;
+        Update: MinimalUpdate;
+      };
+      notification_tokens: {
+        Row: NotificationTokenRow;
+        Insert: MinimalInsert<NotificationTokenRow>;
+        Update: MinimalUpdate;
+      };
+      reports: {
+        Row: ReportRow;
+        Insert: MinimalInsert<ReportRow>;
+        Update: MinimalUpdate;
+      };
+    };
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
+    Enums: Record<string, never>;
+    CompositeTypes: Record<string, never>;
+  };
 }
 
-export type TableName = keyof Database;
+export type TableName = keyof Database['public']['Tables'];

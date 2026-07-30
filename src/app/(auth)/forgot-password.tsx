@@ -7,8 +7,6 @@ import {
   Platform,
   ScrollView,
   TouchableOpacity,
-  Alert,
-  Linking,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller } from 'react-hook-form';
@@ -21,61 +19,42 @@ import { useTheme } from '@/hooks/useTheme';
 
 // ─── Validation schema ───────────────────────────────────────────────────────
 
-const signupSchema = z
-  .object({
-    email: z
-      .string()
-      .min(1, 'Email is required')
-      .email('Please enter a valid email address'),
-    password: z
-      .string()
-      .min(8, 'Password must be at least 8 characters'),
-    confirmPassword: z
-      .string()
-      .min(1, 'Please confirm your password'),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: 'Passwords do not match',
-    path: ['confirmPassword'],
-  });
+const resetSchema = z.object({
+  email: z
+    .string()
+    .min(1, 'Email is required')
+    .email('Please enter a valid email address'),
+});
 
-type SignupFormValues = z.infer<typeof signupSchema>;
+type ResetFormValues = z.infer<typeof resetSchema>;
 
 // ─── Screen ──────────────────────────────────────────────────────────────────
 
-export default function SignupScreen(): React.ReactElement {
+export default function ForgotPasswordScreen(): React.ReactElement {
   const { colors } = useTheme();
-  const { signUpWithEmail } = useAuth();
+  const { sendPasswordReset } = useAuth();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [sentTo, setSentTo] = useState('');
 
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignupFormValues>({
-    resolver: zodResolver(signupSchema),
-    defaultValues: { email: '', password: '', confirmPassword: '' },
+  } = useForm<ResetFormValues>({
+    resolver: zodResolver(resetSchema),
+    defaultValues: { email: '' },
   });
 
-  const onSubmit = async (values: SignupFormValues): Promise<void> => {
+  const onSubmit = async (values: ResetFormValues): Promise<void> => {
     setIsSubmitting(true);
-    const { error } = await signUpWithEmail(values.email, values.password);
+    const { error } = await sendPasswordReset(values.email);
     setIsSubmitting(false);
 
-    if (error) {
-      Alert.alert('Sign up failed', error);
-    } else {
+    if (!error) {
+      setSentTo(values.email);
       setSuccess(true);
     }
-  };
-
-  const handleOpenTerms = (): void => {
-    Linking.openURL('https://drivenbyfaith.app/terms');
-  };
-
-  const handleOpenPrivacy = (): void => {
-    Linking.openURL('https://drivenbyfaith.app/privacy');
   };
 
   // ── Success state ──────────────────────────────────────────────────────────
@@ -114,8 +93,8 @@ export default function SignupScreen(): React.ReactElement {
               marginBottom: 32,
             }}
           >
-            We sent a confirmation link to your email address. Please click it to
-            verify your account and get started.
+            If an account exists for {sentTo}, we sent a password reset link.
+            Please check your inbox and follow the instructions.
           </Text>
 
           <Link href="/(auth)/login" asChild>
@@ -165,7 +144,7 @@ export default function SignupScreen(): React.ReactElement {
                 marginBottom: 8,
               }}
             >
-              Create your account
+              Reset your password
             </Text>
             <Text
               style={{
@@ -175,7 +154,8 @@ export default function SignupScreen(): React.ReactElement {
                 lineHeight: 22,
               }}
             >
-              Scripture for the showroom floor, delivered daily.
+              Enter your email address and we will send you a link to reset your
+              password.
             </Text>
           </View>
 
@@ -236,155 +216,15 @@ export default function SignupScreen(): React.ReactElement {
           )}
           {!errors.email && <View style={{ height: 4, marginBottom: 12 }} />}
 
-          {/* Password field */}
-          <Text
-            style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              fontSize: 14,
-              fontWeight: '600',
-              color: colors.textSecondary,
-              marginBottom: 6,
-            }}
-          >
-            Password
-          </Text>
-          <Controller
-            control={control}
-            name="password"
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                style={{
-                  fontFamily: 'Inter, system-ui, sans-serif',
-                  fontSize: 16,
-                  color: colors.text,
-                  backgroundColor: colors.surfaceElevated,
-                  borderWidth: 1,
-                  borderColor: errors.password ? colors.error : colors.border,
-                  borderRadius: 10,
-                  paddingHorizontal: 16,
-                  paddingVertical: 14,
-                  marginBottom: 4,
-                }}
-                placeholder="At least 8 characters"
-                placeholderTextColor={colors.textMuted}
-                secureTextEntry
-                textContentType="newPassword"
-                autoComplete="new-password"
-                accessibilityLabel="Password"
-                onBlur={onBlur}
-                onChangeText={onChange}
-                value={value}
-              />
-            )}
-          />
-          {errors.password && (
-            <Text
-              style={{
-                fontFamily: 'Inter, system-ui, sans-serif',
-                fontSize: 13,
-                color: colors.error,
-                marginBottom: 12,
-              }}
-            >
-              {errors.password.message}
-            </Text>
-          )}
-          {!errors.password && <View style={{ height: 4, marginBottom: 12 }} />}
-
-          {/* Confirm password field */}
-          <Text
-            style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              fontSize: 14,
-              fontWeight: '600',
-              color: colors.textSecondary,
-              marginBottom: 6,
-            }}
-          >
-            Confirm password
-          </Text>
-          <Controller
-            control={control}
-            name="confirmPassword"
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                style={{
-                  fontFamily: 'Inter, system-ui, sans-serif',
-                  fontSize: 16,
-                  color: colors.text,
-                  backgroundColor: colors.surfaceElevated,
-                  borderWidth: 1,
-                  borderColor: errors.confirmPassword ? colors.error : colors.border,
-                  borderRadius: 10,
-                  paddingHorizontal: 16,
-                  paddingVertical: 14,
-                  marginBottom: 4,
-                }}
-                placeholder="Re-enter your password"
-                placeholderTextColor={colors.textMuted}
-                secureTextEntry
-                textContentType="newPassword"
-                autoComplete="new-password"
-                accessibilityLabel="Confirm password"
-                onBlur={onBlur}
-                onChangeText={onChange}
-                value={value}
-              />
-            )}
-          />
-          {errors.confirmPassword && (
-            <Text
-              style={{
-                fontFamily: 'Inter, system-ui, sans-serif',
-                fontSize: 13,
-                color: colors.error,
-                marginBottom: 12,
-              }}
-            >
-              {errors.confirmPassword.message}
-            </Text>
-          )}
-          {!errors.confirmPassword && (
-            <View style={{ height: 4, marginBottom: 12 }} />
-          )}
-
-          {/* Terms and Privacy */}
-          <Text
-            style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              fontSize: 13,
-              color: colors.textMuted,
-              textAlign: 'center',
-              lineHeight: 18,
-              marginBottom: 24,
-            }}
-          >
-            By creating an account, you agree to our{' '}
-            <Text
-              style={{ color: colors.accent, textDecorationLine: 'underline' }}
-              onPress={handleOpenTerms}
-            >
-              Terms of Service
-            </Text>{' '}
-            and{' '}
-            <Text
-              style={{ color: colors.accent, textDecorationLine: 'underline' }}
-              onPress={handleOpenPrivacy}
-            >
-              Privacy Policy
-            </Text>
-            .
-          </Text>
-
-          {/* Create account button */}
+          {/* Send reset button */}
           <PrimaryButton
-            title="Create account"
+            title="Send reset link"
             loading={isSubmitting}
             onPress={handleSubmit(onSubmit)}
-            accessibilityLabel="Create account"
+            accessibilityLabel="Send password reset link"
           />
 
-          {/* Login link */}
+          {/* Back to login */}
           <View
             style={{
               flexDirection: 'row',
@@ -392,15 +232,6 @@ export default function SignupScreen(): React.ReactElement {
               marginTop: 24,
             }}
           >
-            <Text
-              style={{
-                fontFamily: 'Inter, system-ui, sans-serif',
-                fontSize: 14,
-                color: colors.textSecondary,
-              }}
-            >
-              Already have an account?{' '}
-            </Text>
             <Link href="/(auth)/login" asChild>
               <TouchableOpacity>
                 <Text
@@ -411,7 +242,7 @@ export default function SignupScreen(): React.ReactElement {
                     color: colors.accent,
                   }}
                 >
-                  Sign in
+                  Back to sign in
                 </Text>
               </TouchableOpacity>
             </Link>
