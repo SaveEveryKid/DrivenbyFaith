@@ -8,6 +8,9 @@
     "scheme": "drivenbyfaith",
     "platforms": ["ios", "android", "web"],
     "icon": "./assets/icon.png",
+    "plugins": [
+      ["expo-splash-screen", { "backgroundColor": "#FDFBF7" }]
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.saveeverykid.drivenbyfaith"
@@ -19,13 +22,11 @@
       },
       "package": "com.saveeverykid.drivenbyfaith"
     },
-    "splash": {
-      "backgroundColor": "#FDFBF7"
-    },
     "extra": {
       "eas": {
-        "projectId": ""
+        "projectId": "1f97d8b2-a9f0-480f-bd4b-0b2b31023db7"
       }
-    }
+    },
+    "owner": "drivenbyfaith"
   }
 }
