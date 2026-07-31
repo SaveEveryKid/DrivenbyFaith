@@ -24,14 +24,27 @@ import type { CompleteDevotionalData } from './useDevotional';
 
 // ─── Helpers ───────────────────────────────────────────────────────────────────
 
-/** Fetch today's devotional from Supabase (same as existing hook) */
+/** Fetch today's devotional via the RPC with offline fallback */
 async function fetchTodayDevotional(): Promise<DevotionalRow | null> {
-  const today = new Date().toISOString().slice(0, 10);
+  // Primary: call the rotating-content RPC
+  const { data: rpcResult, error: rpcError } = await supabase
+    .rpc('get_todays_devotional')
+    .maybeSingle();
 
+  if (!rpcError && rpcResult) {
+    return rpcResult as DevotionalRow;
+  }
+
+  if (rpcError) {
+    console.warn('[useOfflineDevotional] RPC get_todays_devotional failed, falling back:', rpcError.message);
+  }
+
+  // Fallback: query the newest devotional
   const { data, error } = await supabase
     .from('devotionals')
     .select('*')
-    .eq('publish_date', today)
+    .order('publish_date', { ascending: false })
+    .limit(1)
     .maybeSingle();
 
   if (error) throw error;
@@ -97,7 +110,8 @@ export function useTodayDevotionalOffline(): UseTodayDevotionalOfflineReturn {
     staleTime: 5 * 60 * 1000,
   });
 
-  // Fetch today's completion if user is authenticated
+  // Fetch today's completion if user is authenticated.
+  // After migration 006, completions are keyed by (user_id, completed_date).
   const {
     data: completion,
     isLoading: isCompletionLoading,
@@ -110,11 +124,12 @@ export function useTodayDevotionalOffline(): UseTodayDevotionalOfflineReturn {
 
       if (isConnected) {
         try {
+          const today = new Date().toISOString().slice(0, 10);
           const { data, error } = await supabase
             .from('devotional_completions')
             .select('*')
             .eq('user_id', user.id)
-            .eq('devotional_id', devotional.id)
+            .eq('completed_date', today)
             .maybeSingle();
 
           if (error) throw error;
@@ -324,11 +339,14 @@ async function upsertCompletionOnline(
   devotionalId: string,
   data: CompleteDevotionalData,
 ): Promise<DevotionalCompletionRow> {
+  const today = new Date().toISOString().slice(0, 10);
+
+  // After migration 006, completions are keyed by (user_id, completed_date).
   const { data: existing, error: fetchError } = await supabase
     .from('devotional_completions')
     .select('id, reflection_response, challenge_accepted, challenge_completed, prayer_duration_seconds')
     .eq('user_id', userId)
-    .eq('devotional_id', devotionalId)
+    .eq('completed_date', today)
     .maybeSingle();
 
   if (fetchError) throw fetchError;
@@ -336,6 +354,7 @@ async function upsertCompletionOnline(
   const payload: Record<string, unknown> = {
     user_id: userId,
     devotional_id: devotionalId,
+    completed_date: today,
     client_updated_at: new Date().toISOString(),
   };
 

@@ -104,6 +104,7 @@ export interface DevotionalCompletionRow {
   user_id: string;
   devotional_id: string;
   completed_at: string;
+  completed_date: string;  // migration 006: DATE NOT NULL DEFAULT CURRENT_DATE
   reflection_response: string | null;
   challenge_accepted: boolean;
   challenge_completed: boolean;
@@ -134,6 +135,7 @@ export interface SaturdayReadyResponseRow {
   commitments_selected: string[] | null;
   notes: string | null;
   completed_at: string;
+  response_date: string;  // migration 006: DATE NOT NULL DEFAULT CURRENT_DATE
 }
 
 // ─── Deal Debrief ────────────────────────────────────────────────────────────

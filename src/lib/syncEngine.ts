@@ -44,12 +44,18 @@ async function syncPendingCompletions(
 
   for (const item of pending) {
     try {
+      // After migration 006, completions are keyed by (user_id, completed_date).
+      // Look up by today's date from the queued item.
+      // The queued item stores devotional_id for reference, but the unique
+      // constraint is on (user_id, completed_date).
+      const today = item.client_updated_at.slice(0, 10);
+
       // Fetch the existing row from Supabase (if any)
       const { data: existing, error: fetchError } = await supabase
         .from('devotional_completions')
         .select('id, reflection_response, challenge_accepted, challenge_completed, prayer_duration_seconds, client_updated_at')
         .eq('user_id', item.user_id)
-        .eq('devotional_id', item.devotional_id)
+        .eq('completed_date', today)
         .maybeSingle();
 
       if (fetchError) {
@@ -88,6 +94,7 @@ async function syncPendingCompletions(
       const payload: Record<string, unknown> = {
         user_id: item.user_id,
         devotional_id: item.devotional_id,
+        completed_date: today,
         reflection_response: reflectionResponse,
         challenge_accepted: challengeAccepted,
         challenge_completed: challengeCompleted,
@@ -106,7 +113,7 @@ async function syncPendingCompletions(
           existing
             ? { ...payload, id: existing.id }
             : payload,
-          { onConflict: 'user_id,devotional_id' },
+          { onConflict: 'user_id,completed_date' },
         );
 
       if (upsertError) {
