@@ -36,13 +36,9 @@ export default function TodayScreen(): React.ReactElement {
   const [saving, setSaving] = useState(false);
 
   const devotionalQuery = useQuery({
-    queryKey: ['devotional', 'today'],
+    queryKey: ['devotional', 'today', todayDateString()],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from('devotionals')
-        .select('*')
-        .eq('publish_date', todayDateString())
-        .maybeSingle();
+      const { data, error } = await supabase.rpc('get_todays_devotional');
       if (error) throw error;
       return data as Devotional | null;
     },
@@ -51,13 +47,13 @@ export default function TodayScreen(): React.ReactElement {
   const devotional = devotionalQuery.data;
 
   const completionQuery = useQuery({
-    queryKey: ['devotional-completion', devotional?.id, userId],
-    enabled: !!devotional && !!userId,
+    queryKey: ['devotional-completion', todayDateString(), userId],
+    enabled: !!userId,
     queryFn: async () => {
       const { data, error } = await supabase
         .from('devotional_completions')
         .select('*')
-        .eq('devotional_id', devotional!.id)
+        .eq('completed_date', todayDateString())
         .eq('user_id', userId!)
         .maybeSingle();
       if (error) throw error;
@@ -80,14 +76,15 @@ export default function TodayScreen(): React.ReactElement {
       {
         user_id: userId,
         devotional_id: devotional.id,
+        completed_date: todayDateString(),
         reflection_response: reflection.trim() || null,
         challenge_accepted: true,
         completed_at: new Date().toISOString(),
       },
-      { onConflict: 'user_id,devotional_id' },
+      { onConflict: 'user_id,completed_date' },
     );
     setSaving(false);
-    queryClient.invalidateQueries({ queryKey: ['devotional-completion', devotional.id, userId] });
+    queryClient.invalidateQueries({ queryKey: ['devotional-completion', todayDateString(), userId] });
     queryClient.invalidateQueries({ queryKey: ['progress'] });
   };
 
@@ -109,8 +106,8 @@ export default function TodayScreen(): React.ReactElement {
       <View style={{ flex: 1, backgroundColor: '#FDFBF7' }}>
         <EmptyState
           icon="📖"
-          title="No devotional today"
-          subtitle="Check back tomorrow for a new one."
+          title="No devotional available"
+          subtitle="There's no devotional content yet. Check back soon."
         />
       </View>
     );
@@ -311,6 +308,38 @@ export default function TodayScreen(): React.ReactElement {
           <PrimaryButton title="Mark Complete" onPress={handleMarkComplete} loading={saving} />
         )}
       </Card>
+
+      <TouchableOpacity onPress={() => router.push('/saturday-ready')} style={{ marginTop: 16 }}>
+        <Card>
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+            <View style={{ flex: 1, marginRight: 12 }}>
+              <Text
+                style={{
+                  fontFamily: 'Inter, system-ui, sans-serif',
+                  fontSize: 13,
+                  fontWeight: '600',
+                  color: '#B08C57',
+                  textTransform: 'uppercase',
+                  letterSpacing: 0.5,
+                  marginBottom: 4,
+                }}
+              >
+                Saturday Ready
+              </Text>
+              <Text
+                style={{
+                  fontFamily: 'Inter, system-ui, sans-serif',
+                  fontSize: 14,
+                  color: '#6F6F6F',
+                }}
+              >
+                Prepare your heart for the busiest day of the week.
+              </Text>
+            </View>
+            <Text style={{ fontSize: 18, color: '#9B7343' }}>→</Text>
+          </View>
+        </Card>
+      </TouchableOpacity>
     </ScrollView>
   );
 }

@@ -1,11 +1,14 @@
 -- =============================================================================
 -- Seed data for Driven by Faith
--- 54 devotionals (4 premium, 8 weeks of continuous daily coverage from
--- 2026-07-30), 21 situations (3 in each of the 7 categories), 3 reading plans
--- (John 15, Galatians 5, Proverbs 16 — 37 days total), 9 Saturday Ready
--- entries. The first 14 devotionals, 2 situations, 1 reading plan, and 1
--- Saturday Ready entry below are the original scaffold content; everything
--- after the "CONTENT EXPANSION" marker was added later.
+-- 74 devotionals (6 premium, continuous daily coverage from 2026-07-30
+-- through 2026-10-11), 21 situations (3 in each of the 7 categories), 3
+-- reading plans (John 15, Galatians 5, Proverbs 16 — 37 days total), 9
+-- Saturday Ready entries. Devotionals and Saturday Ready are served through
+-- the rotating get_todays_devotional() / get_current_saturday_ready()
+-- functions (migration 003), so the library repeats rather than running dry
+-- once the last seeded date passes. The first 14 devotionals, 2 situations,
+-- 1 reading plan, and 1 Saturday Ready entry below are the original scaffold
+-- content; everything after the "CONTENT EXPANSION" marker was added later.
 -- =============================================================================
 
 -- ── 14 DEVOTIONALS ──────────────────────────────────────────────────────────
@@ -1177,3 +1180,250 @@ VALUES
  '["I will say this verse out loud, specifically, before I clock in tomorrow.", "I will name one genuine thing to be glad about before the first customer arrives, not after a good deal makes it easy.", "I will notice, at the end of the day, whether starting with gratitude actually changed how I carried the hours in between."]',
  $t$Lord, this is the day you have made, before I know anything about how it will go. Let me choose gladness in it now, in advance, instead of waiting to see if the day earns it. Anchor my joy in you before the first customer ever walks through the door.$t$,
  false);
+
+-- ── Second wave: 20 more devotionals, continuing the daily rotation ────────
+
+-- ── 20 MORE DEVOTIONALS (Day 55–74) ─────────────────────────────────────────
+
+INSERT INTO devotionals (publish_date, title, scripture_reference, scripture_text, translation, workplace_application, reflection_prompt, prayer, challenge, is_premium)
+VALUES
+
+-- Day 55 (2026-09-22)
+('2026-09-22',
+ $t$"Bad, Bad," Says the Buyer$t$,
+ $t$Proverbs 20:14$t$,
+ $t$"Bad, bad," says the buyer, but when he goes away, then he boasts.$t$,
+ 'ESV',
+ $t$The customer trashes the trade-in, questions the vehicle's condition, acts unimpressed by a price you know is fair — and then you hear from a friend of theirs, weeks later, how thrilled they actually were with the deal. Proverbs names this so precisely it is almost funny: this is not a modern sales tactic, it is ancient marketplace behavior, old as commerce itself. Knowing the pattern does not make it any less irritating in the moment, but it does something useful — it frees you from needing the customer's real-time reaction to validate your own sense of whether the deal is fair. You do not have to match their performance with a counter-performance of your own, inflating urgency or manufacturing scarcity to combat their manufactured disinterest. Set an honest price, hold it with integrity, and let their theater be theirs. You do not need to win the performance. You only need to be honest inside it.$t$,
+ $t$How do you usually respond when a customer performs disinterest to negotiate? What would it look like to hold your ground with integrity instead of matching their game?$t$,
+ $t$Lord, give me the security to hold an honest price without needing a customer's approval in the moment. Let me see the negotiation game for what it is without becoming cynical or manipulative myself.$t$,
+ $t$The next time a customer performs disinterest to negotiate, hold your honest number calmly, without inflating or caving, and notice how it feels to not need their reaction.$t$,
+ false),
+
+-- Day 56 (2026-09-23)
+('2026-09-23',
+ $t$Swearing to Your Own Hurt$t$,
+ $t$Psalm 15:4$t$,
+ $t$In whose eyes a vile person is despised, but who honors those who fear the Lord; who swears to his own hurt and does not change.$t$,
+ 'ESV',
+ $t$You quote a price, verbally, in a conversation that never made it to paper — and then something shifts. A number you did not account for. A manager who wants more margin. Technically, nothing was signed, and technically, you could adjust the number without breaking any law or company policy. The psalmist describes the kind of person who dwells in God's presence, and one specific mark stands out: someone who swears to their own hurt and does not change. Not "keeps promises when it is still convenient." Keeps them even when honoring the word costs something real. A handshake deal that starts to hurt you financially is exactly the test this verse describes. Most of the culture around you will say the shift in circumstances justifies the shift in price. This verse says something harder and more freeing: your word, once given, is not up for renegotiation just because it turned out to cost you more than expected.$t$,
+ $t$Have you ever kept a commitment even after it stopped being convenient? What made that possible, and what made it hard?$t$,
+ $t$Lord, let my word be the kind that holds even when it costs me. Give me the strength to swear to my own hurt and not change, the way you describe in this psalm. Let my "yes" actually mean something.$t$,
+ $t$If you have a verbal commitment currently tempting you to renegotiate because it has become inconvenient, keep it exactly as given.$t$,
+ false),
+
+-- Day 57 (2026-09-24)
+('2026-09-24',
+ $t$The First Version of the Story$t$,
+ $t$Proverbs 18:17$t$,
+ $t$The one who states his case first seems right, until the other comes and examines him.$t$,
+ 'ESV',
+ $t$A coworker complains to the manager about a split before you have had the chance to explain your side, and for a few hours you are the villain of a story that is not actually true. Or a customer calls in upset about a conversation and their version of events, told first, sounds completely reasonable — until you get to add what actually happened. Proverbs names a real cognitive bias here, thousands of years before anyone had a word for it: the first account tends to feel true simply because it arrived first, uncontested. This cuts two ways for you. When you are wronged and tempted to rush to tell your version loudest and fastest to whoever will listen, remember this proverb's warning about how persuasive a first account can be regardless of its accuracy — and hold yourself to fairness, not just speed. And when you hear someone else's confident first account of a conflict, remember there is always a second side still coming, and reserve judgment until you have heard it.$t$,
+ $t$Have you ever formed a strong opinion based on hearing only one side of a story? What would it look like to build in the habit of waiting for both?$t$,
+ $t$Lord, give me the patience to wait for the full story before forming judgment, and the fairness to represent others accurately even when I am frustrated with them. Keep me from weaponizing being first.$t$,
+ $t$The next time you hear a complaint about someone who is not present to respond, wait to form a judgment until you have heard their side too.$t$,
+ false),
+
+-- Day 58 (2026-09-25)
+('2026-09-25',
+ $t$The Burden Is Too Heavy for Me Alone$t$,
+ $t$Numbers 11:14$t$,
+ $t$I am not able to carry all this people alone; the burden is too heavy for me.$t$,
+ 'ESV',
+ $t$Moses says this in genuine desperation, leading a people who complain constantly, exhausted by a weight of responsibility no single person was built to carry. If you have ever been promoted into management — a desk, a team, a store — you know some version of this exhaustion: the isolation of being the one everyone brings their problems to, with no one obvious to bring your own problems to in return. God's response to Moses is not a pep talk about strength. It is a practical redistribution — seventy elders, appointed to share the burden, so Moses is no longer carrying it alone. Leadership in Scripture is not meant to be a solo endurance test, and admitting the weight is too heavy is not a failure of faith; it is exactly what Moses modeled at his most faithful. If you are carrying a leadership burden alone right now, this verse is permission to say so, out loud, to someone who can actually help distribute it.$t$,
+ $t$Are you currently carrying a leadership or responsibility burden that was never meant to be carried alone? Who could share it, if you were honest about needing help?$t$,
+ $t$Lord, like Moses, I confess this burden is heavier than I can carry alone. Show me who you have appointed to help share it, and give me the humility to actually let them.$t$,
+ $t$Identify one specific piece of your workload or responsibility that you could delegate or share, and take the first step toward doing so today.$t$,
+ false),
+
+-- Day 59 (2026-09-26)
+('2026-09-26',
+ $t$Wealth Gained Hastily$t$,
+ $t$Proverbs 13:11$t$,
+ $t$Wealth gained hastily will dwindle, but whoever gathers little by little will increase it.$t$,
+ 'ESV',
+ $t$Behind on quota, a shortcut appears — a stretch on a credit application, a corner cut on disclosure, a way to squeeze one more deal out of the month that would not survive close scrutiny. It might work. It might even produce real income this month. Proverbs makes a claim that runs against the urgency of the moment: wealth gained hastily dwindles. Not "might dwindle" — the proverb states it as the pattern, the way hasty gains tend to actually go, whether through the specific consequences of the shortcut catching up with you or through the quieter erosion of a reputation built on speed instead of substance. The alternative the proverb offers is not glamorous: little by little, gathered slowly, deal by honest deal. That is a harder sell to your own anxiety about this month's number, but it is the pattern that actually compounds over a career, while the hasty gains have a way of evaporating just as fast as they arrived.$t$,
+ $t$Where is quota pressure currently tempting you toward a hasty gain instead of slow, honest gathering? What would the slower path cost you this month, and what might it protect long-term?$t$,
+ $t$Lord, when quota pressure tempts me toward a shortcut, remind me that hasty gains dwindle. Give me the patience to gather little by little, trusting that it actually increases more than the shortcut ever would.$t$,
+ $t$Resist one specific shortcut this week that quota pressure is tempting you toward, even if it costs you a deal.$t$,
+ false),
+
+-- Day 60 (2026-09-27)
+('2026-09-27',
+ $t$Not Neglecting to Meet Together$t$,
+ $t$Hebrews 10:24-25$t$,
+ $t$And let us consider how to stir up one another to love and good works, not neglecting to meet together, as is the habit of some, but encouraging one another, and all the more as you see the Day drawing near.$t$,
+ 'ESV',
+ $t$Sunday is a big traffic day in this business, which puts many salespeople in a genuine, ongoing tension between church attendance and the schedule that pays their bills. This is not always a simple problem with a simple solution — some stores require Sunday hours, some do not, and the right answer depends on real factors this devotional cannot fully weigh for you. But the writer of Hebrews is naming something worth taking seriously regardless of your specific schedule: meeting together with other believers is not an optional add-on to faith, easily dropped when life gets busy. It is one of the concrete ways love and good works get stirred up in you, and its absence is described as a habit some people fall into, not a neutral scheduling choice. If your work schedule has quietly eliminated regular gathering with other believers, this is worth bringing honestly to God — and possibly to a manager, a pastor, or a small group that meets at a different time — rather than simply accepting the drift as unavoidable.$t$,
+ $t$Has your work schedule quietly eliminated regular gathering with other believers? What is one option you have not yet explored to address that?$t$,
+ $t$Lord, do not let me drift from gathering with your people simply because the schedule made it easy to skip. Show me a way, even an imperfect one, to keep being stirred up to love and good works alongside others.$t$,
+ $t$Look into one specific alternative — a different service time, a weekday small group, an online gathering — for staying connected to other believers around your work schedule.$t$,
+ false),
+
+-- Day 61 (2026-09-28)
+('2026-09-28',
+ $t$Not Repaying the One-Star Review$t$,
+ $t$1 Peter 3:9$t$,
+ $t$Do not repay evil for evil or reviling for reviling, but on the contrary, bless, for to this you were called, that you may obtain a blessing.$t$,
+ 'ESV',
+ $t$Someone leaves a review that is exaggerated, unfair, or simply wrong about what actually happened — and it is sitting online, publicly, where anyone considering doing business with you might see it. The temptation to respond in kind, to publicly correct them sharply or subtly undermine their credibility in your reply, is strong, especially when the review feels like a genuine injustice. Peter's instruction does not distinguish between private reviling and public reviling; it simply says do not repay it, in either direction, and offers something almost startling in its place — bless them. That does not mean agreeing with an inaccurate review or refusing to calmly correct factual errors. It means the tone and spirit of your response is not allowed to mirror theirs, no matter how deserved that mirroring might feel. A calm, gracious, even generous public response to an unfair review is a strange kind of witness that a defensive or sharp one never could be.$t$,
+ $t$How do you typically respond to unfair criticism, publicly or privately? What would it look like to bless instead of repay in your next opportunity?$t$,
+ $t$Lord, when I am reviled unfairly, give me the grace to bless instead of repay. Let my response to criticism be shaped by your call on me, not by what the other person deserves.$t$,
+ $t$If you have an unanswered unfair review or complaint, respond to it today with calm, factual grace instead of defensiveness.$t$,
+ false),
+
+-- Day 62 (2026-09-29)
+('2026-09-29',
+ $t$A Model in Word and Deed$t$,
+ $t$Titus 2:7-8$t$,
+ $t$Show yourself in all respects to be a model of good works, and in your teaching show integrity, dignity, and sound speech that cannot be condemned, so that an opponent may be put to shame, having nothing evil to say about us.$t$,
+ 'ESV',
+ $t$If you train new hires, run a desk, or simply have years of tenure that younger salespeople look to, you are teaching something whether you intend to or not — through your example as much as through any explicit advice. Paul's instruction to Titus links two things together that are easy to separate: being a model of good works, and speech that cannot be condemned. It is possible to give technically sound sales advice while modeling cynicism, cutting corners, or contempt for customers — and the example will usually outweigh the advice. What Paul is describing is integration: the teaching and the life matching closely enough that even someone looking for a reason to criticize cannot find one. That is a high bar, not because it requires perfection, but because it requires the kind of consistency between what you say and how you actually work that most people, most of the time, do not bother to maintain.$t$,
+ $t$If someone learned how to do this job entirely by watching you, what would they learn — both the good and the concerning? Where is the gap between your advice and your example?$t$,
+ $t$Lord, let my example and my words actually match. Make me a model worth learning from, not just a source of advice. Close the gap between what I say and how I actually work.$t$,
+ $t$Notice one thing you tell newer coworkers to do that you are not currently doing yourself, and close that gap today.$t$,
+ false),
+
+-- Day 63 (2026-09-30)
+('2026-09-30',
+ $t$Slow to Anger, Great Understanding$t$,
+ $t$Proverbs 14:29$t$,
+ $t$Whoever is slow to anger has great understanding, but he who has a hasty temper exalts folly.$t$,
+ 'ESV',
+ $t$A restless kid knocking things over in the showroom. A spouse who keeps interrupting to check their phone. A customer's whole group talking over each other while you try to explain financing. None of it is aimed at you, but all of it tests your patience in the middle of trying to do your job well. Proverbs links patience directly to understanding — not as two separate virtues that happen to travel together, but as cause and effect. Slowness to anger is what understanding actually produces, because understanding sees the fuller picture: the kid is just a kid, the spouse is stressed about a big purchase, the family dynamic is not really about you. A hasty temper, by contrast, exalts folly — it puts foolishness on display, publicly, in a way that is hard to walk back. The next time your patience is tested by something that has nothing to do with the actual sale, let the test be an invitation to understand more, not react faster.$t$,
+ $t$What situation tests your patience most reliably on the floor? What would it look like to respond with understanding instead of a hasty temper there specifically?$t$,
+ $t$Lord, grow real understanding in me, the kind that produces patience instead of a hasty temper. Help me see the fuller picture behind what tests me, instead of reacting to the surface of it.$t$,
+ $t$The next time something unrelated to the sale tests your patience, pause and consciously look for the understanding behind it before you react.$t$,
+ false),
+
+-- Day 64 (2026-10-01)
+('2026-10-01',
+ $t$When the Store Closes$t$,
+ $t$Job 1:21$t$,
+ $t$Naked I came from my mother's womb, and naked shall I return. The Lord gave, and the Lord has taken away; blessed be the name of the Lord.$t$,
+ 'ESV',
+ $t$Job says this after losing everything in a single day — his wealth, his children, his entire life's structure — and Scripture records it not as a hollow performance of piety but as genuine worship in the middle of genuine devastation. A dealership closing, a position being eliminated, a career built over decades suddenly ending, is a real loss that deserves real grief, not a quick pivot to positivity. What is striking about Job's response is that it holds two things together that feel contradictory: honest acknowledgment that God gave and God has taken away, and worship in the very same breath. He does not pretend the loss is not a loss. He does not blame God falsely either. If you are facing the end of something that has structured your life and your identity for years, Job's response is not a formula to rush toward. It is permission to grieve honestly while still, somehow, in your own timing, finding your way back to blessing the name of the Lord — not because the loss was good, but because he is still God on the other side of it.$t$,
+ $t$Have you experienced a loss at work that genuinely deserved grief, not a quick pivot to positivity? What would it look like to hold honest grief and worship together, the way Job did?$t$,
+ $t$Lord, you gave, and sometimes you allow what you gave to be taken. I do not want to rush past real grief with false positivity. Meet me in the loss, and in your own timing, bring me back to blessing your name.$t$,
+ $t$If you are grieving a real professional loss, give yourself permission today to feel it honestly, without rushing to a lesson or a silver lining.$t$,
+ true),
+
+-- Day 65 (2026-10-02)
+('2026-10-02',
+ $t$Trust That Does Not Lean on Your Own Understanding$t$,
+ $t$Proverbs 3:5-6$t$,
+ $t$Trust in the Lord with all your heart, and do not lean on your own understanding. In all your ways acknowledge him, and he will make straight your paths.$t$,
+ 'ESV',
+ $t$A career decision — whether to stay at this store, move to a different one, leave the industry altogether — rarely comes with a clear spreadsheet answer. You can run the numbers, weigh the pros and cons, ask everyone you trust for advice, and still land at a decision that requires more than analysis to actually make. This proverb does not tell you to stop thinking or stop planning; "in all your ways acknowledge him" assumes you are still actively engaged in your ways, your decisions, your work. What it warns against is leaning on your own understanding as the final authority — treating your own analysis as sufficient on its own, without genuinely bringing God into the decision and trusting him with what your analysis cannot resolve. The promise attached, that he will make your paths straight, is not a guarantee that the path will be obvious in advance. It is a promise about who is actually directing it, even when your own understanding runs out.$t$,
+ $t$What decision are you currently facing where your own analysis has run out of answers? What would it look like to trust God with it instead of forcing a conclusion your understanding cannot actually reach?$t$,
+ $t$Lord, my own understanding has limits, and I am at one of them. I trust you with what I cannot resolve on my own. Make my path straight, even when I cannot yet see where it leads.$t$,
+ $t$Bring the specific decision you are wrestling with honestly to God in prayer today, naming what your own understanding cannot resolve.$t$,
+ false),
+
+-- Day 66 (2026-10-03)
+('2026-10-03',
+ $t$The Higher Official Watching$t$,
+ $t$Ecclesiastes 5:8$t$,
+ $t$If you see in a province the oppression of the poor and the violation of justice and righteousness, do not be amazed at the matter, for the high official is watched by a higher, and there are yet higher ones over them.$t$,
+ 'ESV',
+ $t$A corporate policy feels unjust — a chargeback structure that penalizes the salesperson for a finance decision they did not make, a quota system that seems designed to fail half the team by definition, a pay-plan change announced with no input from anyone it actually affects. The Teacher's observation here is oddly comforting in its bluntness: do not be amazed when you see injustice built into a hierarchy, because every official answers to someone higher, all the way up a chain that has always contained flawed systems and flawed people. This is not a call to cynical resignation. It is permission not to be shocked, as if institutional unfairness were a personal betrayal unique to your situation, and a reminder that there is always a highest authority above every human hierarchy — one who sees the oppression and the violation of justice clearly, even when the chain of command in front of you does not fully address it.$t$,
+ $t$What company policy or structure currently feels unjust to you? How does remembering there is a highest authority over every human hierarchy change how you carry that frustration?$t$,
+ $t$Lord, you are the highest authority over every flawed system I work inside. I do not have to be shocked by institutional unfairness or carry it as if you do not see it. Give me wisdom for what I can change and peace for what I cannot.$t$,
+ $t$Identify one specific unjust structure at work, and decide whether it is something to raise through proper channels or something to release to God's higher oversight — and act accordingly.$t$,
+ false),
+
+-- Day 67 (2026-10-04)
+('2026-10-04',
+ $t$When My Feet Had Almost Stumbled$t$,
+ $t$Psalm 73:2-3$t$,
+ $t$But as for me, my feet had almost stumbled, my steps had nearly slipped. For I was envious of the arrogant when I saw the prosperity of the wicked.$t$,
+ 'ESV',
+ $t$The coworker who cuts corners is having his best year ever. The competitor down the street who is known for shady practices keeps winning. It is genuinely disorienting to watch dishonesty prosper while your own integrity seems to cost you deals, and Asaph, the psalmist here, admits his faith nearly buckled under exactly that disorientation. This is one of the most honest confessions in Scripture — not a triumphant declaration of unwavering trust, but an admission that watching the wicked prosper had him on the verge of walking away from the whole framework of righteousness mattering at all. The psalm does not stay there; by its end, Asaph has found his footing again, but only after being genuinely honest about how close he came to losing it. If watching dishonest people prosper has ever made you question whether integrity is actually worth it, you are not experiencing a unique crisis of faith. You are experiencing exactly what this psalm was written to meet you in.$t$,
+ $t$Has watching dishonest people succeed ever tempted you to question whether integrity is worth the cost? What helped you find your footing again, or what do you need to find it now?$t$,
+ $t$Lord, like Asaph, I have nearly stumbled watching the wicked prosper while I try to walk honestly. Steady my feet. Help me trust that this is not the whole story, even when it is genuinely hard to see past what is right in front of me.$t$,
+ $t$Read Psalm 73 in full today — not just these two verses — and notice where Asaph's perspective actually shifts.$t$,
+ false),
+
+-- Day 68 (2026-10-05)
+('2026-10-05',
+ $t$Confessing the Mistake to the Customer$t$,
+ $t$James 5:16$t$,
+ $t$Therefore, confess your sins to one another and pray for one another, that you may be healed. The prayer of a righteous person has great power as it is working.$t$,
+ 'ESV',
+ $t$You made an actual mistake — quoted a number that was wrong, forgot to disclose something you should have mentioned, misunderstood a customer's request and delivered the wrong thing. The instinct is to minimize it, hope they do not notice, or quietly fix it without acknowledging the error happened. James's instruction is aimed at relationships within the church, but the principle underneath it — that confession, not concealment, is the path to healing — applies directly to a mistake with a customer or coworker. A direct, unhedged confession costs your pride something real in the moment. It also tends to actually repair trust in a way that a quiet, unacknowledged fix never does, because the other person can see you are not more concerned with your own image than with making it right. Confessing a mistake plainly, without excessive self-justification or excuse-making, is one of the more countercultural things you can do in a business built around always appearing confident and correct.$t$,
+ $t$Is there a mistake you have been quietly trying to fix without actually confessing it? What would it cost to say it plainly instead?$t$,
+ $t$Lord, give me the humility to confess my mistakes plainly instead of quietly managing them. Let my honesty about being wrong actually build trust instead of undermining it. Heal what my pride wants to hide.$t$,
+ $t$If you have an unconfessed mistake sitting with a customer or coworker, name it plainly to them today, without excuse-making.$t$,
+ false),
+
+-- Day 69 (2026-10-06)
+('2026-10-06',
+ $t$What Is Honorable in Everyone's Sight$t$,
+ $t$2 Corinthians 8:21$t$,
+ $t$For we aim at what is honorable not only in the Lord's sight but also in the sight of man.$t$,
+ 'ESV',
+ $t$Paul is discussing the handling of a financial gift, and he deliberately builds in a safeguard against even the appearance of impropriety — not because he assumes bad intentions, but because he knows perception matters, not just private integrity. This is a useful principle for a job full of numbers, disclosures, and financial paperwork that a customer often cannot fully verify on their own. It is not enough that you know, privately, that your intentions are honest. Structuring your process so that it is also visibly honorable — transparent paperwork, numbers a customer can actually double-check, disclosures made proactively rather than only when asked — protects both the customer's trust and your own integrity from ever being credibly questioned. Honesty that only you can see is real, but it is a smaller kind of honesty than Paul is describing here. He is aiming at something that holds up under both God's sight and everyone else's.$t$,
+ $t$Where in your process is your integrity real but not actually visible or verifiable to the customer? What would it look like to make it visibly honorable, not just privately honest?$t$,
+ $t$Lord, I want my honesty to be visible, not just private. Help me build transparency into how I work, so that what is honorable in your sight is also honorable in the sight of the people I serve.$t$,
+ $t$Make one part of your process more transparent to a customer today than it strictly needs to be.$t$,
+ false),
+
+-- Day 70 (2026-10-07)
+('2026-10-07',
+ $t$Praying for the People Over You$t$,
+ $t$1 Timothy 2:1-2$t$,
+ $t$First of all, then, I urge that supplications, prayers, intercessions, and thanksgivings be made for all people, for kings and all who are in high positions, that we may lead a peaceful and quiet life, godly and dignified in every way.$t$,
+ 'ESV',
+ $t$Paul specifically names "kings and all who are in high positions" as people to pray for — not just to endure, tolerate, or strategize around, but to actually pray for, by name, with real intention. This includes leaders you did not choose and may not particularly respect: a GM whose decisions frustrate you, a regional manager you have never met who sets policies you have to live inside, a desk manager whose style grates on you daily. Praying for them is not the same as pretending they are doing a good job or excusing genuine wrongdoing. It is a specific spiritual discipline that tends to soften something in you even when it changes nothing about them — it is very difficult to sustain pure contempt for someone you are genuinely praying for. Paul's stated goal is a peaceful and quiet life, which suggests this practice is not primarily about changing your leaders. It is about the peace it produces in you, regardless of whether they ever change at all.$t$,
+ $t$Who in leadership over you is hardest to pray for right now? What would it look like to actually name them in prayer today, specifically, not just vaguely?$t$,
+ $t$Lord, I confess I have spent more energy resenting my leaders than praying for them. Soften my heart toward the people over me, even the ones I did not choose and struggle to respect. Give me a peaceful and quiet life inside a situation I cannot fully control.$t$,
+ $t$Pray by name for the leader over you who is hardest to pray for, specifically and genuinely, before your next shift.$t$,
+ false),
+
+-- Day 71 (2026-10-08)
+('2026-10-08',
+ $t$Stopping for the Stranger$t$,
+ $t$Luke 10:33-34$t$,
+ $t$But a Samaritan, as he journeyed, came to where he was, and when he saw him, he had compassion. He went to him and bound up his wounds, pouring on oil and wine. Then he set him on his own animal and brought him to an inn and took care of him.$t$,
+ 'ESV',
+ $t$The Samaritan in Jesus's parable had every social and cultural reason to keep walking, and every practical reason too — the man was a stranger, not from his own people, and helping him cost real time, real resources, and real personal risk. Nothing about the encounter would ever benefit the Samaritan directly. On the floor, this shows up as the customer who is never going to buy from you — the person just browsing, killing time, with no realistic path to a sale — who nonetheless needs patience, a real answer to a real question, or simply to be treated like a person instead of a non-prospect. The parable does not measure the Samaritan's compassion by whether it produced a return. It measures it by whether he stopped, and by what he did once he had. You will meet people today who will never move your numbers. The parable's whole point is that this was never supposed to be the deciding factor in whether you stop.$t$,
+ $t$Who is the "stranger by the road" in your work today — someone with no realistic benefit to you who still needs your attention? What would it look like to actually stop?$t$,
+ $t$Lord, teach me to stop for people who will never be able to repay me, the way the Samaritan stopped for a stranger. Let my compassion not be calibrated to what it might produce for me.$t$,
+ $t$Give real, unhurried attention today to someone you have already mentally categorized as "not a real prospect."$t$,
+ false),
+
+-- Day 72 (2026-10-09)
+('2026-10-09',
+ $t$The Same Yesterday, Today, and Forever$t$,
+ $t$Hebrews 13:8$t$,
+ $t$Jesus Christ is the same yesterday and today and forever.$t$,
+ 'ESV',
+ $t$A merger, a corporate restructuring, a new ownership group with a completely different culture than the one you signed up for — the ground underneath a career in this industry can shift with very little warning, and very little say from the people actually working the floor. It is disorienting in a specific way: not just the practical uncertainty, but the sense that nothing about your professional life is actually stable, that everything is subject to change by decisions made far above you. Hebrews places this single, short declaration about Jesus directly after a passage about leaders who eventually pass away or change, as if anticipating exactly this kind of instability. Everything around you — ownership, policy, culture, leadership — is genuinely subject to change, sometimes without warning. This verse is not a promise that your job or your store will stay the same. It is a promise about what actually will, underneath all the change you cannot control.$t$,
+ $t$What instability are you currently facing or anticipating at work? What does it mean, practically, that Jesus remains the same underneath all of it?$t$,
+ $t$Lord, everything around me at work feels subject to change right now. Thank you that you are not. Be the stable ground underneath instability I cannot control, yesterday, today, and forever.$t$,
+ $t$Name the specific instability you are facing, and then name one true thing about God's unchanging character that stands underneath it.$t$,
+ false),
+
+-- Day 73 (2026-10-10)
+('2026-10-10',
+ $t$A Good Name, Chosen Over Great Riches$t$,
+ $t$Proverbs 22:1$t$,
+ $t$A good name is to be chosen rather than great riches, and favor is better than silver or gold.$t$,
+ 'ESV',
+ $t$This proverb sets up a direct trade-off, and it is worth sitting with the fact that it does not pretend the trade-off is easy or the riches are worthless. It simply ranks them: a good name first, riches second, when the two come into genuine conflict. On a commission-based job, that conflict is not hypothetical. There will be a specific moment — maybe there already has been — where the honest path and the more profitable path diverge clearly enough that you have to actually choose, not just in theory but with real money on the table. Proverbs is not vague about which one to pick. A reputation for integrity, built slowly and protected carefully, is worth more than any single deal, any single month, any single stretch of great numbers built on a compromise. The riches are not condemned here. They are simply, deliberately, ranked second.$t$,
+ $t$When integrity and profit have genuinely conflicted for you, which did you choose? How do you want to be prepared to choose the next time it happens?$t$,
+ $t$Lord, help me actually believe, in the moment of choosing, what this proverb states so plainly — that a good name is worth more than the riches I could gain by compromising it. Rank my priorities the way you rank them.$t$,
+ $t$Decide in advance, before the pressure hits, what you will do the next time integrity and profit genuinely conflict — and write it down.$t$,
+ false),
+
+-- Day 74 (2026-10-11)
+('2026-10-11',
+ $t$Until I Proclaim Your Might to Another Generation$t$,
+ $t$Psalm 71:18$t$,
+ $t$So even to old age and gray hairs, O God, do not forsake me, until I proclaim your might to another generation, your power to all those to come.$t$,
+ 'ESV',
+ $t$This psalm was written by someone old, looking honestly at the reality of aging, and the request is not for youth to be restored or for the career to somehow continue at full pace forever. It is for presence and purpose all the way to the end — specifically, the purpose of proclaiming God's faithfulness to the next generation. For a salesperson thinking about the last chapter of a long career, this reframes what "finishing well" actually means. It is not about closing your biggest deal in your final year, or hitting a personal record on your way out the door. It is about what you pass on — to the newer salespeople you have trained, to your own children, to anyone watching how you finish. A career that ends with generosity toward the next generation, testifying honestly to what God's faithfulness has actually looked like across decades on a hard floor, is a career that finished exactly what this psalm was asking for.$t$,
+ $t$If you are in a later season of your career, what do you want the next generation to actually learn from watching how you finish? If you are early in your career, who modeled this well for you?$t$,
+ $t$Lord, do not forsake me even to old age and gray hairs. Let the purpose of my remaining years be proclaiming your faithfulness to those who come after me — not chasing one more record, but passing on what you have actually done.$t$,
+ $t$Tell someone younger than you, specifically and honestly, one thing God has proven faithful about across your career.$t$,
+ true);

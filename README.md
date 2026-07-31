@@ -91,9 +91,8 @@ supabase/
 `supabase/seed.sql` ships with a full content library, ESV quotations verified
 against Bible Gateway:
 
-- **54 daily devotionals** (4 premium) — continuous coverage from 2026-07-30
-  through 2026-09-21, so Today has something to show for two months without
-  repeating.
+- **74 daily devotionals** (6 premium) — continuous coverage from 2026-07-30
+  through 2026-10-11.
 - **21 situation guides**, 3 in each of the 7 categories (customer,
   management, coworker, self, family, money, ethics), each with a scripted
   practical response, not just commentary.
@@ -101,6 +100,13 @@ against Bible Gateway:
   the Floor* (Galatians 5, 9 days), and *A Business Proverb a Day* (Proverbs
   16, 7 days, premium).
 - **9 Saturday Ready entries**, one per week.
+
+Devotionals and Saturday Ready are served through `get_todays_devotional()`
+and `get_current_saturday_ready()` (see migration 003), which rotate through
+the library by day/week offset instead of matching an exact calendar date —
+so the app never runs dry once the last seeded date passes, regardless of
+how large the library eventually grows. 74 days is still well short of a
+full year; growing this library is ongoing, not a one-time pass.
 
 ## Status
 

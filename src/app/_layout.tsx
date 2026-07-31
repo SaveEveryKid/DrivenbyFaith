@@ -80,6 +80,10 @@ export default function RootLayout(): React.ReactElement {
               name="prayer-group/[id]"
               options={{ headerShown: true, headerTitle: '', headerBackTitle: 'Back' }}
             />
+            <Stack.Screen
+              name="saturday-ready"
+              options={{ headerShown: true, headerTitle: '', headerBackTitle: 'Back' }}
+            />
           </Stack>
         </RouteGuard>
       </QueryClientProvider>

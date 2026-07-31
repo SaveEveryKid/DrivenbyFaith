@@ -47,6 +47,7 @@ export type DevotionalCompletion = {
   user_id: string;
   devotional_id: string;
   completed_at: string;
+  completed_date: string;
   reflection_response: string | null;
   challenge_accepted: boolean;
   challenge_completed: boolean;
@@ -76,6 +77,7 @@ export type SaturdayReadyResponse = {
   commitments_selected: string[] | null;
   notes: string | null;
   completed_at: string;
+  response_date: string;
 };
 
 // ─── Deal Debriefs ───────────────────────────────────────────────────────────
@@ -384,6 +386,14 @@ export type Database = {
       join_prayer_group_by_code: {
         Args: { p_join_code: string };
         Returns: PrayerGroup;
+      };
+      get_todays_devotional: {
+        Args: Record<string, never>;
+        Returns: Devotional;
+      };
+      get_current_saturday_ready: {
+        Args: Record<string, never>;
+        Returns: SaturdayReady;
       };
     };
     Enums: Record<string, never>;
