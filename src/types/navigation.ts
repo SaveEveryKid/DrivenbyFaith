@@ -35,7 +35,7 @@ export type AuthStackParamList = {
 export type TabParamList = {
   today: undefined;
   library: undefined;
-  coach: undefined;
+  coach: { context?: string; id?: string } | undefined;
   prayer: undefined;
   progress: undefined;
 };

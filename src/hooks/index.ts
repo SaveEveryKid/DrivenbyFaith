@@ -125,3 +125,23 @@ export type {
   CreateThreadInput,
   CreateReplyInput,
 } from './useDiscussions';
+export {
+  useCoachConversations,
+  useCoachMessages,
+  useCreateConversation,
+  useSendMessage,
+  useCoachUsage,
+  useDeleteConversation,
+  RateLimitError,
+} from './useCoach';
+export type {
+  CoachUsageState,
+  CoachMessagePayload,
+  CoachUsagePayload,
+  CoachResponse,
+  ConversationListItem,
+  UseCoachConversationsReturn,
+  UseCoachMessagesReturn,
+  UseCreateConversationReturn,
+  UseCoachUsageReturn,
+} from './useCoach';
