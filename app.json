@@ -6,7 +6,11 @@
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "scheme": "drivenbyfaith",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "icon": "./assets/icon.png",
     "ios": {
       "supportsTablet": true,
@@ -24,8 +28,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": ""
+        "projectId": "1f97d8b2-a9f0-480f-bd4b-0b2b31023db7"
       }
-    }
+    },
+    "owner": "drivenbyfaith"
   }
 }
