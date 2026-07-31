@@ -1,14 +1,15 @@
 -- =============================================================================
 -- Seed data for Driven by Faith
--- 74 devotionals (6 premium, continuous daily coverage from 2026-07-30
--- through 2026-10-11), 21 situations (3 in each of the 7 categories), 3
--- reading plans (John 15, Galatians 5, Proverbs 16 — 37 days total), 9
--- Saturday Ready entries. Devotionals and Saturday Ready are served through
--- the rotating get_todays_devotional() / get_current_saturday_ready()
--- functions (migration 003), so the library repeats rather than running dry
--- once the last seeded date passes. The first 14 devotionals, 2 situations,
--- 1 reading plan, and 1 Saturday Ready entry below are the original scaffold
--- content; everything after the "CONTENT EXPANSION" marker was added later.
+-- 100 devotionals (7 premium, continuous daily coverage from 2026-07-30
+-- through 2026-11-06, no repeated scripture reference), 28 situations (4 in
+-- each of the 7 categories), 4 reading plans (John 15, Galatians 5, Proverbs
+-- 16, James 1 — 45 days total), 15 Saturday Ready entries. Devotionals and
+-- Saturday Ready are served through the rotating get_todays_devotional() /
+-- get_current_saturday_ready() functions (migration 003), so the library
+-- repeats rather than running dry once the last seeded date passes. The
+-- first 14 devotionals, 2 situations, 1 reading plan, and 1 Saturday Ready
+-- entry below are the original scaffold content; everything after the
+-- "CONTENT EXPANSION" marker was added later.
 -- =============================================================================
 
 -- ── 14 DEVOTIONALS ──────────────────────────────────────────────────────────
@@ -1427,3 +1428,506 @@ VALUES
  $t$Lord, do not forsake me even to old age and gray hairs. Let the purpose of my remaining years be proclaiming your faithfulness to those who come after me — not chasing one more record, but passing on what you have actually done.$t$,
  $t$Tell someone younger than you, specifically and honestly, one thing God has proven faithful about across your career.$t$,
  true);
+
+-- ── Third wave: 26 more devotionals, reaching 100 days of continuous coverage ─
+
+-- ── 26 MORE DEVOTIONALS (Day 75–100) ────────────────────────────────────────
+
+INSERT INTO devotionals (publish_date, title, scripture_reference, scripture_text, translation, workplace_application, reflection_prompt, prayer, challenge, is_premium)
+VALUES
+
+-- Day 75 (2026-10-12)
+('2026-10-12',
+ $t$False Scales, Even the Small Ones$t$,
+ $t$Proverbs 20:23$t$,
+ $t$Unequal weights are an abomination to the Lord, and false scales are not good.$t$,
+ 'ESV',
+ $t$A trade-in valuation tool gives one number. A manager wants a lower one entered on the worksheet to protect margin on the new-car side. Neither number is wildly dishonest — both fall within a range a reasonable appraiser could defend — but you know which one you actually believe is fair, and you know which one your desk wants written down. This proverb does not require a dramatic scam to apply. "Unequal weights" describes exactly this kind of quiet, defensible-sounding manipulation, where the dishonesty is small enough to rationalize and consistent enough to add up over a career. God's word for it is not "shrewd" or "good business." It is abomination — the same strong word used elsewhere in Proverbs for outright deceit. The size of the discrepancy does not change the category of the act. A false scale is a false scale, whether it moves the number by five hundred dollars or five thousand.$t$,
+ $t$Where have you used a "defensible" number instead of the one you actually believe is fair? What would it take to close that gap?$t$,
+ $t$Lord, do not let me hide small dishonesty behind the excuse that it is defensible or standard practice. Give me a single, honest scale — the same one whether anyone is checking or not.$t$,
+ $t$Use your actual, honest assessment on your next valuation, even if it costs the deal some margin.$t$,
+ false),
+
+-- Day 76 (2026-10-13)
+('2026-10-13',
+ $t$When You Doubt You Belong Here$t$,
+ $t$Romans 11:29$t$,
+ $t$For the gifts and the calling of God are irrevocable.$t$,
+ 'ESV',
+ $t$There are seasons — after a bad month, after a customer's cruelty, after watching yourself handle a moment badly — when you genuinely wonder whether you are called to be here at all, whether this career is a mistake or a detour from something more meaningful you were actually supposed to do with your life. Paul's statement is not specifically about careers, but the principle underneath it is worth sitting with: whatever God has actually gifted and called you to is not something he takes back the moment you have a bad week. If your presence on this floor, your particular mix of gifts — the ability to connect with strangers, to explain complicated financial products clearly, to stay calm under pressure — has genuinely been given by God, a rough month does not revoke that gifting. Doubt about your calling deserves honest examination, not dismissal. But the doubt itself is not proof the calling was never real.$t$,
+ $t$What specifically is making you doubt your calling to this work right now? Is it evidence the calling was wrong, or evidence you are simply having a hard season inside a real calling?$t$,
+ $t$Lord, when I doubt whether I belong here, remind me that your gifts and calling are not revoked by a hard week. Give me honest clarity about whether this doubt is wisdom or just weariness.$t$,
+ $t$Name one specific gift you bring to this work that you believe genuinely came from God, and thank him for it today.$t$,
+ false),
+
+-- Day 77 (2026-10-14)
+('2026-10-14',
+ $t$Found Faithful, Not Found Flashy$t$,
+ $t$1 Corinthians 4:2$t$,
+ $t$Moreover, it is required of stewards that they be found faithful.$t$,
+ 'ESV',
+ $t$A mystery shopper walks the lot, or corporate rolls out a new evaluation metric, and suddenly every interaction feels like it is being graded by an invisible, anonymous judge. It is a strange kind of pressure — performing for someone who might not even be in the room, on a standard you cannot fully see. Paul's word to stewards cuts through exactly this kind of anxiety. Stewards were servants entrusted with someone else's household or resources, evaluated not on brilliance or charisma but on one specific quality: faithfulness. Not flashiness. Not winning every secret evaluation. Simple, consistent faithfulness to what you have actually been entrusted with. If you treat every customer the same way — patiently, honestly, attentively — whether or not they turn out to be a mystery shopper, you have already met the standard Paul is describing, regardless of what any single evaluation says.$t$,
+ $t$Does your behavior change when you suspect you might be evaluated, or is it consistent either way? What would consistent faithfulness look like today, evaluation or not?$t$,
+ $t$Lord, I do not want to perform for invisible judges. Make me faithful in the way you actually measure it — consistent, honest, attentive, whether anyone is grading me or not.$t$,
+ $t$Treat your next customer with the same care you would give if you knew, for certain, they were evaluating you.$t$,
+ false),
+
+-- Day 78 (2026-10-15)
+('2026-10-15',
+ $t$Practicing Righteousness to Be Seen$t$,
+ $t$Matthew 6:1$t$,
+ $t$Beware of practicing your righteousness before other people in order to be seen by them, for then you will have no reward from your Father who is in heaven.$t$,
+ 'ESV',
+ $t$A customer says something like "you're not like other salespeople" and it feels good — genuinely good, in a job that carries a stereotype heavier than most. There is nothing wrong with earning that kind of trust. But Jesus's warning here is about the difference between doing right because it is right and doing right specifically to be seen doing it, to collect the compliment, to build the reputation. The test is not whether people notice your integrity; sometimes they will, and that is not sin. The test is whether the noticing was the point. If you find yourself subtly steering conversations to showcase your honesty, or feeling deflated when an honest act goes unnoticed, that is worth examining. Integrity performed for an audience and integrity practiced in private, where no one will ever compliment it, need to be the same integrity, or the first kind is not actually what Jesus is describing.$t$,
+ $t$Have you ever noticed yourself doing the right thing partly to be noticed doing it? How can you tell the difference between genuine integrity and performed integrity in yourself?$t$,
+ $t$Lord, examine my motives, not just my actions. Let my integrity be the same in private as it is when someone might compliment it. I do not want a reward that stops at a customer's kind words.$t$,
+ $t$Do one act of integrity today that no one will ever know about or compliment.$t$,
+ false),
+
+-- Day 79 (2026-10-16)
+('2026-10-16',
+ $t$The Prayer Before You Answer$t$,
+ $t$Nehemiah 2:4-5$t$,
+ $t$Then the king said to me, "What are you requesting?" So I prayed to the God of heaven. And I said to the king, "If it pleases the king, and if your servant has found favor in your sight, that you send me to Judah, to the city of my fathers' graves, that I may rebuild it."$t$,
+ 'ESV',
+ $t$Between the king's question and Nehemiah's answer, there is a whole prayer — one that could not have taken more than a second or two, invisible to everyone in the room, squeezed into the pause before he spoke. This is a strange and useful model for high-pressure conversations: the desk manager asking a hard question, the customer waiting for your answer on something you are not sure how to handle, the confrontation you did not see coming. You will not always have time to step away and process before responding. Nehemiah did not have that luxury either. What he had was a habit of prayer quick and practiced enough to fit inside a silent pause, available in the split second before he had to speak. That kind of instant, wordless prayer is not a lesser form of prayer than a long, quiet morning devotional. It is exactly the kind of prayer this job will most often require, and it is available to you the same way it was available to him — in the half-second before you answer.$t$,
+ $t$What is the next hard conversation you can anticipate needing this kind of instant prayer for? Practice the pause now, before you need it.$t$,
+ $t$Lord, teach me to pray in the half-second before I have to answer, the way Nehemiah did. Fill that pause with you, even when I have no time to step away.$t$,
+ $t$The next time you are caught off guard by a hard question today, take one silent breath and pray before you answer.$t$,
+ false),
+
+-- Day 80 (2026-10-17)
+('2026-10-17',
+ $t$Fretting Over the One Who Prospers Dishonestly$t$,
+ $t$Psalm 37:7$t$,
+ $t$Be still before the Lord and wait patiently for him; fret not yourself over the one who prospers in his way, over the man who carries out evil devices!$t$,
+ 'ESV',
+ $t$You lost a deal to a competitor who lied about a feature, undercut a price they never intended to honor, or pressured a customer in a way you would never do — and it worked, and they are celebrating the sale while you are left wondering if honesty is actually a competitive disadvantage in this business. This psalm names the exact temptation: fretting over someone whose evil devices are prospering, as if their short-term win disproves the value of your integrity. The instruction is not to deny what happened or pretend it does not sting. It is to be still — an active discipline, not a passive shrug — and wait patiently, trusting that this single lost deal is not the final data point on whether honesty pays. A dishonest competitor's win today does not obligate you to fret, and fretting will not get the deal back. It will only cost you the peace this psalm is offering in its place.$t$,
+ $t$What recent loss to a dishonest competitor or coworker are you still fretting over? What would it look like to actually be still about it instead?$t$,
+ $t$Lord, I lost something to someone who was not honest, and it stings. Help me be still instead of fretting, and to wait patiently for you instead of measuring my integrity's worth by this one loss.$t$,
+ $t$Consciously release one specific loss you are still fretting over, in prayer, today.$t$,
+ false),
+
+-- Day 81 (2026-10-18)
+('2026-10-18',
+ $t$An Inheritance Beyond the Commission Check$t$,
+ $t$Proverbs 13:22$t$,
+ $t$A good man leaves an inheritance to his children's children, but the sinner's wealth is laid up for the righteous.$t$,
+ 'ESV',
+ $t$This proverb is often read narrowly as financial planning advice, but the inheritance a good man leaves is bigger than a bank account — it includes the reputation, the character, and the example that outlasts him, the kind of legacy that shapes children's children long after the specific commission checks from any given year are forgotten. What are you actually building toward your children's children, not just your children? A pattern of integrity they can point to and say "that's where I learned it." A work ethic modeled honestly, without martyrdom or resentment attached to it. Even a story or two about a hard choice you made that they will one day repeat to their own kids. Financial inheritance matters, and this proverb includes it. But if that is the only inheritance you are building, you are leaving out most of what this verse is actually describing.$t$,
+ $t$What non-financial inheritance are you currently building for the generations after you? What would you want your grandchildren to eventually hear about how you worked?$t$,
+ $t$Lord, let my inheritance to those who come after me be more than money. Build in me a character and a story worth passing down, not just an account balance.$t$,
+ $t$Tell a story today — to your kids, a younger relative, or a mentee — about a choice you made that you would want them to learn from.$t$,
+ false),
+
+-- Day 82 (2026-10-19)
+('2026-10-19',
+ $t$Grace Sufficient for the Slow Explanation$t$,
+ $t$2 Corinthians 12:9$t$,
+ $t$My grace is sufficient for you, for my power is made perfect in weakness.$t$,
+ 'ESV',
+ $t$A customer with a disability, a language barrier, or a cognitive difference needs more time than the process usually allows — more repetition, more patience, more willingness to slow the whole transaction down while other ups wait and the clock keeps moving. It is tempting to feel your own impatience as failure, as evidence you are not cut out for a job that runs on speed and efficiency. Paul's context here is his own weakness, a real limitation he begged God to remove and was told instead to carry, because God's power would be made perfect precisely in that limitation, not despite it. The patience this customer needs from you is not a distraction from doing your job well. It might be exactly the moment your weakness — your natural impatience, your desire for efficiency — becomes the place God's power actually shows up, if you let his grace be sufficient instead of powering through on your own strength alone.$t$,
+ $t$Who requires more patience from you than feels natural or efficient? How might God's power be made perfect in your weakness there, rather than in your own effort to power through?$t$,
+ $t$Lord, your grace is sufficient for the patience I do not naturally have. Let your power be made perfect in my weakness with this customer, instead of me trying to muscle through on my own strength.$t$,
+ $t$Give the next customer who needs extra time and patience your full presence, without rushing them for the sake of the clock.$t$,
+ false),
+
+-- Day 83 (2026-10-20)
+('2026-10-20',
+ $t$Numbering a Slow Winter's Days$t$,
+ $t$Psalm 90:12$t$,
+ $t$So teach us to number our days that we may get a heart of wisdom.$t$,
+ 'ESV',
+ $t$A slow winter stretch — fewer ups, quieter phones, days that feel like they are simply being endured rather than lived — can make time feel wasted, as if only the busy, productive months actually count. This psalm suggests the opposite discipline: numbering your days, paying deliberate attention to them, whatever their pace, because wisdom comes from that attentiveness, not from volume of activity. A slow day is not an empty day if you are paying attention to it — praying more, reading Scripture without rushing to the next task, actually noticing the coworkers and customers around you instead of just watching the clock for the next up. The psalmist is not praising slowness for its own sake. He is warning against the specific failure of letting days pass unnumbered, unnoticed, simply waited through — a temptation that a slow season makes especially strong.$t$,
+ $t$How do you typically treat a slow day at work — as wasted time, or as time to number deliberately? What would it look like to actually number today?$t$,
+ $t$Lord, teach me to number even the slow days, the quiet ones, instead of just waiting through them for busier weeks. Give me a heart of wisdom that pays attention regardless of the pace.$t$,
+ $t$On your next slow stretch, use the extra time deliberately — for prayer, for a coworker, for something that would not fit into a busy day.$t$,
+ false),
+
+-- Day 84 (2026-10-21)
+('2026-10-21',
+ $t$The Flattering Customer Setting a Net$t$,
+ $t$Proverbs 29:5$t$,
+ $t$A man who flatters his neighbor spreads a net for his feet.$t$,
+ 'ESV',
+ $t$A customer lavishes praise before ever mentioning a number — you're clearly the best in the business, they can tell you're different, they trust you completely — and it is genuinely disarming, in a way that plain skepticism never would be. Proverbs names exactly what is happening: flattery is not a compliment, it is a trap, designed to lower your guard before the actual ask arrives, which usually turns out to be a discount, a favor, or a concession you would not otherwise make. This does not mean treating every kind word with suspicion; plenty of praise is genuine. But when flattery arrives specifically before a request, and specifically calibrated to make you feel special enough to bend a rule, it is worth recognizing the pattern for what it is. You can receive the kindness of the moment without letting it steer the decision that follows.$t$,
+ $t$Have you ever made a decision you would not otherwise have made because flattery lowered your guard first? How can you enjoy a genuine compliment without letting it set the terms of what follows?$t$,
+ $t$Lord, give me discernment to recognize flattery that is really a net, without becoming cynical toward genuine kindness. Let my decisions be steered by what is actually right, not by who made me feel good first.$t$,
+ $t$The next time a customer's praise arrives right before a request, notice the pattern and let the request stand on its own merits, not on the compliment.$t$,
+ false),
+
+-- Day 85 (2026-10-22)
+('2026-10-22',
+ $t$Whatever You Drink at the Office Party$t$,
+ $t$1 Corinthians 10:31$t$,
+ $t$So, whether you eat or drink, or whatever you do, do all to the glory of God.$t$,
+ 'ESV',
+ $t$The team potluck, the year-end party, the after-hours drinks with coworkers unwinding from a hard quarter — these are genuinely good things, ordinary social life, not automatically dangerous. But they are also the settings where gossip flows easiest, where drinking can drift past enjoyment into something you regret, where the version of yourself that shows up at work can quietly diverge from the version that shows up once the guard is down and everyone is off the clock. Paul's instruction covers exactly this territory — the ordinary, unremarkable activities of eating and drinking — and refuses to treat them as spiritually neutral zones exempt from the question of God's glory. This is not a call to avoid the party or perform piety at it. It is an invitation to bring the same person to the potluck that you are on the floor: someone whose conduct, even loosened and off-duty, still points somewhere beyond themselves.$t$,
+ $t$Is there a gap between who you are on the floor and who you become at after-work social events? What would it look like to close that gap without becoming rigid or joyless?$t$,
+ $t$Lord, let the ordinary, off-duty parts of my work life — the parties, the potlucks, the after-hours drinks — still be lived to your glory, not treated as exempt zones. Keep me the same person in both settings.$t$,
+ $t$At your next work social gathering, notice one specific way you can be fully present and enjoy it while still being the same person you are on the floor.$t$,
+ false),
+
+-- Day 86 (2026-10-23)
+('2026-10-23',
+ $t$Your Chapter One, Their Chapter Twenty$t$,
+ $t$Philippians 1:6$t$,
+ $t$And I am sure of this, that he who began a good work in you will bring it to completion at the day of Jesus Christ.$t$,
+ 'ESV',
+ $t$The veteran two desks over makes selling look effortless — the easy rapport, the instinct for when to push and when to pull back, the calm that only comes from years of pattern recognition. You are three months in, still fumbling through objections you have not learned to anticipate yet, comparing your uncertain beginning to their practiced ending as if they were the same kind of measurement. Paul's confidence is about a process, not a finished product — "he who began" implies an ongoing work, still underway, aimed at a completion that has not arrived yet even for the veteran, who is simply further along the same unfinished road. Comparing your chapter one to someone else's chapter twenty will always leave you discouraged, because you are measuring two different points on the same kind of journey as if they were opposite outcomes. God is not finished with either of you. He is not finished with you either.$t$,
+ $t$Who are you comparing your beginning to someone else's more advanced chapter? What would it look like to trust the process instead of demanding the outcome ahead of schedule?$t$,
+ $t$Lord, you who began a good work in me have not abandoned it just because it is unfinished. Free me from comparing my chapter one to someone else's chapter twenty. Let me trust the process you are still completing.$t$,
+ $t$Identify one specific skill you are still developing, and give yourself grace for being mid-process instead of demanding mastery today.$t$,
+ false),
+
+-- Day 87 (2026-10-24)
+('2026-10-24',
+ $t$Falsifying the Co-Signer$t$,
+ $t$Exodus 20:16$t$,
+ $t$You shall not bear false witness against your neighbor.$t$,
+ 'ESV',
+ $t$A deal will not go through without a co-signer whose credit is strong enough, and the customer asks you to help fudge the relationship or the details on the paperwork — a "roommate" listed as a spouse, an income figure quietly adjusted, a signature obtained without the co-signer fully understanding what they are actually agreeing to. This is one of the Ten Commandments, not a minor policy footnote, and it applies with full force to paperwork, not just courtroom testimony. Bearing false witness includes any false statement that misrepresents reality to someone's detriment or to gain an advantage you would not otherwise have — and a co-signer who does not understand what they are actually signing onto is a real, specific someone who could be genuinely harmed by that misrepresentation. Helping falsify this kind of paperwork is not a gray area or a customer-service accommodation. It is precisely the category of sin this commandment names.$t$,
+ $t$Have you ever been asked, directly or indirectly, to help misrepresent something on paperwork? How clearly can you name your line before you are asked to cross it again?$t$,
+ $t$Lord, keep me from bearing false witness in any form, including on paperwork that feels routine. Give me the courage to refuse clearly when a customer or a manager asks me to misrepresent the truth.$t$,
+ $t$Decide now, before you are asked, exactly what you will say if asked to help falsify any part of a deal's paperwork.$t$,
+ false),
+
+-- Day 88 (2026-10-25)
+('2026-10-25',
+ $t$"Just Selling Cars," They Say$t$,
+ $t$1 Samuel 16:7$t$,
+ $t$But the Lord said to Samuel, "Do not look on his appearance or on the height of his stature, because I have rejected him. For the Lord sees not as man sees: man looks on the outward appearance, but the Lord looks on the heart."$t$,
+ 'ESV',
+ $t$Family gatherings sometimes produce the same comment in different words — some version of "so, still selling cars?" that carries just enough condescension to sting, especially from a relative who chose a more conventionally impressive path. Samuel was looking for a king among Jesse's sons and kept assuming the most impressive-looking one must be God's choice, until God redirected him toward David, the overlooked shepherd boy nobody had even bothered to call in from the field. The world's estimation of your job's status is exactly the kind of outward appearance this passage warns against trusting. God is not evaluating your career by the same metric your judgmental uncle uses at Thanksgiving. He is looking at your heart — your integrity in the deal, your patience with the difficult customer, your faithfulness in an unglamorous job — and that assessment does not require anyone else's approval to be real.$t$,
+ $t$Whose judgment about your career's worth have you been quietly internalizing? How does knowing God looks at your heart, not your job title, change how you carry that judgment?$t$,
+ $t$Lord, you look at my heart, not my job title or how impressive my career sounds to other people. Free me from needing others' approval of my work to feel like it matters. Let your assessment be the one I actually trust.$t$,
+ $t$The next time someone's comment about your job stings, remind yourself silently of what this passage says God actually looks at.$t$,
+ false),
+
+-- Day 89 (2026-10-26)
+('2026-10-26',
+ $t$Numbing Out After a Hard Day$t$,
+ $t$Ephesians 5:18$t$,
+ $t$And do not get drunk with wine, for that is debauchery, but be filled with the Spirit.$t$,
+ 'ESV',
+ $t$The drive home after a brutal day has a familiar shape for a lot of people in this business — a drink to take the edge off, hours of scrolling to avoid thinking about the day, some pattern of numbing that has become routine enough that you no longer really notice you are doing it. Paul draws a direct contrast that is worth sitting with: not sobriety versus drunkenness in isolation, but drunkenness versus being filled with the Spirit, as if they are two competing answers to the same underlying need — the need to be filled with something after a day that has emptied you out. Numbing does not actually fill anything; it just anesthetizes the emptiness for a few hours before it returns. Being filled with the Spirit is offered here as the real alternative, not a moralistic restriction layered on top of an otherwise unaddressed need. If your evenings run on some form of numbing out, the deeper question is not just what to stop, but what could actually fill what the day emptied.$t$,
+ $t$What is your typical pattern for numbing out after a hard day? What would it look like to bring that same need to the Spirit instead?$t$,
+ $t$Lord, my evenings often run on numbing instead of filling. Fill what the day has emptied out of me. Meet the real need underneath the numbing, instead of leaving me to anesthetize it alone.$t$,
+ $t$Tonight, instead of your usual numbing routine, spend ten minutes honestly telling God what the day emptied out of you.$t$,
+ false),
+
+-- Day 90 (2026-10-27)
+('2026-10-27',
+ $t$Content With the Demotion$t$,
+ $t$2 Corinthians 12:10$t$,
+ $t$For the sake of Christ, then, I am content with weaknesses, insults, hardships, persecutions, and calamities. For when I am weak, then I am strong.$t$,
+ 'ESV',
+ $t$A demotion, a smaller territory, a role that used to be more senior than the one you are in now — professional setbacks like this carry a specific sting because they are visible, comparative, and hard to explain away to anyone watching your career from outside. Paul's list here is not abstract suffering; it includes insults and hardships, the exact kind of thing a demotion delivers, both practically and to your pride. His response is not denial that these things are genuinely hard. It is a strange, hard-won contentment inside them, rooted in a paradox — weakness as the very location where Christ's strength actually shows up, not something to be muscled past on the way back to strength. If you are in a season of professional weakness right now, this verse is not asking you to pretend it does not hurt. It is inviting you to notice what God might be doing in exactly the place you would rather not be.$t$,
+ $t$Where are you currently experiencing professional weakness or setback? What would it look like to be content there, the way Paul describes, without needing to escape it first?$t$,
+ $t$Lord, I do not naturally want to be content with weakness. Teach me Paul's strange contentment — the kind that trusts your strength shows up exactly here, not only after this hard season ends.$t$,
+ $t$Name one specific way God's strength might be present in your current professional weakness, and thank him for it, even before the season changes.$t$,
+ false),
+
+-- Day 91 (2026-10-28)
+('2026-10-28',
+ $t$The Joy of the Lord Is Your Strength$t$,
+ $t$Nehemiah 8:10$t$,
+ $t$Go your way. Eat the fat and drink sweet wine and send portions to anyone who has nothing ready, for this day is holy to our Lord. And do not be grieved, for the joy of the Lord is your strength.$t$,
+ 'ESV',
+ $t$There is a version of you on the floor that everyone recognizes and nobody enjoys being around — perpetually flat, joyless, going through the motions with visible reluctance. It might be burnout. It might be a habit worn in over years of treating cheerfulness as inauthentic or unserious. Whatever the cause, Nehemiah's word to a grieving crowd is not a call to fake happiness. It is a genuine command — do not be grieved, celebrate, share generously with those who have nothing ready — grounded in a specific claim: the joy of the Lord, not your circumstances, is your actual strength. Notice what this is not: it is not joy as a mood you either have or do not have on a given day. It is joy as a resource, rooted in God rather than in how the month is going, available to draw on even when circumstances alone would produce grief. Strength drawn from that kind of joy looks different from forced positivity, and it is available on your worst sales day the same as your best one.$t$,
+ $t$Where has your joy become dependent on your circumstances — sales numbers, customer moods, the state of the floor — instead of rooted in the Lord? What would it look like to draw strength from joy that does not fluctuate with the month?$t$,
+ $t$Lord, let your joy, not my circumstances, be my actual strength today. I do not want forced positivity. I want the real thing, rooted in you, available on hard days as much as good ones.$t$,
+ $t$Share something generously today — your time, your knowledge, a portion of something — the way Nehemiah instructed the grieving crowd to do, as an act of joy rather than an obligation.$t$,
+ false),
+
+-- Day 92 (2026-10-29)
+('2026-10-29',
+ $t$One in Christ, Whoever Walks In$t$,
+ $t$Galatians 3:28$t$,
+ $t$There is neither Jew nor Greek, there is neither slave nor free, there is no male and female, for you are all one in Christ Jesus.$t$,
+ 'ESV',
+ $t$A customer says something racist, or dismissive of a coworker's background, or crude about gender, and it lands in the middle of a transaction you are trying to close, in a room where confronting it directly could cost you the sale and staying silent feels like complicity. There is no easy formula for every version of this moment, but Paul's declaration here sets the baseline you are actually operating from, whether the customer knows it or not: every person who walks onto that lot, regardless of their background, stands equal before God, one in Christ, with a dignity that does not depend on their opinions about anyone else. You are not required to deliver a sermon in the middle of a sale. You are allowed, and sometimes required, to decline to laugh along, to gently redirect, or to name plainly that a comment is not something you will go along with — because the person being demeaned, present or absent, deserves that much from you, regardless of what it costs the deal.$t$,
+ $t$How have you handled offensive comments from customers in the past — silence, mild deflection, direct pushback? What would faithful conduct actually require the next time it happens?$t$,
+ $t$Lord, give me courage in the moment offensive comments arise, whether from customers or coworkers. Let me neither laugh along nor stay silent when someone's dignity is being demeaned in front of me.$t$,
+ $t$Decide in advance what you will say the next time a customer makes an offensive comment, so you are not caught unprepared in the moment.$t$,
+ false),
+
+-- Day 93 (2026-10-30)
+('2026-10-30',
+ $t$Showing Up Uninspired$t$,
+ $t$1 Corinthians 15:58$t$,
+ $t$Therefore, my beloved brothers, be steadfast, immovable, always abounding in the work of the Lord, knowing that in the Lord your labor is not in vain.$t$,
+ 'ESV',
+ $t$Motivation is not a reliable daily companion in this job. Some mornings you walk onto the lot genuinely energized; most mornings, you simply show up, because the schedule requires it and the bills do not care how you feel. Paul's instruction is not aimed at people who feel inspired — it is aimed at steadfastness, the quality that holds regardless of feeling, immovable rather than dependent on daily emotional fuel. The promise attached is not that inspired labor is rewarded and uninspired labor is wasted. It is that labor "in the Lord" is never in vain, full stop, regardless of the emotional state you brought to it that particular Tuesday. Showing up uninspired and doing the work with integrity anyway is not a lesser version of faithfulness. According to this verse, it might be closer to the actual definition of it — steadfast, immovable, present, whether or not the feeling showed up too.$t$,
+ $t$How do you typically handle showing up uninspired? Does your effort or integrity change based on how motivated you feel that day?$t$,
+ $t$Lord, my motivation is not reliable, but your call to steadfastness does not depend on my feelings. Let my labor today be faithful whether or not I feel inspired, trusting that it is not in vain either way.$t$,
+ $t$On a day you do not feel motivated, give the same quality of work and attention you would give on your best day.$t$,
+ false),
+
+-- Day 94 (2026-10-31)
+('2026-10-31',
+ $t$A God of Seeing$t$,
+ $t$Genesis 16:13$t$,
+ $t$So she called the name of the Lord who spoke to her, "You are a God of seeing," for she said, "Truly here I have seen him who looks after me."$t$,
+ 'ESV',
+ $t$Hagar was a servant, cast out, alone in the wilderness, about as invisible to the power structures around her as a person could be — and God met her there, personally, by name, in a place no one else was watching. Feeling unseen by upper management is a small echo of something Hagar knew at a much deeper level: the ache of mattering to no one with real power over your circumstances. A regional manager who has never learned your name. A corporate decision-maker who will never know your specific effort, your specific integrity, your specific hard month. Hagar's declaration is not about the people who failed to see her. It is about the God who did, in the wilderness, when it counted, when no human authority was paying attention at all. If you feel invisible to the people making decisions about your career, this verse does not promise they will suddenly notice you. It promises someone with far more authority already has.$t$,
+ $t$Where do you feel most invisible to the people who have power over your career? What does it mean, practically, that God is a "God of seeing" specifically there?$t$,
+ $t$Lord, you are the God who sees, even where the people with authority over my career do not. Comfort the ache of feeling invisible, and let me trust that you have already seen everything they have missed.$t$,
+ $t$Bring the specific feeling of being unseen to God honestly in prayer today, using Hagar's own words if they fit: "You are a God of seeing."$t$,
+ false),
+
+-- Day 95 (2026-11-01)
+('2026-11-01',
+ $t$A Lying Tongue Hates Its Victims$t$,
+ $t$Proverbs 26:28$t$,
+ $t$A lying tongue hates its victims, and a flattering mouth works ruin.$t$,
+ 'ESV',
+ $t$This proverb makes a claim that is easy to miss on a fast reading: a lying tongue does not merely deceive its victims, it hates them. That is a strong word for what can feel, in the moment, like a harmless exaggeration in an advertisement or a sales pitch — the mileage rounded favorably, the "like new" condition on something with real wear, the urgency manufactured to rush a decision. Proverbs will not let the deception stay small or affectionate. It names the posture underneath habitual lying as hatred, because a lie always treats the person being deceived as an object to be managed rather than a person to be respected — and that, at root, is what hatred does. Advertising language and sales pitches built on exaggeration are not a victimless art form. Somewhere underneath the puffery this proverb sees exactly what is actually happening to the person on the receiving end of it.$t$,
+ $t$Where has advertising or sales language become so normal that you stopped noticing its exaggerations as a form of dishonesty? What would it look like to hold that language to this proverb's standard?$t$,
+ $t$Lord, show me where I have let "just marketing" cover for actual dishonesty. Let my words toward customers come from respect for them as people, never from the posture this proverb calls hatred.$t$,
+ $t$Review one piece of language you regularly use in a pitch or ad and remove any exaggeration you would not want called a lie.$t$,
+ false),
+
+-- Day 96 (2026-11-02)
+('2026-11-02',
+ $t$Not Rejoicing When Your Rival Falls$t$,
+ $t$Proverbs 24:17$t$,
+ $t$Do not rejoice when your enemy falls, and let not your heart be glad when he stumbles,$t$,
+ 'ESV',
+ $t$A competitor across town — a rival dealership, a coworker who has treated you poorly — has a bad month, or closes, or loses a big customer to your store, and there is an immediate, almost automatic pull toward satisfaction, even celebration. They had it coming. Proverbs names this pull directly and tells you not to follow it, regardless of how deserved the fall might genuinely be. This is not a demand for false sympathy or pretending you are sorry about something you are not sorry about. It is a warning about what rejoicing in someone else's downfall does to your own heart over time — how it trains a posture of quiet vindictiveness that will eventually turn on people who did not actually deserve it. You do not have to manufacture grief for a rival's setback. You do have to refuse the specific gladness this proverb names, even when it would feel completely justified.$t$,
+ $t$Has a rival's or difficult coworker's setback ever produced real gladness in you? What would it look like to notice that pull and set it down instead of indulging it?$t$,
+ $t$Lord, when someone I have real reasons to resent falls, keep my heart from the gladness this proverb warns against. Let me refuse quiet vindictiveness, even when it feels earned.$t$,
+ $t$If you have recently felt satisfaction at a rival's or difficult coworker's setback, name that feeling honestly to God and ask him to soften it.$t$,
+ false),
+
+-- Day 97 (2026-11-03)
+('2026-11-03',
+ $t$Power to the Faint$t$,
+ $t$Isaiah 40:29$t$,
+ $t$He gives power to the faint, and to him who has no might he increases strength.$t$,
+ 'ESV',
+ $t$Emotional labor is its own kind of exhausting — the performed enthusiasm, the managed patience, the version of yourself that has to stay warm and attentive through hour ten of a shift regardless of what you actually feel. It is a different kind of tired than physical labor, harder to point to, easier to dismiss as not a real form of exhaustion at all. Isaiah's promise is specifically for the faint and the powerless, not the strong looking for a boost. It assumes a genuine emptiness, a real running-out, not just a minor dip that willpower could solve. If you are running on emotional fumes by the middle of most shifts, this verse is not telling you to find more strength somewhere inside yourself. It is telling you where the strength actually comes from when your own has genuinely run out — not manufactured by trying harder, but given by someone who specifically increases strength in people who have none left of their own.$t$,
+ $t$Where do you feel most faint or depleted right now — physically, emotionally, or both? What would it look like to actually receive strength rather than try to generate more of your own?$t$,
+ $t$Lord, I am faint, and I have no might of my own left today. Give me your power specifically here, in the emptiness, the way you promise to the faint, not the strong.$t$,
+ $t$In your next moment of feeling emotionally depleted today, pause and specifically ask God for strength instead of pushing through on willpower alone.$t$,
+ false),
+
+-- Day 98 (2026-11-04)
+('2026-11-04',
+ $t$New Every Morning, Even After a Blown Deal$t$,
+ $t$Lamentations 3:22-23$t$,
+ $t$The steadfast love of the Lord never ceases; his mercies never come to an end; they are new every morning; great is your faithfulness.$t$,
+ 'ESV',
+ $t$Lamentations is a book of grief, written in the wreckage of real loss, and this verse — one of the most quoted in all of Scripture — arrives right in the middle of that wreckage, not after it has been resolved. A deal falling through at the last second, after hours of work and a customer's near-certain yes, is a small echo of that same experience: real loss, arriving suddenly, after real investment. The promise here is not that the loss did not happen or does not matter. It is that God's mercies are new every single morning, regardless of what fell apart yesterday. Yesterday's blown deal does not define what mercy is available to you today. You do not have to carry the weight of a failed close forward into a new day as if today's mercy has to be earned back first. It is simply new, again, this morning, the same as it was the morning after every other loss in your career.$t$,
+ $t$What deal or loss from yesterday are you still carrying into today as though it defines what is available to you now? What would it mean to actually receive this morning's new mercy?$t$,
+ $t$Lord, your mercies are new this morning, regardless of what fell apart yesterday. I release the blown deal I am still carrying and receive what you are actually offering me today.$t$,
+ $t$Name specifically what you are carrying forward from a recent loss, and consciously set it down before you start today's work.$t$,
+ false),
+
+-- Day 99 (2026-11-05)
+('2026-11-05',
+ $t$Without Counsel, Plans Fail$t$,
+ $t$Proverbs 15:22$t$,
+ $t$Without counsel plans fail, but with many advisers they succeed.$t$,
+ 'ESV',
+ $t$A customer arrives with their pastor, a trusted uncle, or a friend who "knows cars," specifically to check your numbers and your character before they will sign — and it can feel like an obstacle, an extra layer of skepticism standing between you and a straightforward close. Proverbs actually commends exactly this instinct, on the customer's side and on yours. Plans made without counsel fail; plans made with many advisers succeed. A customer who brings trusted counsel into a major financial decision is not being difficult. They are being wise, in exactly the way this proverb praises, and your posture toward that extra scrutiny reveals something real about whether you actually want them to succeed or just want the deal closed quickly. Welcome the pastor's questions. Answer the friend's skepticism honestly. A deal that survives outside counsel is a better deal than one that only worked because no one else was looking closely.$t$,
+ $t$How do you typically respond when a customer brings outside counsel into a deal — welcome, mild irritation, defensiveness? What would it look like to actually welcome the scrutiny?$t$,
+ $t$Lord, help me welcome a customer's wise counsel instead of resenting it as an obstacle. Let my deals be the kind that hold up under outside scrutiny, because they were honest all along.$t$,
+ $t$The next time a customer brings someone along to advise them, actively invite that person's questions instead of working around them.$t$,
+ false),
+
+-- Day 100 (2026-11-06)
+('2026-11-06',
+ $t$Pressing On, One Hundred Days In$t$,
+ $t$Philippians 3:13-14$t$,
+ $t$Brothers, I do not consider that I have made it my own. But one thing I do: forgetting what lies behind and straining forward to what lies ahead, I press on toward the goal for the prize of the upward call of God in Christ Jesus.$t$,
+ 'ESV',
+ $t$A hundred days of devotionals is not a finish line. Paul, near the height of his spiritual maturity, still describes himself as straining forward, not arrived, not finished, actively pressing on rather than resting on what has already been covered. That posture matters for a discipline like this one — showing up daily for Scripture, for reflection, for the ongoing work of faith on a hard floor — because the temptation after a hundred days is either pride at the consistency or exhaustion at the ongoing effort. Paul offers a third option: neither claiming to have arrived nor giving up the pursuit, but forgetting what lies behind — both the failures and the successes — and straining forward again, today, toward the same upward call that was true on day one. Whatever these hundred days have actually looked like for you, the invitation is the same one Paul gave himself: not arrival, but the next honest step forward.$t$,
+ $t$Looking back at whatever consistency or inconsistency has marked your last hundred days, what would it look like to forget what lies behind and simply press on today?$t$,
+ $t$Lord, I have not arrived, and neither had Paul when he wrote this. Free me from both pride in my consistency and shame in my inconsistency. Let me simply press on, today, toward the upward call you have set before me.$t$,
+ $t$Take one honest step forward today in whatever this devotional practice has been building in you — regardless of how the last hundred days actually went.$t$,
+ true);
+
+-- ── Fourth entry in every situation category ────────────────────────────────
+
+-- ── 7 MORE SITUATIONS (4th entry in every category) ─────────────────────────
+
+INSERT INTO situations (slug, category, title, situation_body, biblical_principle, scripture_refs, practical_response, prayer, reflection_question)
+VALUES
+
+('the-fabricated-competing-quote',
+ 'customer',
+ $t$"Another Dealer Quoted Me $3,000 Less"$t$,
+ $t$A customer holds up their phone or a printout claiming a competitor offered the same vehicle for thousands less. Something about it does not add up — the trim level does not match, the numbers seem inflated, or you simply know that price is not realistic in the current market. It might be a genuine misunderstanding on their part, an outdated quote, or a deliberate bluff to pressure you into matching a number that was never real. You cannot prove which one it is, and calling them a liar outright would end the conversation badly regardless of who is right.$t$,
+ $t$Love believes the best while still walking in wisdom. You do not have to accuse someone of lying to hold your ground on what you actually know to be true and fair.$t$,
+ '["1 Corinthians 13:7", "Proverbs 14:15", "Proverbs 18:17", "Colossians 4:6"]',
+ $t$Do not call the quote a lie, even if you suspect it is one. Ask genuinely clarifying questions instead: "Can you tell me the exact trim and mileage on that quote? I want to make sure we are comparing the same vehicle." Often this alone reveals the discrepancy without you ever having to make an accusation. If the numbers still do not add up after clarifying, hold your own price with calm confidence: "Based on what you've described, I can't match that number and still be honest with you about what this vehicle is actually worth. Here's exactly how I arrived at mine." Let your transparency, not your suspicion, do the work.$t$,
+ $t$Lord, give me wisdom to ask good questions instead of jumping to accusation. Let my own honesty be steady enough that I do not need to prove someone else is lying in order to hold my ground.$t$,
+ $t$How do you currently handle a competing quote that seems too good to be true? What clarifying questions could you ask instead of assuming the worst or caving to the pressure?$t$),
+
+('manager-takes-credit',
+ 'management',
+ $t$Your Manager Presents Your Idea as Their Own$t$,
+ $t$You suggested a specific change to how the team handles internet leads — a real idea, thought through, that actually improved response times. In the next regional meeting, your manager presents it to the GM as their own initiative, with no mention of where it came from. You are in the room. You have to decide, in the moment, whether to say something, and how.$t$,
+ $t$Love does not envy or boast, but neither does Scripture require you to accept credit theft silently. There is a difference between humility and erasure, and wisdom knows how to address the second without abandoning the first.$t$,
+ '["1 Corinthians 13:4", "Proverbs 27:2", "Ephesians 4:25", "Colossians 3:23"]',
+ $t$Do not correct your manager publicly in the meeting — that rarely goes well and can look petty regardless of who is right. Afterward, have a direct, private conversation: "I noticed the lead-response idea was presented as a new initiative today. I wanted to mention that was something I brought to you a few weeks ago — I'd appreciate being included next time it comes up." Keep the tone factual, not accusatory. If it becomes a pattern rather than a one-time lapse, it is worth raising with HR or a level above, framed around the pattern, not just your wounded pride. Continue doing good work regardless of whether you get credited — Colossians 3:23 still applies even when a manager has not yet learned to give credit well.$t$,
+ $t$Lord, when my work is claimed by someone else, keep bitterness from taking root in me. Give me the wisdom to address it honestly and the security to keep working faithfully even when I am not credited.$t$,
+ $t$Has this happened to you before? How did you respond, and how do you wish you had responded?$t$),
+
+('coworkers-marriage-falling-apart',
+ 'coworker',
+ $t$A Coworker's Personal Crisis Is Bleeding Into Work$t$,
+ $t$A coworker's marriage is visibly falling apart — late arrivals, a short temper with customers, red eyes some mornings that everyone notices but no one mentions. Their performance is slipping, and it is starting to affect the team, but you also know pushing too hard on a personal crisis that is not really your business could make things worse, not better.$t$,
+ $t$Bear one another's burdens, and so fulfill the law of Christ. You are not their counselor, but you are not required to pretend you have not noticed either.$t$,
+ '["Galatians 6:2", "Romans 12:15", "Proverbs 12:25", "James 5:16"]',
+ $t$Find a private, low-pressure moment to say something simple and honest: "I've noticed things seem hard lately. I'm not trying to pry, but I wanted you to know I've noticed, and I'm here if you ever want to talk." Let them decide how much to share. Do not gossip about what you have observed with other coworkers, even out of concern. If their performance genuinely affects customers or the team in a way that needs addressing, that is a separate, practical conversation — but lead with the human concern first, not the performance issue. Sometimes the most useful thing you can offer is simply being the one person at work who noticed and said so.$t$,
+ $t$Lord, give me the courage to say something to a struggling coworker instead of pretending I have not noticed. Help me bear this burden alongside them without overstepping or gossiping about what I see.$t$,
+ $t$Is there a coworker right now whose struggle you have noticed but not acknowledged? What is stopping you from saying something simple and kind?$t$),
+
+('faking-enthusiasm',
+ 'self',
+ $t$The Exhausting Performance of Positivity$t$,
+ $t$Every customer expects the same energetic, upbeat version of you, regardless of what is actually happening in your life or how you actually feel that day. You have gotten good at performing it — good enough that most people cannot tell the difference — but the performance itself has started to feel like its own kind of exhausting labor, separate from the actual selling.$t$,
+ $t$Scripture does not require constant performed cheerfulness. It asks for genuine love, patience, and presence — which is a different, more sustainable thing than manufactured enthusiasm on demand.$t$,
+ '["Romans 12:9", "1 Peter 4:8", "Ecclesiastes 3:4", "Psalm 62:8"]',
+ $t$Distinguish between professionalism and performance. You can be genuinely present, patient, and attentive to a customer without manufacturing an emotional register you do not feel — warmth does not require artificial enthusiasm. Give yourself permission to be a quieter, calmer version of yourself on hard days, rather than forcing the same high-energy performance regardless of your internal state. If the exhaustion of constant performance has become chronic rather than occasional, that is worth bringing honestly to God, and possibly to a counselor — sustained emotional labor without a place to be honest about it is a real contributor to burnout, not a personal failing to push through silently.$t$,
+ $t$Lord, I am tired of performing an energy I do not always feel. Let me offer customers genuine presence instead of manufactured enthusiasm. Give me a place to be honest about how I actually am, even when I cannot be that honest on the floor.$t$,
+ $t$How much of your daily energy on the floor is genuine versus performed? What would it look like to be present without performing?$t$),
+
+('childs-hard-questions',
+ 'family',
+ $t$Your Kid Overheard a Compromise$t$,
+ $t$Your child overheard part of a phone conversation — you explaining a deal to a coworker in a way that sounded, to a nine-year-old, like you had bent the truth a little to make a sale. Now they are asking direct, uncomfortable questions: "Did you lie to that person, Dad?" You have a choice about how honestly to answer, and about what you actually want them to learn about how you work.$t$,
+ $t$Fathers and mothers are instructed to teach their children diligently, in the ordinary moments of daily life, not just in formal lessons. This is exactly that kind of moment, whether you feel ready for it or not.$t$,
+ '["Deuteronomy 6:6-7", "Ephesians 6:4", "Proverbs 22:6", "Colossians 3:21"]',
+ $t$Do not deflect or minimize the question — kids notice evasion, and it teaches them evasion is the response to hard questions about honesty. If you actually did something you should not have, tell them honestly, in age-appropriate language: "You're right to ask that. I said something that wasn't quite true, and I shouldn't have. I'm going to try to do better." If what they overheard was actually fine and just sounded bad out of context, explain the full context honestly rather than getting defensive. Either way, use the moment to talk plainly about why honesty matters to you, even when it costs something — a conversation that will do more to shape their character than almost anything else you could tell them.$t$,
+ $t$Lord, give me the humility to answer my child's hard questions honestly, even when the honest answer is uncomfortable. Let this moment teach them more about integrity than a hundred lectures could.$t$,
+ $t$If your child asked you today whether you always tell customers the truth, what would you actually say?$t$),
+
+('the-windfall-commission-check',
+ 'money',
+ $t$The Biggest Check You Have Ever Earned$t$,
+ $t$A run of big deals lands all at once, and the commission check that arrives is larger than anything you have earned before — enough to genuinely change your month, maybe your year. The temptation splits two directions at once: either spend it quickly on things you have wanted for a long time, treating it as a reward you have earned and deserve, or hoard it anxiously, afraid a check like this will never come again.$t$,
+ $t$The parable of the talents commends wise stewardship over both reckless spending and fearful hoarding. A windfall is an opportunity to be tested in exactly this way — not whether you have money, but what you do with it.$t$,
+ '["Matthew 25:14-30", "Proverbs 21:20", "1 Timothy 6:17-19", "Luke 12:15"]',
+ $t$Before spending or saving impulsively in either direction, take a week to actually think and pray through a plan: some real celebration is appropriate and not sinful, some real saving for the inevitable slow months is wise, and some real generosity — giving toward something that matters — is a genuinely biblical response to unexpected abundance. Resist the anxiety that says this windfall must be hoarded against a fear-driven future, and resist the impulse that says it must be spent quickly before it feels real. A wise plan, even a simple one, honors both the gift and the God who allowed it.$t$,
+ $t$Lord, thank you for this unexpected provision. Keep me from both reckless spending and fearful hoarding. Give me wisdom to steward this well — with real joy, real saving, and real generosity.$t$,
+ $t$What is your instinct when unexpected money arrives — to spend it, save it, or give it? What would a genuinely balanced response actually look like this time?$t$),
+
+('the-open-recall-question',
+ 'ethics',
+ $t$The Open Recall Nobody Is Asking About$t$,
+ $t$A used vehicle on your lot has an open manufacturer safety recall — nothing dramatic, but a real, documented safety issue that has not yet been fixed. The customer has not asked about recalls, does not seem to know to ask, and is otherwise ready to buy. Volunteering the information might cost you the sale, or at least complicate it. Saying nothing is not technically illegal in every jurisdiction, and no one would necessarily ever know you knew.$t$,
+ $t$Love your neighbor as yourself. You would want to know about an open safety recall on a vehicle you were about to put your own family in — and that standard does not change just because the customer does not know to ask.$t$,
+ '["Mark 12:31", "Leviticus 19:14", "Proverbs 27:12", "1 Thessalonians 4:6"]',
+ $t$Volunteer the information proactively, before they ask, in clear and specific terms: "I want you to know this vehicle has an open recall for [specific issue]. Here's what it involves and how you can get it addressed at no cost through the manufacturer." Do not bury it in fine print or wait to see if they notice on their own. If this is something your dealership systematically does not disclose unless directly asked, that is worth raising with management directly — a safety issue is a different category of disclosure than routine negotiating information, and the standard should not depend on whether the customer happens to think to ask.$t$,
+ $t$Lord, let me treat every customer's safety the way I would want my own family treated. Give me the courage to volunteer what matters, even when silence would be easier and might cost me the sale.$t$,
+ $t$If you knew about a real safety issue a customer had not asked about, would you volunteer it? What would make that harder in the moment than it sounds right now?$t$);
+
+-- ── Fourth reading plan: James 1 ────────────────────────────────────────────
+
+-- "Steadfast" — James 1, 8 days
+INSERT INTO reading_plans (slug, title, subtitle, description, day_count, cover_image_url, is_premium)
+VALUES (
+  'steadfast-james-1',
+  'Steadfast: James 1 for the Hard Days',
+  'Eight days on trials, wisdom, temptation, and the tongue',
+  $t$James wrote to scattered, struggling believers about the ordinary tests of a hard life — trials, doubt, temptation, an unruly tongue, faith that talks more than it acts. All five show up on a sales floor with some regularity. This eight-day plan walks through James 1 verse by verse.$t$,
+  8,
+  null,
+  false
+);
+
+INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
+SELECT id, 1, 'Count It All Joy', 'James 1:2-4', $t$Count it all joy, my brothers, when you meet trials of various kinds, for you know that the testing of your faith produces steadfastness. And let steadfastness have its full effect, that you may be perfect and complete, lacking in nothing.$t$, $t$James does not say trials are joyful. He says to count them as joy — a deliberate act of reframing, not a claim about how the trial feels. The reframing works because of what the trial produces: steadfastness, and eventually completeness, lacking nothing. A hard month on the floor, handled with integrity instead of shortcuts, is doing exactly this kind of work in you, whether or not it feels like joy in the moment.$t$, $t$What trial are you currently in the middle of? What steadfastness might it be producing in you, even if you cannot feel it yet?$t$
+FROM reading_plans WHERE slug = 'steadfast-james-1';
+
+INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
+SELECT id, 2, 'Ask Without Doubting', 'James 1:5-8', $t$If any of you lacks wisdom, let him ask God, who gives generously to all without reproach, and it will be given him. But let him ask in faith, with no doubting, for the one who doubts is like a wave of the sea that is driven and tossed by the wind. For that person must not suppose that he will receive anything from the Lord; he is a double-minded man, unstable in all his ways.$t$, $t$This is one of the most practical promises in Scripture for someone facing a genuinely hard decision: ask God for wisdom, and he gives generously, without reproach — no shame for not already knowing the answer. The warning about doubting is not about intellectual certainty; it is about a divided heart, asking God while simultaneously planning to do whatever you wanted anyway. Wisdom is available for the actual decision in front of you today.$t$, $t$What decision do you need wisdom for right now? Have you actually asked, with a heart genuinely open to the answer, or just gone through the motions?$t$
+FROM reading_plans WHERE slug = 'steadfast-james-1';
+
+INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
+SELECT id, 3, 'The Rich Man Fading Away', 'James 1:9-11', $t$Let the lowly brother boast in his exaltation, and the rich in his humiliation, because like a flower of the grass he will pass away. For the sun rises with its scorching heat and withers the grass; its flower falls, and its beauty perishes. So also will the rich man fade away in the midst of his pursuits.$t$, $t$James flips the usual status math: the lowly should boast in being exalted by God, and the rich should boast in being humbled, because both conditions are temporary and neither is the true measure of a life. "In the midst of his pursuits" is a striking phrase — the rich man fades away not after finishing his pursuits, but right in the middle of them, still chasing. Wealth and low status are both just weather. Neither should be your actual identity.$t$, $t$Whether your income is high or low right now, how much of your identity is actually built on that number? What would it mean to hold it as loosely as James suggests?$t$
+FROM reading_plans WHERE slug = 'steadfast-james-1';
+
+INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
+SELECT id, 4, 'The Crown for Standing the Test', 'James 1:12', $t$Blessed is the man who remains steadfast under trial, for when he has stood the test he will receive the crown of life.$t$, $t$This verse names something the first four verses only implied: there is an actual reward for remaining steadfast, not just a byproduct of character growth. The crown of life is not offered for avoiding trials or for feeling good during them. It is offered for standing the test — remaining faithful in the middle of the hard thing, not despite feeling it, but through it.$t$, $t$What trial are you currently being tested by? What would "standing the test" concretely look like there, today, not just eventually?$t$
+FROM reading_plans WHERE slug = 'steadfast-james-1';
+
+INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
+SELECT id, 5, 'Lured by Your Own Desire', 'James 1:13-15', $t$Let no one say when he is tempted, "I am being tempted by God," for God cannot be tempted with evil, and he himself tempts no one. But each person is tempted when he is lured and enticed by his own desire. Then desire when it has conceived gives birth to sin, and sin when it is fully grown brings forth death.$t$, $t$James traces a specific anatomy of temptation: desire, lured and enticed, conceiving, giving birth, growing to full maturity. It is a slow process, not an instant fall, which means it can be interrupted at any stage before it reaches the end. Naming your own desire honestly — the specific pull toward a shortcut, a lie, a compromise — is the first and easiest place to interrupt the whole sequence, long before it becomes an action you cannot take back.$t$, $t$Can you name the specific desire currently at the earliest stage of this process in you? What would it look like to interrupt it here, rather than waiting until it has grown?$t$
+FROM reading_plans WHERE slug = 'steadfast-james-1';
+
+INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
+SELECT id, 6, 'Quick to Hear, Slow to Speak', 'James 1:19-20', $t$Know this, my beloved brothers: let every person be quick to hear, slow to speak, slow to anger; for the anger of man does not produce the righteousness of God.$t$, $t$This is a simple, three-part instruction that is nonetheless very hard to practice under real pressure — a frustrating customer, an unfair manager, a coworker who wronged you. James does not say anger is always sin; he says human anger does not produce the righteousness of God, which is a claim about effectiveness, not just morality. Quick anger rarely accomplishes what you actually want it to accomplish. Slowness — to speak, to react — creates space for something better than your first impulse.$t$, $t$Where in your work life do you tend to be quickest to speak and slowest to listen? What would practicing this verse's order actually look like there?$t$
+FROM reading_plans WHERE slug = 'steadfast-james-1';
+
+INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
+SELECT id, 7, 'Doers, Not Just Hearers', 'James 1:22-25', $t$But be doers of the word, and not hearers only, deceiving yourselves. For if anyone is a hearer of the word and not a doer, he is like a man who looks intently at his natural face in a mirror. For he looks at himself and goes away and at once forgets what he was like. But the one who looks into the perfect law, the law of liberty, and perseveres, being no hearer who forgets but a doer who acts, he will be blessed in his doing.$t$, $t$The mirror image is exact and a little uncomfortable: hearing without doing is like glancing in a mirror and immediately forgetting what you look like. A devotional read in the morning and forgotten by the first customer of the day is exactly this kind of hearing. James is not against hearing the word — he is against hearing it as the whole transaction, rather than as the beginning of one that continues into actual doing.$t$, $t$What is one specific thing you have "heard" from Scripture recently that you have not yet actually done? What would doing it, today, look like?$t$
+FROM reading_plans WHERE slug = 'steadfast-james-1';
+
+INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
+SELECT id, 8, 'Religion That Is Pure', 'James 1:26-27', $t$If anyone thinks he is religious and does not bridle his tongue but deceives his heart, this person's religion is worthless. Religion that is pure and undefiled before God the Father is this: to visit orphans and widows in their affliction, and to keep oneself unstained from the world.$t$, $t$James closes the chapter by defining true religion in two concrete, almost startlingly practical terms: bridle your tongue, and actually care for people who cannot repay you — the orphan and the widow, the vulnerable with no leverage to offer back. Nothing here is abstract or purely internal. It shows up in what you say about people and how you treat people who have nothing to give you in return, both squarely within reach on an ordinary workday.$t$, $t$Where does your tongue most need bridling at work? Who is the "orphan or widow" in your world — someone with nothing to offer you back — that you could actually serve this week?$t$
+FROM reading_plans WHERE slug = 'steadfast-james-1';
+
+-- ── 6 more Saturday Ready entries, extending weekly coverage ──────────────
+
+-- ── 6 MORE SATURDAY READY ENTRIES ───────────────────────────────────────────
+
+INSERT INTO saturday_ready (release_date, theme, scripture_reference, scripture_text, preparation_body, three_commitments, prayer, is_premium)
+VALUES
+
+('2026-09-12',
+ $t$Have I Not Commanded You?$t$,
+ $t$Joshua 1:9$t$,
+ $t$Have I not commanded you? Be strong and courageous. Do not be frightened, and do not be dismayed, for the Lord your God is with you wherever you go.$t$,
+ $t$Joshua received this command standing at the edge of an enormous, genuinely frightening task, with no track record yet of his own to draw confidence from. The command to be strong and courageous is not conditioned on Joshua already feeling strong or courageous — it is given as an instruction to obey regardless of the feeling, backed by a promise: the Lord your God is with you wherever you go. Tomorrow's Saturday will bring its own version of Joshua's edge-of-something-big feeling — a big day, a demanding schedule, customers and pressure stacked up before you have even walked in the door. Courage tomorrow does not require confidence tomorrow. It requires obedience to this command, backed by the same presence Joshua was promised.$t$,
+ '["I will act with courage tomorrow even in moments I do not feel confident.", "I will remind myself specifically, at least once, that God is with me wherever I go on the floor.", "I will not let fear of a hard interaction keep me from having it honestly."]',
+ $t$Lord, tomorrow will ask for strength and courage I do not always feel I have. Command me the way you commanded Joshua, and back it with the same promise — that you are with me wherever tomorrow takes me.$t$,
+ false),
+
+('2026-09-19',
+ $t$Search Me and Know My Heart$t$,
+ $t$Psalm 139:23-24$t$,
+ $t$Search me, O God, and know my heart! Try me and know my thoughts! And see if there be any grievous way in me, and lead me in the way everlasting!$t$,
+ $t$David's prayer here is not comfortable. He is inviting God to search him — not a general invitation to be blessed or helped, but a specific request to be examined, tried, and shown any grievous way that needs correcting. Most preparation for a hard day focuses outward: what will customers need, what will the schedule demand. This prayer turns the search inward, before the day even starts, asking God to reveal what in you might need to change before you walk onto the lot. It is a vulnerable way to begin a Saturday, and also a genuinely useful one — better to have a grievous way named quietly in prayer this morning than to have it surface loudly in front of a customer this afternoon.$t$,
+ '["I will pray this exact prayer honestly before I clock in tomorrow, and actually wait for an answer.", "I will be willing to hear something uncomfortable if God shows me a grievous way in me.", "I will ask God to lead me in the way everlasting throughout tomorrow, not just to fix what is wrong."]',
+ $t$Lord, search me before tomorrow starts. Show me any grievous way in me, honestly, even if it is uncomfortable to see. Lead me in the way everlasting through everything tomorrow brings.$t$,
+ false),
+
+('2026-09-26',
+ $t$The Whole Armor of God$t$,
+ $t$Ephesians 6:10-11$t$,
+ $t$Finally, be strong in the Lord and in the strength of his might. Put on the whole armor of God, that you may be able to stand against the schemes of the devil.$t$,
+ $t$Paul's image is deliberately active — putting on armor is something you do, a preparation undertaken before the battle, not a passive hope that things will go fine. Saturday is a spiritual battlefield in ways that are easy to underestimate: the schemes that show up are not usually dramatic temptations, but ordinary ones — the small compromise, the flash of anger, the quiet erosion of patience over ten straight hours. "Be strong in the Lord and in the strength of his might," not your own, is the actual source Paul points to. The armor is not something you manufacture through willpower. It is something you put on, deliberately, by staying close to the one whose strength it actually is.$t$,
+ '["I will spend a few minutes tomorrow morning deliberately \"putting on\" God''s strength through prayer before I start.", "I will recognize temptation tomorrow as a real scheme to resist, not just a neutral impulse to indulge.", "I will lean on God''s strength specifically in the moment I feel my own running out."]',
+ $t$Lord, tomorrow is a real battlefield, even in ordinary, unremarkable ways. Let me be strong in you, not in my own strength. Clothe me in what I need to stand against what tomorrow brings.$t$,
+ false),
+
+('2026-10-03',
+ $t$Do Not Be Anxious About Tomorrow's Numbers$t$,
+ $t$Philippians 4:6-7$t$,
+ $t$Do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus.$t$,
+ $t$Paul's instruction covers "anything," not a curated list of acceptable worries — which means it covers the very ordinary anxiety of wondering how tomorrow's numbers will look, whether the month will come together, whether the pressure from the desk will ease or intensify. The prescription is specific: prayer, supplication, and thanksgiving, all three together, not just venting the anxiety but bringing it with gratitude already mixed in. The promised result is not the removal of every uncertain outcome. It is a peace that guards your heart and mind regardless of the outcome — available before you know how tomorrow actually goes, not only after.$t$,
+ '["I will name my specific anxiety about tomorrow honestly in prayer tonight, with real thanksgiving mixed in.", "I will notice if I am carrying anxiety about numbers I cannot control, and consciously release it.", "I will let God''s peace guard my heart before tomorrow''s outcome is even known, not only after."]',
+ $t$Lord, I bring you my specific anxiety about tomorrow, with thanksgiving woven through it. Guard my heart and mind with your peace before I even know how the day will go.$t$,
+ false),
+
+('2026-10-10',
+ $t$Running to Win, Not Just to Finish$t$,
+ $t$1 Corinthians 9:24-25$t$,
+ $t$Do you not know that in a race all the runners run, but only one receives the prize? So run that you may obtain it. Every athlete exercises self-control in all things. They do it to receive a perishable wreath, but we an imperishable.$t$,
+ $t$Paul draws on the discipline of an athlete — deliberate, sustained self-control across every area, not just during the competition itself — as a picture of how believers should approach their calling. Self-control "in all things" is the phrase worth sitting with before a demanding Saturday: not just self-control at the moment of temptation, but a whole pattern of disciplined living that makes faithfulness in the big moment more natural because it was already being practiced in the small ones. The athlete trains for a wreath that fades. Your self-control tomorrow is aimed at something that does not.$t$,
+ '["I will exercise self-control tomorrow in something small and unwatched, not just the obvious big moments.", "I will treat tomorrow as training, not just performance — building a pattern, not just getting through one day.", "I will remember the imperishable prize I am actually running for, especially when the perishable one (the sale, the number) is tempting me to cut a corner."]',
+ $t$Lord, train me in self-control that runs through all of tomorrow, not just the obvious moments. Let me run toward the imperishable prize, even when the perishable one is right in front of me.$t$,
+ true),
+
+('2026-10-17',
+ $t$A God Who Delights in Steadfast Love$t$,
+ $t$Micah 7:18$t$,
+ $t$Who is a God like you, pardoning iniquity and passing over transgression for the remnant of his inheritance? He does not retain his anger forever, because he delights in steadfast love.$t$,
+ $t$Micah asks this as a genuine question of amazement — who is a God like this, one who does not retain anger, who delights in steadfast love rather than reluctantly tolerating his people. That posture matters heading into a day where you will inevitably fall short of your own intentions somewhere — an impatient word, a moment of pride, a small compromise you did not plan on. God's response to your failure tomorrow is not reluctant tolerance. Micah says he delights in steadfast love. Whatever tomorrow actually looks like, however it goes, that is the God you are walking onto the lot with.$t$,
+ '["I will extend to myself the same steadfast love God delights in, instead of harsh self-judgment, when I fall short tomorrow.", "I will extend the same grace to a coworker or customer who falls short of what I expect from them.", "I will end tomorrow by naming one thing I am grateful God passed over rather than held against me."]',
+ $t$Lord, you delight in steadfast love, not reluctant tolerance. When I fall short tomorrow, let me remember who you actually are toward me. Let that same grace shape how I treat the people I encounter.$t$,
+ false);

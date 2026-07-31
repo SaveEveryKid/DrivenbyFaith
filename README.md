@@ -91,22 +91,25 @@ supabase/
 `supabase/seed.sql` ships with a full content library, ESV quotations verified
 against Bible Gateway:
 
-- **74 daily devotionals** (6 premium) — continuous coverage from 2026-07-30
-  through 2026-10-11.
-- **21 situation guides**, 3 in each of the 7 categories (customer,
+- **100 daily devotionals** (7 premium) — continuous coverage from
+  2026-07-30 through 2026-11-06, over 14 weeks with no repeated scripture
+  reference.
+- **28 situation guides**, 4 in each of the 7 categories (customer,
   management, coworker, self, family, money, ethics), each with a scripted
   practical response, not just commentary.
-- **3 reading plans** (37 days total): *Abide* (John 15, 21 days), *Fruit on
-  the Floor* (Galatians 5, 9 days), and *A Business Proverb a Day* (Proverbs
-  16, 7 days, premium).
-- **9 Saturday Ready entries**, one per week.
+- **4 reading plans** (45 days total): *Abide* (John 15, 21 days), *Fruit on
+  the Floor* (Galatians 5, 9 days), *A Business Proverb a Day* (Proverbs 16,
+  7 days, premium), and *Steadfast* (James 1, 8 days).
+- **15 Saturday Ready entries**, one per week, spanning the same range as
+  the devotionals.
 
 Devotionals and Saturday Ready are served through `get_todays_devotional()`
 and `get_current_saturday_ready()` (see migration 003), which rotate through
 the library by day/week offset instead of matching an exact calendar date —
 so the app never runs dry once the last seeded date passes, regardless of
-how large the library eventually grows. 74 days is still well short of a
-full year; growing this library is ongoing, not a one-time pass.
+how large the library eventually grows. 100 days is closer to a full year
+but still short of it — growing this library further is ongoing, not a
+one-time pass.
 
 ## Status
 
