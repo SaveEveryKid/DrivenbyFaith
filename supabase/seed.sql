@@ -1,14 +1,12 @@
 -- =============================================================================
 -- Seed data for Driven by Faith
--- 14 devotionals (2 premium), 2 situations, 1 reading plan, 1 Saturday Ready
+-- 60 devotionals (10-12 premium), scheduled daily from 2026-07-30
 -- =============================================================================
-
--- ── 14 DEVOTIONALS ──────────────────────────────────────────────────────────
 
 INSERT INTO devotionals (publish_date, title, scripture_reference, scripture_text, translation, workplace_application, reflection_prompt, prayer, challenge, is_premium)
 VALUES
 
--- Day 1 (2026-07-30)
+-- Day 1 — Integrity
 ('2026-07-30',
  'The Quiet Cost of Honesty',
  'Proverbs 11:1',
@@ -20,7 +18,7 @@ VALUES
  'Today, before you speak to any customer, pause for five seconds and ask yourself: is what I am about to say completely true? Do not proceed until the answer is yes.',
  false),
 
--- Day 2 (2026-07-31)
+-- Day 2 — Burnout
 ('2026-07-31',
  'When the Floor Drains You',
  '1 Kings 19:4-5',
@@ -32,7 +30,7 @@ VALUES
  'Identify one thing you do to recover after a hard week that actually restores you, and one thing you do that just numbs. Do the first one today, on purpose.',
  false),
 
--- Day 3 (2026-08-01)
+-- Day 3 — Anger
 ('2026-08-01',
  'The Anger You Cannot Show',
  'Ephesians 4:26-27',
@@ -44,7 +42,7 @@ VALUES
  'Before you go to sleep tonight, name your anger out loud to God — by name, without sanitizing it. Let the day end with honesty, not suppression.',
  false),
 
--- Day 4 (2026-08-02)
+-- Day 4 — Identity
 ('2026-08-02',
  'Who You Are When No One Is Buying',
  'Colossians 3:23-24',
@@ -56,7 +54,7 @@ VALUES
  'Today, do one thing on the floor purely because it is the right thing to do — follow up a dead lead with genuine care, help a coworker with no expectation of return, clean a car on the lot that is not yours — with no expectation of a deal.',
  false),
 
--- Day 5 (2026-08-03)
+-- Day 5 — Fear
 ('2026-08-03',
  'The Fear Beneath the Grind',
  'Psalm 55:4-5',
@@ -68,7 +66,7 @@ VALUES
  'Write down the worst-case scenario you are afraid of. Then write down what would still be true about God if it happened. Sit with both.',
  false),
 
--- Day 6 (2026-08-04)
+-- Day 6 — Comparison
 ('2026-08-04',
  'The Comparison Trap',
  'John 21:21-22',
@@ -80,7 +78,7 @@ VALUES
  'The next time you catch yourself comparing your numbers, your deals, or your life to someone else, say "What is that to me?" out loud — even if only under your breath.',
  false),
 
--- Day 7 (2026-08-05)
+-- Day 7 — Service
 ('2026-08-05',
  'Serving the Unpleasant Customer',
  'Matthew 5:43-45',
@@ -92,7 +90,7 @@ VALUES
  'Pray for one difficult customer by name today. Not that they buy a car. That they would experience God''s goodness in whatever they are facing.',
  false),
 
--- Day 8 (2026-08-06)
+-- Day 8 — Money
 ('2026-08-06',
  'When the Deal Dies on the Desk',
  'Habakkuk 3:17-18',
@@ -104,19 +102,19 @@ VALUES
  'Think of one thing God has done in your life that is completely unrelated to your job or income. Thank him for it specifically.',
  false),
 
--- Day 9 (2026-08-07)
+-- Day 9 — Rest
 ('2026-08-07',
  'Rest Is Not Laziness',
  'Exodus 20:8-10',
  'Remember the Sabbath day, to keep it holy. Six days you shall labor, and do all your work, but the seventh day is a Sabbath to the Lord your God.',
  'ESV',
- 'The car business does not stop. Saturdays are the biggest days. Sundays are "optional" in name only. The phone rings. The CRM alerts never stop. The pressure to be available — always available — is woven into the culture. Sabbath is the one of the Ten Commandments. It sits between "do not murder" and "honor your parents." Yet many Christians in sales treat it as optional, a nice idea that does not apply to their industry. The command is not a suggestion about work-life balance. It is a theological statement: you are not God. The world does not depend on your productivity. The dealership will survive without you for one day. More than survive — God built the rhythm of rest into creation itself, before sin entered the world, before there was any work to recover from. Rest is not laziness. It is an act of trust. It declares that your identity is not your production and your security is not your hustle. For salespeople, observing Sabbath may require hard conversations with management and real financial sacrifice. It may mean a smaller paycheck. But the alternative is a life where your soul never catches up to your body.',
+ 'The car business does not stop. Saturdays are the biggest days. Sundays are "optional" in name only. The phone rings. The CRM alerts never stop. The pressure to be available — always available — is woven into the culture. Sabbath is one of the Ten Commandments. It sits between "do not murder" and "honor your parents." Yet many Christians in sales treat it as optional, a nice idea that does not apply to their industry. The command is not a suggestion about work-life balance. It is a theological statement: you are not God. The world does not depend on your productivity. The dealership will survive without you for one day. More than survive — God built the rhythm of rest into creation itself, before sin entered the world, before there was any work to recover from. Rest is not laziness. It is an act of trust. It declares that your identity is not your production and your security is not your hustle. For salespeople, observing Sabbath may require hard conversations with management and real financial sacrifice. It may mean a smaller paycheck. But the alternative is a life where your soul never catches up to your body.',
  'Do you have a genuine day of rest? If not, what is the real reason — and what would need to change?',
  'God, I confess that I have treated rest as weakness and hustle as virtue. The floor tells me I cannot afford to stop. Your word tells me I cannot afford not to. Give me the courage to trust you with a day.',
  'Identify one non-negotiable block of rest in the next seven days — even if it is just a half-day. Protect it. Do not check the CRM.',
  false),
 
--- Day 10 (2026-08-08)
+-- Day 10 — Integrity
 ('2026-08-08',
  'Temptation on the Floor',
  '1 Corinthians 10:13',
@@ -128,7 +126,7 @@ VALUES
  'Identify your most common point of temptation and plan a specific escape route for it. Tell one trusted person what it is.',
  false),
 
--- Day 11 (2026-08-09)
+-- Day 11 — Integrity
 ('2026-08-09',
  'When You Are the Only One Trying to Do Right',
  'Daniel 1:8',
@@ -140,7 +138,7 @@ VALUES
  'Identify one area where you have been going along with the culture of the floor against your conscience. Make a specific, private resolution to change your own conduct — no announcement needed.',
  false),
 
--- Day 12 (2026-08-10)
+-- Day 12 — Money (premium)
 ('2026-08-10',
  'Gratitude When the Month Is Bad',
  '1 Thessalonians 5:16-18',
@@ -152,7 +150,7 @@ VALUES
  'Before you check your phone tomorrow morning, name three specific things you are grateful for. Do it out loud. Do it every day this week.',
  true),
 
--- Day 13 (2026-08-11)
+-- Day 13 — Integrity
 ('2026-08-11',
  'The Apology You Owe',
  'Matthew 5:23-24',
@@ -164,7 +162,7 @@ VALUES
  'If someone came to mind while reading this, reach out today. Not a text. A phone call or a face-to-face conversation. Do not wait.',
  false),
 
--- Day 14 (2026-08-12)
+-- Day 14 — Stewardship (premium)
 ('2026-08-12',
  'Your Real Boss',
  'Colossians 4:1',
@@ -174,140 +172,570 @@ VALUES
  'If you are a manager: how do you treat the people under your authority when no one else is watching? If you are not: who are you representing with your conduct today?',
  'Father, I answer to you before I answer to any person on this floor. Help me treat every person I encounter — customer, coworker, manager, porter — with the fairness and dignity that you require.',
  'Today, treat the person with the least power on the lot — the lot attendant, the detailer, the receptionist — with the same respect you would give the owner. Notice how it changes your own heart.',
- true);
+ true),
 
--- ── 2 SITUATIONS ───────────────────────────────────────────────────────────
+-- Day 15 — Service
+('2026-08-13',
+ 'The Customer Is Not the Enemy',
+ 'Romans 12:18',
+ 'If possible, so far as it depends on you, live peaceably with all.',
+ 'ESV',
+ 'Paul offers a remarkably measured command. Live peaceably with all — but he immediately qualifies it: "if possible, so far as it depends on you." He knows that peace sometimes requires two willing parties, and you are only one of them. On the sales floor, this is freeing. You cannot control whether a customer trusts you. You cannot control whether they come in with their guard up, primed by bad experiences at other dealerships. You cannot control whether they are fair to you. What you can control is your side of the interaction. You can be honest. You can be patient. You can refuse to escalate when they are rude. Whether they respond with peace is their responsibility, not yours. Do what depends on you, and release what does not.',
+ 'Think of a recent interaction where you matched a customer''s hostility. What could you have done differently on your side?',
+ 'Lord, I confess how easily I treat difficult customers as adversaries rather than as people you love. Help me do what depends on me — peace — and leave the rest in your hands.',
+ 'The next time a customer is hostile, pause for three seconds and ask silently: "What depends on me right now?" Then do only that.',
+ false),
 
-INSERT INTO situations (slug, category, title, situation_body, biblical_principle, scripture_refs, practical_response, prayer, reflection_question)
-VALUES
+-- Day 16 — Burnout
+('2026-08-14',
+ 'He Restores My Soul',
+ 'Psalm 23:2-3',
+ 'He makes me lie down in green pastures. He leads me beside still waters. He restores my soul.',
+ 'ESV',
+ 'David was a shepherd, not a salesperson. But he knew what it was like to be hunted, pressured, and exhausted. And he describes God not as a demanding boss but as a shepherd who makes him lie down. The verb is active: God makes him rest. This is not a suggestion. It is a provision. Many salespeople have lost the ability to rest without guilt. The phone buzzes and the mind starts running — who is it, what do they want, am I missing something? The green pastures and still waters of Psalm 23 are not a vacation destination. They are the daily provision of a shepherd who knows his sheep need restoration as much as they need direction. If you cannot remember the last time your soul felt quiet, that is not a mark of your dedication. It is a warning that you have been running on reserves that were meant to be replenished. The shepherd is still making you lie down. The question is whether you will stay there long enough for him to restore you.',
+ 'When was the last time your soul felt genuinely quiet — not distracted, not numbed, but quiet?',
+ 'Shepherd, I have forgotten how to rest. The noise of the floor follows me home. Make me lie down. Lead me beside the still waters I have been too busy to notice. Restore what the grind has worn thin.',
+ 'Turn your phone off for thirty consecutive minutes today — not on silent, off. Use the time for something that restores your soul, not your productivity.',
+ false),
 
-('padding-the-payment',
- 'ethics',
- 'The Finance Manager Wants You to Pad the Payment',
- 'You have a customer ready to sign. The payment quoted was $487. Finance comes back and says they need to present it at $512 — "just a cushion, standard practice, everyone does it." The customer will qualify either way. The extra $25 a month will not change their life. But you know the real payment is $487, and $512 is not the number you quoted. Your finance manager is also the person who assigns your deals and controls your workflow. Saying no could make your life difficult in ways that are hard to prove but easy to feel.',
- 'God sees the scale itself, not just the transaction. Integrity is not measured by whether anyone will catch you — it is measured by whether the weight is true.',
- '["Proverbs 11:1", "Proverbs 16:11", "Micah 6:10-11", "Colossians 3:9-10"]',
- 'Ask the finance manager directly: "Is $512 the actual payment, or is that padded? I need to know what to tell the customer." If the answer confirms padding, say: "I cannot present a number I know is inflated. If there is a legitimate reason for the difference, walk me through it." If there is no legitimate reason, ask if there is a way to present the real number. Be prepared for pushback. Document the interaction. If this is a pattern, consider whether this is the right store for you — but do not assume leaving is always the answer. Sometimes staying and doing right, quietly, over time, changes the culture around you.',
- 'Lord, give me the courage to be honest when it costs me. Protect me from retaliation that I cannot control. Help me trust that your provision is not dependent on compromised integrity.',
- 'If you were in this situation tomorrow, what is the first thing you would say? Practice it out loud right now.'),
+-- Day 17 — Anger
+('2026-08-15',
+ 'Slow to Anger',
+ 'James 1:19-20',
+ 'Know this, my beloved brothers: let every person be quick to hear, slow to speak, slow to anger; for the anger of man does not produce the righteousness of God.',
+ 'ESV',
+ 'James gives a three-part formula that is easy to remember and hard to execute: quick to hear, slow to speak, slow to anger. On the sales floor, the sequence is usually reversed. Quick to anger — at the customer who is wasting your time, at the manager who changed the deal, at the coworker who took your up. Slow to speak — you bite your tongue until it festers. Quick to hear? Only what confirms your frustration. James adds a reason: human anger does not produce God''s righteousness. It does not make you more like Jesus. It does not advance the Kingdom. It does not make you a better witness. The anger feels justified — and sometimes it even is. But the fruit it produces is always the same: distance, resentment, a hard heart. Being slow to anger is not about suppressing emotion. It is about refusing to let anger run the show.',
+ 'When was the last time your anger produced something good — not just relief, but something genuinely fruitful?',
+ 'Lord, I am quick to anger and slow to listen. Reverse it. Give me ears that hear before my mouth speaks. Let your righteousness, not my frustration, shape how I respond to the provocations of the floor.',
+ 'The next time you feel anger rising on the floor, say nothing for ten full seconds. Count them. Then decide what to say.',
+ false),
 
-('the-impossible-customer',
- 'customer',
- 'The Customer Who Will Never Be Happy',
- 'You have spent four hours with a customer. You have shown seven cars. You have sharpened your pencil twice. You have gotten the desk to throw in floor mats, a tank of gas, and a detail. The customer is still not satisfied. They want another $500 off. They want to think about it overnight. They want to bring their son-in-law who "knows cars." You are exhausted. You have other ups waiting. Part of you wants to tell them to go buy somewhere else. Another part of you sees a commission that is slipping away after you have already invested the entire morning.',
- 'Your work is service to Christ before it is service to a customer. The customer''s difficult behavior does not release you from patience and kindness — but neither does it require you to be a doormat.',
- '["Colossians 3:23-24", "Proverbs 15:1", "Romans 12:18", "Galatians 6:9"]',
- 'Set a gracious boundary. Say something like: "I want to make sure you feel confident in your decision. I have shown you everything we have that fits your criteria. The numbers I have given you are the best I can do. If you need time to think, I respect that completely. Here is my card — reach out when you are ready, and I will pick up right where we left off." Then let go of the outcome. You have served them well. You do not need this deal to validate your effort. Turn your attention to the next person who needs your help.',
- 'Jesus, give me patience with difficult people without turning me into a pushover. Help me serve with integrity, set boundaries with grace, and release outcomes to you.',
- 'What is a phrase you can prepare in advance for the next time a customer is stuck in an endless loop, so you can exit gracefully without burning the relationship?');
+-- Day 18 — Customers
+('2026-08-16',
+ 'Every Person Is an Image-Bearer',
+ 'Genesis 1:27',
+ 'So God created man in his own image, in the image of God he created him; male and female he created them.',
+ 'ESV',
+ 'This is the most foundational truth about every person who walks onto your lot: they are made in the image of God. Not some of them. Not the nice ones. Not the ones with good credit. Every person. The customer who is rude to you. The one who lied about the trade-in. The one who wasted your Saturday and bought somewhere else. All of them bear the image of the God who made them. That does not mean their behavior is acceptable. It means their worth is not determined by their behavior. The image of God is not something they earn or lose. It is stamped into their existence. When you look at a customer and see an obstacle to a commission, you are seeing less than the whole truth. When you look at the same customer and see someone who reflects — however dimly — the God who made them, your entire posture changes. You are not just selling a car. You are interacting with something sacred.',
+ 'Think of the most difficult customer you have ever dealt with. Can you see the image of God in them, even now? What would it mean to treat them accordingly?',
+ 'Creator God, every person who walks onto this lot bears your image. Forgive me for reducing them to deals, credit scores, and commissions. Give me eyes that see what you see. Let me treat every person as someone you made and love.',
+ 'The next time you greet a customer, silently acknowledge: "This person bears the image of God." See if it changes how you interact.',
+ false),
 
--- ── 1 READING PLAN: "Abide: John 15 in 21 Days" ────────────────────────────
+-- Day 19 — Fear
+('2026-08-17',
+ 'Do Not Be Afraid of Sudden Terror',
+ 'Proverbs 3:25-26',
+ 'Do not be afraid of sudden terror or of the ruin of the wicked, when it comes, for the Lord will be your confidence and will keep your foot from being caught.',
+ 'ESV',
+ 'The car business is full of sudden terror. The customer who calls in sick to their own delivery. The deal that unwinds in funding. The manufacturer incentive that changes overnight and undercuts your pipeline. The manager who announces a new pay plan on the first of the month. Proverbs speaks directly to the person whose livelihood can change without warning: do not be afraid of sudden terror. The reason is not that sudden terror will not come. It will. The reason is that the Lord is your confidence. Not your sales skills. Not your pipeline. Not your relationship with the desk. The Lord. When your confidence is in the right place, sudden reversals lose their power to undo you. They still hurt. They still cost you money. But they do not shake the foundation. Your foot is kept from the snare — not because the snare disappeared, but because Someone is holding you up.',
+ 'What "sudden terror" are you most anxious about on the floor right now? Where is your confidence truly placed?',
+ 'God, the floor can change in an afternoon. My confidence should not. Be my security when the numbers swing and the ground shifts. Keep my foot from the snare of fear.',
+ 'Identify the worst-case scenario you are bracing for. Ask yourself: if it happened, would God still be God? Would he still be good? Sit with the answer.',
+ false),
 
-INSERT INTO reading_plans (slug, title, subtitle, description, day_count, cover_image_url, is_premium)
-VALUES (
-  'abide-john-15',
-  'Abide: John 15 in 21 Days',
-  'Learning to stay connected to the vine',
-  'Jesus said "apart from me you can do nothing." For people in a high-performance, high-pressure profession, these are either the most freeing or the most frustrating words in Scripture. This 21-day plan walks through John 15 one phrase at a time, exploring what it means to abide in Christ not as a religious exercise but as the source of everything — including how we show up on the showroom floor.',
-  21,
-  null,
-  false
-);
+-- Day 20 — Patience
+('2026-08-18',
+ 'Waiting When the Floor Is Dead',
+ 'Psalm 27:14',
+ 'Wait for the Lord; be strong, and let your heart take courage; wait for the Lord!',
+ 'ESV',
+ 'Waiting is active in the Psalms. It is not passive resignation. It is strength. It is courage. When the floor is dead — no traffic, the CRM is dry, the phone is silent — waiting feels like failure. Every minute that passes without an up feels like evidence that you are doing something wrong, or that this career was a mistake. But Psalm 27 reframes waiting as an act of strength. You are not waiting for a customer. You are waiting for the Lord. The distinction matters. Waiting for a customer is anxiety-producing because customers are unpredictable. Waiting for the Lord is anchoring because the Lord is not. He will act. He will provide. He will direct. The courage is not in making something happen. The courage is in staying faithful when nothing is happening. Use the dead hours to pray, to study, to prepare, to serve someone who cannot pay you back. That is not wasted time. It is active waiting.',
+ 'When the floor is dead, what do you do with the time — and what does that say about where your hope is?',
+ 'Lord, I hate waiting. The silence of a dead floor makes me anxious and restless. Teach me to wait actively — to use the lull for prayer, preparation, and service rather than panic.',
+ 'Next time the floor is dead for an hour, spend ten minutes praying for your customers, your coworkers, and your own heart — before you pick up the phone.',
+ false),
 
--- 21 reading plan days
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 1, 'The True Vine', 'John 15:1', 'I am the true vine, and my Father is the vinedresser.', 'Jesus begins with who he is, not what we should do. Before any command about bearing fruit or abiding, he establishes his identity. He is the true vine — the source of life, growth, and fruit. The adjective "true" matters. There are false vines: achievement, approval, income, reputation. Every salesperson knows the pull of measuring life by the board. Jesus claims to be the real source, the one vine that actually delivers what it promises. The Father is the vinedresser — the one who tends, prunes, and cares for the branches. Your growth is not your project alone. The vinedresser is involved.', 'Consider the "vines" you have been attached to this week besides Christ. What have you been drawing life from — your numbers, your reputation, your relationships? Name them honestly.'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 21 — Family
+('2026-08-19',
+ 'The People Waiting at Home',
+ 'Ephesians 5:25',
+ 'Husbands, love your wives, as Christ loved the church and gave himself up for her.',
+ 'ESV',
+ 'The dealership demands your presence on Saturdays — the biggest sales day of the week. But Saturday is also the day your family is home. Your spouse is managing the household alone. Your kids have games you are missing. The tension is real, and it does not resolve neatly. Paul''s command to husbands to love as Christ loved the church sets a standard that applies to every relationship, not just marriage. Christ''s love was sacrificial — he gave himself. That means your family deserves your best energy, not just the leftovers after the floor has taken everything. This does not mean quitting your job or refusing to work Saturdays. It means being intentional about what you bring home. Can you leave the frustration on the lot? Can you be present for the hour you have rather than resenting the hours you do not? Tomorrow, the people at home need you, not just your paycheck.',
+ 'What do you bring home from the lot that your family should not have to carry?',
+ 'Jesus, you gave yourself for the people you love. Help me give my family more than my tired leftovers. Protect my heart from the resentment that builds when the floor takes what my family needs.',
+ 'Tonight, give your family one uninterrupted hour — no phone, no CRM, no replaying deals. Be fully where your feet are.',
+ false),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 2, 'The Branch That Bears No Fruit', 'John 15:2', 'Every branch in me that does not bear fruit he takes away.', 'This is a hard verse. It can sound like a threat — produce or else. But the Greek word for "takes away" (airo) can also mean "lifts up." In vineyard practice, a branch that was not bearing fruit was lifted off the ground, cleaned, and retrained onto the trellis. The vinedresser does not discard unfruitful branches casually; he tends them. If you are in a dry season — spiritually, professionally, emotionally — this verse is not a warning that you are about to be cut off. It is an invitation to be lifted up and repositioned by the one who tends you with care.', 'Where do you feel unfruitful right now? Instead of hiding it, bring it to God and ask: "Are you lifting me up? What are you repositioning?"'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 22 — Service
+('2026-08-20',
+ 'The Towel and the Basin',
+ 'John 13:14-15',
+ 'If I then, your Lord and Teacher, have washed your feet, you also ought to wash one another''s feet. For I have given you an example, that you also should do just as I have done to you.',
+ 'ESV',
+ 'Jesus washed feet. This was the job of the lowest servant in the household. Feet were dirty. The task was humiliating. And Jesus — the one through whom all things were created — got on his knees with a towel and a basin. Then he told his disciples to do the same. On the dealership floor, the equivalent might be cleaning a trade-in when the detailer is swamped. It might be grabbing coffee for a coworker who is buried. It might be taking a lost customer''s call when no one else wants to. It might be training the new hire nobody else has time for. These acts will not close a deal. They will not show up on the leaderboard. But they are exactly the kind of thing Jesus said would mark his followers. Greatness in the Kingdom is measured downward, not upward. The person who serves is the one who understands what Jesus was doing with that towel.',
+ 'What is the "foot washing" on your lot — the task nobody wants to do that would quietly serve someone else?',
+ 'Jesus, you washed feet. I want a clean desk and a fat commission check. Reorder my ambitions. Show me where I can serve today — not for recognition, but because you did it first.',
+ 'Do one task on the lot today that is below your pay grade and helps someone else. Do not tell anyone you did it.',
+ false),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 3, 'The Pruning That Hurts', 'John 15:2b', 'And every branch that does bear fruit he prunes, that it may bear more fruit.', 'Pruning is not punishment. The branches that get pruned are the ones already bearing fruit. But pruning still hurts. It involves cutting away things that are alive — good things, productive things — so that what remains can produce even more. On the sales floor, pruning might look like losing an account you counted on, being passed over for a promotion, or having to let go of a side pursuit that was draining energy from what matters most. The pain does not mean God is angry. It means he is investing in greater fruitfulness.', 'What might God be pruning in your life right now? Is there something good that needs to be cut back so something better can grow?'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 23 — Money
+('2026-08-21',
+ 'Contentment Is Learned',
+ 'Philippians 4:11-12',
+ 'Not that I am speaking of being in need, for I have learned in whatever situation I am to be content. I know how to be brought low, and I know how to abound. In any and every circumstance, I have learned the secret of facing plenty and hunger, abundance and need.',
+ 'ESV',
+ 'Paul says contentment is learned. It is not a personality trait. It is not something you are born with or without. It is a skill developed over time through both plenty and hunger. For someone in a commission-based career, this is crucial. The income swings are real. A $20,000 month can be followed by a $2,000 month. If your emotional state tracks your income, you are in for a volatile life. Paul''s "secret" is not a technique. It is a person: "I can do all things through him who strengthens me" (v. 13). Contentment is not pretending the low months do not hurt. It is learning — through repetition, through failure, through grace — that your life does not consist in the abundance of your possessions. The discipline of contentment is practiced in the low months and tested in the high ones. Both are classrooms.',
+ 'What would it look like to practice contentment this month — regardless of what the board says?',
+ 'Jesus, I want to learn contentment. Not as a coping mechanism for bad months, but as a settled conviction that you are enough. Teach me in both the lean times and the fat ones. Let my peace not depend on my commission.',
+ 'The next time you check your bank account or your pipeline, pause and say: "Christ is enough." Mean it.',
+ false),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 4, 'Already Clean', 'John 15:3', 'Already you are clean because of the word that I have spoken to you.', 'Before any command to abide, Jesus tells his disciples they are already clean. The cleaning is not something they achieve by abiding; it is something they have already received through his word. This is the gospel sequence: God acts first. You do not clean yourself up to come to Jesus. He cleans you, then invites you to stay. For the salesperson who feels stained by the compromises of the floor, this is liberating. You are already clean. Not because you have been perfect. Because his word has declared you clean.', 'Do you carry guilt or shame from things you have done on the floor? Hear Jesus say: "Already you are clean." What would change if you believed that?'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 24 — Integrity
+('2026-08-22',
+ 'A Good Name',
+ 'Proverbs 22:1',
+ 'A good name is to be chosen rather than great riches, and favor is better than silver or gold.',
+ 'ESV',
+ 'In the car business, reputation is everything — but the industry often defines reputation in terms of numbers: who is a "closer," who moves metal, who makes gross. Proverbs defines a good name differently. It is not about production. It is about character. A good name means that when people hear your name, they associate it with honesty, fairness, and integrity. That kind of name takes years to build and can be lost in a single bad decision. But once built, it is more valuable than any single deal, any single month, any single bonus. People will drive across town to buy from someone they trust. More importantly, you will be able to look at yourself in the mirror without flinching. What is your name worth on your lot? What do people think when they hear it — the customers, the porters, the managers, the people you pass every day? That reputation is being built one interaction at a time.',
+ 'What do you want people to think when they hear your name — coworkers, customers, your family? Are you living in a way that builds that reputation?',
+ 'Lord, let my name be associated with honesty, not just production. Help me build a reputation that outlasts any single month and honors you. Let my character speak louder than my numbers.',
+ 'Ask one coworker you trust: "What is the first thing that comes to mind when you hear my name?" Listen without defending yourself.',
+ false),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 5, 'Abide in Me', 'John 15:4a', 'Abide in me, and I in you.', 'Here is the central command of the passage. Abide. Stay. Remain. Do not leave. The Greek word (meno) is about persistent, ongoing connection — not a one-time decision but a continuous orientation. For someone in sales, this is countercultural. The floor teaches you to move fast, pivot constantly, detach from outcomes. Abiding requires slowing down. It means beginning the day connected to Christ and returning to that connection throughout the day, not just when things go wrong.', 'What is one practical way you can "abide" during a workday — a brief pause, a prayer between customers, a Scripture verse on your phone? Try it today.'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 25 — Burnout
+('2026-08-23',
+ 'Come to Me, All Who Are Weary',
+ 'Matthew 11:28-30',
+ 'Come to me, all who labor and are heavy laden, and I will give you rest. Take my yoke upon you, and learn from me, for I am gentle and lowly in heart, and you will find rest for your souls. For my yoke is easy, and my burden is light.',
+ 'ESV',
+ 'Jesus addresses people who are tired — not from laziness, but from labor. Heavy laden. Weighed down. The kind of tired that sits in your bones after a sixty-hour week on the floor, after the third month in a row below quota, after the customer who screamed at you and the manager who blamed you for it. Jesus does not offer a vacation. He offers a yoke. That sounds like more work, but his yoke is different from the one the floor puts on you. The floor''s yoke is performance, production, proving yourself. Jesus''s yoke is grace, rest, learning from someone who is gentle. His burden is light not because the circumstances are easy but because he carries it with you. The rest he promises is rest for your soul — the kind that can exist even when the board is bad, even when the traffic is slow, even when nothing is going right. It is a rest that runs deeper than circumstances.',
+ 'Are you carrying burdens that Jesus never asked you to carry? What would it look like to trade them for his yoke today?',
+ 'Jesus, I am weary. Not just tired — soul-weary. The floor has worn me down. I hear your invitation to come, to take your yoke, to learn from you. Help me believe that your burden is actually lighter than the one I have been carrying.',
+ 'Write down every burden you are carrying about work right now. Then pray through the list, handing each one to Jesus. Literally set the list aside when you are done.',
+ true),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 6, 'The Branch Cannot Bear Fruit by Itself', 'John 15:4b', 'As the branch cannot bear fruit by itself, unless it abides in the vine, neither can you, unless you abide in me.', 'Jesus states an impossibility. A branch detached from the vine cannot produce fruit. It does not matter how hard it tries, how skilled it is, or how many hours it puts in. Fruit comes from connection, not effort. This is devastating to the self-made salesperson who believes success comes from hustle alone. It is also deeply freeing. You are not the source of your own fruitfulness. Your job is connection. The vine produces the fruit.', 'Are you trying to produce fruit through effort that only comes through connection? What would it look like to shift from striving to abiding?'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 26 — Anger
+('2026-08-24',
+ 'A Soft Answer',
+ 'Proverbs 15:1',
+ 'A soft answer turns away wrath, but a harsh word stirs up anger.',
+ 'ESV',
+ 'The showroom floor is a pressure cooker. A customer is upset about a repair bill. A manager is frustrated about the month. A coworker is defensive about a deal. In these moments, the volume tends to rise. Voices get tight. Words get sharp. Proverbs offers a counterintuitive strategy: a soft answer. Not a weak answer. Not a passive answer. A soft one. Calm. Measured. Delivered without edge. The promise is that softness turns away wrath. It defuses the bomb. A harsh word, by contrast, pours fuel on the fire. This is not about being a doormat. It is about the power of self-control. The person who can stay calm when everyone else is escalating is the person who actually controls the room. The soft answer takes more strength than the loud one. It requires the presence of mind that anger steals. But the outcome — peace instead of escalation — is worth the effort.',
+ 'When was the last time a soft answer defused a tense situation on the floor? What made it work?',
+ 'Lord, give me the strength to answer softly when every instinct says to match fire with fire. Let my words be tools of peace on a floor that runs on pressure. Make me a calming presence, not another source of heat.',
+ 'The next time someone raises their voice or gets sharp with you on the floor, lower yours. Consciously. Notice what happens.',
+ false),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 7, 'I Am the Vine, You Are the Branches', 'John 15:5', 'I am the vine; you are the branches. Whoever abides in me and I in him, he it is that bears much fruit, for apart from me you can do nothing.', 'The roles are clear. Jesus is the vine — the source. We are the branches — the conduits. The branch does not generate sap; it transports it. The branch does not create fruit; it displays it. "Apart from me you can do nothing" is not hyperbole. It is a statement about the nature of reality. Anything done apart from Christ — even impressive things, successful things, lucrative things — is ultimately nothing in terms of the Kingdom. This reframes both success and failure on the floor. Success apart from him is empty. Failure with him is not final.', 'When you read "apart from me you can do nothing," do you resist it or find freedom in it? Why?'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 27 — Purpose
+('2026-08-25',
+ 'Your Work Matters to God',
+ 'Genesis 2:15',
+ 'The Lord God took the man and put him in the garden of Eden to work it and keep it.',
+ 'ESV',
+ 'Work predates the fall. Before sin entered the world, before thorns and thistles, before the sweat of the brow — there was work. God placed Adam in the garden with a job: work it and keep it. Work is not a curse. It is part of the original design. The curse in Genesis 3 is not work itself but the frustration of work — the thorns, the resistance, the futility. That distinction matters for anyone in sales. Your job is not inherently dirty or worldly. The act of helping someone find a vehicle that serves their family, their work, their life — that is dignified labor. It participates in the original mandate to cultivate and steward. The challenge is doing it in a way that reflects the character of the God who designed work in the first place. When you serve a customer with honesty and care, you are not just selling a car. You are doing something that echoes Eden.',
+ 'Do you see your work on the floor as dignified labor before God, or as something you have to do to survive?',
+ 'God, you designed work before sin entered the world. Help me reclaim the dignity of what I do every day on this lot. Let my labor be an offering to you, not just a means to a paycheck.',
+ 'Reframe one task you hate doing on the lot — paperwork, follow-up calls, lot duty — as an act of stewardship and service. Do it today with that mindset.',
+ false),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 8, 'The Branch That Does Not Abide', 'John 15:6', 'If anyone does not abide in me he is thrown away like a branch and withers; and the branches are gathered, thrown into the fire, and burned.', 'This is a sober warning about the consequences of disconnection. A branch that severs itself from the vine does not become independent and strong. It withers. The fire is not arbitrary punishment; it is what happens to dead wood. For the person drifting from Christ — skipping prayer, ignoring Scripture, rationalizing sin — this verse is a wake-up call. The drift is toward death, not freedom. But the warning is also an invitation: the branch that returns to the vine finds life again.', 'Is there an area of your life where you have been drifting from Christ? What would it take to reconnect today?'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 28 — Fear
+('2026-08-26',
+ 'Peace I Leave With You',
+ 'John 14:27',
+ 'Peace I leave with you; my peace I give to you. Not as the world gives do I give to you. Let not your hearts be troubled, neither let them be afraid.',
+ 'ESV',
+ 'Jesus is about to be arrested and killed. He knows it. His disciples are about to scatter in fear. And in this moment, he gives them peace. Not peace as the world gives — the kind that depends on circumstances lining up, on safety, on everything going according to plan. His peace is different. It coexists with uncertainty. It persists through danger. It is not the absence of trouble but the presence of Christ in the middle of it. For someone in sales, this is the only kind of peace that actually works. The world''s peace says "you will be fine when the numbers are up, the pipeline is full, and the desk is happy with you." That peace is conditional and temporary. Christ''s peace says "your heart can be untroubled even when nothing is going right, because I am with you and I am enough." That peace is unconditional and permanent. Let not your hearts be troubled. Not because trouble will not come — but because he has overcome the world.',
+ 'What would it look like to have peace that is not dependent on your numbers, your pipeline, or your manager''s mood?',
+ 'Jesus, you promised a peace the world cannot give and cannot take away. I want that peace. Not the kind that comes and goes with the board, but the kind that stays because you stay. Settle my troubled heart today.',
+ 'The next time anxiety rises about a deal or the month, pause and say John 14:27 out loud, slowly. Let the words land.',
+ false),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 9, 'If You Abide — Ask Whatever You Wish', 'John 15:7', 'If you abide in me, and my words abide in you, ask whatever you wish, and it will be done for you.', 'This is an astonishing promise — and one that is easily misunderstood. Jesus does not say "ask for anything and you will get it." He says the promise is for those who abide in him and have his words abiding in them. When you are deeply connected to Christ, your desires are reshaped. You begin to want what he wants. The "whatever you wish" becomes aligned with his will. This is not a blank check for prosperity. It is an invitation to prayer that flows from intimacy.', 'If your desires were fully shaped by abiding in Christ, what would you ask for? How does that differ from what you currently ask for?'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 29 — Family
+('2026-08-27',
+ 'Unless the Lord Builds the House',
+ 'Psalm 127:1',
+ 'Unless the Lord builds the house, those who build it labor in vain. Unless the Lord watches over the city, the watchman stays awake in vain.',
+ 'ESV',
+ 'The psalmist is blunt: without God, your labor is futile. You can build the house — the career, the income, the reputation — but if God is not the builder, you are wasting your time. This applies directly to the tension between work and family. You can work seventy hours a week to provide for your family and lose your family in the process. You can build a career and come home to an empty house — emotionally if not literally. The discipline is not to work less (though many need to) but to let God build the house. That means ordering your life around his priorities, not the dealership''s. It means trusting him with the income so you can be present for the people. It means acknowledging that your children''s memory of you will be shaped more by your presence than by your provision. Unless the Lord builds the house, the builder works in vain.',
+ 'Is God building your house — your family, your priorities, your schedule — or are you building it alone?',
+ 'Lord, I have been the builder. I have worked and worried and tried to hold everything together. I confess that without you, it is all in vain. Build my house. Order my priorities. Let my family not be the cost of my career.',
+ 'Look at your calendar for this week. Is there anything on it for your family — not an obligation, but genuine time? If not, put one thing there.',
+ false),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 10, 'By This My Father Is Glorified', 'John 15:8', 'By this my Father is glorified, that you bear much fruit and so prove to be my disciples.', 'Fruitfulness glorifies God — not because he needs our production, but because fruit is the natural evidence of connection to the vine. A healthy branch produces fruit. A disciple connected to Jesus produces the fruit of the Spirit: love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control. These are the metrics that matter in God''s economy. The board measures units. God measures character. Both can coexist, but only one ultimately proves discipleship.', 'What fruit is visible in your life right now? What fruit is missing that you wish were present?'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 30 — Stewardship
+('2026-08-28',
+ 'Where Your Treasure Is',
+ 'Matthew 6:19-21',
+ 'Do not lay up for yourselves treasures on earth, where moth and rust destroy and where thieves break in and steal, but lay up for yourselves treasures in heaven, where neither moth nor rust destroys and where thieves do not break in and steal. For where your treasure is, there your heart will be also.',
+ 'ESV',
+ 'Jesus makes a promise and gives a diagnostic. The promise: earthly treasure is temporary. Moth, rust, thieves — pick your metaphor. It all decays. Heavenly treasure is permanent. The diagnostic: your heart follows your treasure. Want to know what you really love? Look at where your money goes. Look at what you think about when you cannot sleep. Look at what you would be afraid to lose. For a commission-based salesperson, this hits close to home. The numbers on the board are a scorecard. The commission check is a report card. But Jesus says the real question is not how much you earn but where you are storing it. Are you building a life that will last beyond the next market downturn? Are you investing in things that matter in eternity? Your heart is always following your treasure. The question is where your treasure is leading your heart.',
+ 'If your spending and your anxiety over the last month were the only evidence, where would someone conclude your treasure is?',
+ 'Jesus, I confess how much of my treasure — my time, my money, my mental energy — is invested in things that will not last. Redirect my investments. Let my treasure be in heaven, and let my heart follow.',
+ 'Review one month of spending. What does it say about your treasure? Make one change this week that points your treasure toward things that last.',
+ true),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 11, 'Abide in My Love', 'John 15:9', 'As the Father has loved me, so have I loved you. Abide in my love.', 'Jesus grounds the command to abide in the reality of his love. He loves us with the same love the Father has for him — infinite, eternal, unchanging. Abiding is not a performance to earn love; it is a response to love already given. For the salesperson who feels that love must be earned — through performance, through numbers, through being "good enough" — this is revolutionary. You are loved. Abide in that. Stay there. Do not leave the awareness of being loved.', 'Do you believe that Jesus loves you the way the Father loves him? If you truly believed that, what would change about how you approach today?'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 31 — Integrity
+('2026-08-29',
+ 'Your Word Is Your Bond',
+ 'Matthew 5:37',
+ 'Let what you say be simply "Yes" or "No"; anything more than this comes from evil.',
+ 'ESV',
+ 'Jesus is talking about oaths, but the principle extends further: let your word stand on its own. You should not need to swear by heaven or earth to be believed. A simple yes or no should be enough. On the dealership floor, this is radical. How often do we qualify our promises? "I will try to get you that rate." "I think we can make that work." "As far as I know, the vehicle has never been in an accident." The qualifications protect us — but they also erode trust. Jesus calls his followers to a higher standard: speak plainly, tell the truth, and let your word be reliable without backup. If you say you will call, call. If you quote a payment, let it be the real payment. If you make a promise, keep it — even when it costs you. A reputation for being someone whose yes means yes and no means no is more valuable than any deal you will close by hedging.',
+ 'Is there someone on your lot — or a customer — who has learned not to trust your word? What would it take to repair that?',
+ 'Lord, let my yes be yes and my no be no. Strip away the qualifications and hedges I use to protect myself. Make me the kind of person whose word is enough, because my character backs it up.',
+ 'Today, make one promise to a customer or coworker and keep it exactly as stated — no qualifications, no hedging, no excuses.',
+ false),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 12, 'Keeping His Commandments', 'John 15:10', 'If you keep my commandments, you will abide in my love, just as I have kept my Father''s commandments and abide in his love.', 'Love and obedience are not opposed. Jesus connects them: keeping his commandments is how we abide in his love. This is not earning love by obeying; it is remaining in love by walking in the way of love. Obedience is the shape abiding takes. It is specific, practical, daily. It shows up in how you treat the customer who is rude, the coworker who is dishonest, the manager who is unfair.', 'Is there a specific command of Jesus you have been resisting? What would obedience look like today?'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 32 — Service
+('2026-08-30',
+ 'The Second Mile',
+ 'Matthew 5:41',
+ 'And if anyone forces you to go one mile, go with him two miles.',
+ 'ESV',
+ 'In Jesus''s day, Roman soldiers could compel civilians to carry their gear for one mile. It was legalized humiliation. Jesus tells his followers not to resist — and not to stop at the legal minimum. Go two miles. The first mile is obligation. The second mile is grace. On the sales floor, the first mile is doing your job: showing the car, presenting numbers, following the process. The second mile is what happens after the deal is done — or after the customer walks. Calling to make sure they understand the features. Following up a month later to see how the car is treating them. Helping a customer who bought somewhere else because they did not know where to turn. The second mile rarely pays commission. It is not tracked on the board. But it is where the gospel becomes visible. Anyone can do the required mile. Only grace does the second.',
+ 'What would the "second mile" look like with the customer you are dealing with right now — or the last one you lost?',
+ 'Jesus, the first mile is easy to calculate. The second mile costs time and energy that do not show up on the board. Give me a second-mile heart — one that serves not because I have to but because you served me first.',
+ 'Do one thing for a customer today that is not required and will not lead to a sale. Just because it is good.',
+ false),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 13, 'That My Joy May Be in You', 'John 15:11', 'These things I have spoken to you, that my joy may be in you, and that your joy may be full.', 'Jesus wants his followers to have joy — not happiness dependent on circumstances, but the deep, settled joy of being connected to the vine. Full joy. Not partial. Not intermittent. This is his goal for us. The commands about abiding and obeying are not burdensome restrictions; they are the path to joy. A salesperson whose joy depends on the month''s numbers will never have full joy. A salesperson whose joy is rooted in Christ can have full joy even in a slump.', 'Is your joy full right now? If not, where are you looking for joy that cannot deliver it?'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 33 — Patience
+('2026-08-31',
+ 'The Testing of Your Faith',
+ 'James 1:2-4',
+ 'Count it all joy, my brothers, when you meet trials of various kinds, for you know that the testing of your faith produces steadfastness. And let steadfastness have its full effect, that you may be perfect and complete, lacking in nothing.',
+ 'ESV',
+ 'James is not a prosperity preacher. He does not say trials are joyful. He says count them as joy — a deliberate act of re-framing, not a spontaneous emotional response. The reason is what the trials produce: steadfastness. The Greek word is hypomone — the ability to stay under pressure without breaking. It is the quality of a bridge that holds under heavy load, of a hull that does not crack in rough seas. On the sales floor, trials are constant. The month that will not turn around. The manager who is impossible to please. The customer who files a complaint over nothing. The draw that puts you in the hole. Each one is a test — not a test God sends to see if you will fail, but a test that, endured, produces something durable. The goal is not to escape the trial but to let it do its work. Steadfastness does not come from easy months. It comes from staying faithful through hard ones.',
+ 'What trial on the floor right now is producing steadfastness in you — even if you cannot feel it yet?',
+ 'God, I would rather skip the trials. But I trust that you use them to make me steadfast. Help me stay under the pressure without breaking, and let the testing produce something durable in me.',
+ 'Identify one trial you are facing on the floor. Instead of praying for it to end, pray for steadfastness in the middle of it.',
+ true),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 14, 'Love One Another', 'John 15:12', 'This is my commandment, that you love one another as I have loved you.', 'The commandment is simple and impossible without abiding. Love one another as I have loved you. Sacrificially. Patiently. Without keeping score. This applies directly to how you treat the people on your sales floor — the coworker who irritates you, the new hire who needs help, the veteran who seems past his prime. You cannot manufacture this love through willpower. It flows from abiding.', 'Who on your floor is hardest to love right now? Bring them to mind and ask God to grow genuine love for them in you.'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 34 — Purpose
+('2026-09-01',
+ 'Called to This Floor',
+ 'Esther 4:14',
+ 'And who knows whether you have not come to the kingdom for such a time as this?',
+ 'ESV',
+ 'Mordecai''s words to Esther are among the most famous in Scripture — and they apply to anyone wondering why God has placed them where they are. Esther was a Jewish woman who became queen of Persia. She could have kept her head down and avoided risk. But Mordecai suggested that her position was not an accident. She was there for a reason. You may not feel like royalty on the showroom floor. But the principle holds: your placement is not random. The people you work with, the customers you serve, the conversations you are part of — God is not surprised by any of it. The question is whether you will see your position as a platform for faithfulness or just a way to make a living. You may be the only follower of Jesus some of your coworkers ever see up close. You may be the only person who prays for certain customers. For such a time as this, you are on this floor.',
+ 'Do you believe God has placed you on your specific lot for a purpose beyond a paycheck? Why or why not?',
+ 'God, I confess that I often see my job as just a job. Open my eyes to the purposes you have for me on this specific floor, with these specific people. Let me not waste the placement you have given me.',
+ 'Pray for one specific coworker by name today — that God would work in their life, and that you would be part of how he does it.',
+ false),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 15, 'Greater Love — Lay Down Your Life', 'John 15:13', 'Greater love has no one than this, that someone lay down his life for his friends.', 'Jesus is about to lay down his life, and he defines it as the highest expression of love. Most of us will not be asked to die for anyone. But we are asked to lay down smaller things every day: our pride, our need to be right, our desire for the last word, our preference for the easy path. Laying down your life on the floor might mean taking the blame for something that was not your fault to protect a teammate. It might mean giving up a deal you could have taken because a coworker needs it more.', 'What would "laying down your life" look like on your floor today — not literally, but practically?'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 35 — Burnout
+('2026-09-02',
+ 'My Soul Finds Rest in God Alone',
+ 'Psalm 62:1-2',
+ 'For God alone my soul waits in silence; from him comes my salvation. He alone is my rock and my salvation, my fortress; I shall not be greatly shaken.',
+ 'ESV',
+ 'David repeats the word "alone" three times in two verses: God alone, him alone, he alone. This is the language of someone who has tried other sources of rest and found them insufficient. The floor offers its own versions of rest: the drink after shift, the weekend binge, the vacation you are too burned out to enjoy. But David says true rest — soul-rest, the kind that quiets the noise inside — comes from God alone. Silence is part of it. "My soul waits in silence." Not scrolling. Not streaming. Not filling every moment with input so you do not have to hear your own thoughts. Silence. The discipline of being quiet before God is foreign to most salespeople, whose days are filled with talk. But David insists that silence is where salvation is found — not just eternal salvation, but the daily deliverance from the pressure that threatens to crush you.',
+ 'When was the last time you sat in silence before God — not asking for anything, just waiting?',
+ 'God, silence is uncomfortable. The noise of the floor fills my head even when I am not there. Teach my soul to wait in silence for you. Be my rock and my fortress when everything else feels unstable.',
+ 'Sit in silence for five minutes today. No phone. No music. No agenda. Just wait. See what surfaces — and bring it to God.',
+ true),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 16, 'You Are My Friends', 'John 15:14-15', 'You are my friends if you do what I command you. No longer do I call you servants, for the servant does not know what his master is doing; but I have called you friends.', 'Jesus elevates his disciples from servants to friends. A servant follows orders without understanding. A friend is brought into confidence. Jesus has shared with us what the Father is doing. This changes how we relate to him — not as distant employees but as intimate companions. For people who spend all day taking orders from managers and customers, being called a friend by the King of the universe reorders everything.', 'Do you relate to Jesus more as a boss or as a friend? What would it look like to grow in friendship with him?'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 36 — Money
+('2026-09-03',
+ 'The Deceitfulness of Riches',
+ 'Mark 4:18-19',
+ 'And others are the ones sown among thorns. They are those who hear the word, but the cares of the world and the deceitfulness of riches and the desires for other things enter in and choke the word, and it proves unfruitful.',
+ 'ESV',
+ 'Jesus names three things that choke out spiritual life: the cares of the world, the deceitfulness of riches, and the desires for other things. Notice that he calls riches deceitful. They promise what they cannot deliver. They say: if you just had enough, you would feel secure. You would be happy. You could relax. But the goalposts keep moving. The number you thought would be enough turns out not to be. There is always a bigger house, a nicer car, a fatter retirement account. Riches lie. They do not deliver the peace they advertise. For the salesperson whose income fluctuates wildly, this is both a warning and a comfort. The warning: do not believe the lie that more money will solve what only God can solve. The comfort: your security is not in your income anyway. It is in the God who is not deceived and does not deceive.',
+ 'What "if only I had" thought runs through your mind most often about money? Have you ever gotten there — and was it enough?',
+ 'Lord, I have believed the lies money tells. I have thought that a bigger check would quiet my fears and satisfy my desires. It does not. Teach me to find my security and satisfaction in you, not in numbers that never stay the same.',
+ 'Write down the number you think would make you feel financially secure. Then write next to it: "Jesus is my security." Sit with the tension.',
+ false),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 17, 'Chosen and Appointed', 'John 15:16', 'You did not choose me, but I chose you and appointed you that you should go and bear fruit and that your fruit should abide.', 'Jesus chose us. We did not choose him. This is humbling and reassuring. Your place in the Kingdom is not based on your initiative or worthiness but on his sovereign choice. He appointed you to bear lasting fruit — not the kind that shows up on a monthly leaderboard and disappears, but the kind that remains into eternity. Your work on the floor, done in connection with Christ, has eternal significance.', 'You are chosen — not by a customer, not by a manager, but by Christ. How does that change the way you carry yourself today?'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 37 — Service
+('2026-09-04',
+ 'Whatever You Did for the Least of These',
+ 'Matthew 25:37-40',
+ 'Then the righteous will answer him, saying, "Lord, when did we see you hungry and feed you, or thirsty and give you drink? And when did we see you a stranger and welcome you, or naked and clothe you? And when did we see you sick or in prison and visit you?" And the King will answer them, "Truly, I say to you, as you did it to one of the least of these my brothers, you did it to me."',
+ 'ESV',
+ 'Jesus identifies himself with the least — the hungry, the thirsty, the stranger, the naked, the sick, the prisoner. The righteous are surprised: when did we see you? The answer is stunning: every time you served someone in need, you served me. On the sales floor, this reframes every interaction. The customer with bad credit who is embarrassed to be there — that is Jesus. The porter everyone ignores — that is Jesus. The single mom trying to find something safe and affordable — that is Jesus. The coworker going through a divorce who needs someone to listen — that is Jesus. You do not need to leave the lot to serve Christ. He is already there, disguised as the people you are most tempted to overlook. How you treat the least on your floor is how you treat him.',
+ 'Who is "the least" on your lot right now — the person with no status, no power, no deal to offer you? How do you treat them?',
+ 'Jesus, you said that serving the least is serving you. Forgive me for the people I have overlooked because they could not help me close a deal. Give me eyes to see you in the faces of the overlooked.',
+ 'Identify one person on your lot who has nothing to offer you professionally. Serve them today in a way they will notice.',
+ false),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 18, 'The World Will Hate You', 'John 15:18-19', 'If the world hates you, know that it has hated me before it hated you. If you were of the world, the world would love you as its own; but because you are not of the world, but I chose you out of the world, therefore the world hates you.', 'Jesus does not promise popularity. Following him will create friction with a culture that operates on different values. On the sales floor, this might mean being excluded from certain conversations, passed over for certain opportunities, or mocked for your convictions. Jesus says this is not a sign that something is wrong. It is a sign that you belong to him.', 'Have you experienced pushback or exclusion on the floor because of your faith? How does Jesus''s warning reframe that experience?'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 38 — Integrity
+('2026-09-05',
+ 'Walk in the Light',
+ '1 John 1:6-7',
+ 'If we say we have fellowship with him while we walk in darkness, we lie and do not practice the truth. But if we walk in the light, as he is in the light, we have fellowship with one another, and the blood of Jesus his Son cleanses us from all sin.',
+ 'ESV',
+ 'John draws a sharp line: you cannot claim fellowship with God while walking in darkness. The two are incompatible. Walking in the light means living openly — nothing hidden, nothing secret, nothing you hope no one finds out about. For someone in car sales, this is a high bar. The industry runs on information asymmetry: you know things the customer does not. The temptation is to use that advantage for your benefit. John says the test of whether you are walking in the light is whether you practice the truth. Not just believe it. Practice it. Daily. In the small moments as much as the large ones. The promise attached is cleansing: the blood of Jesus covers the sin you confess. But the sin you hide in the dark festers. Walking in the light means bringing everything into the open — your deals, your words, your motives — and trusting that exposure to the light is safer than concealment in the dark.',
+ 'Is there anything in your conduct on the floor that you hope no one ever finds out about? What would it look like to walk in the light with it?',
+ 'Lord, I confess that I have walked in darkness — hiding, shading the truth, hoping no one notices. Draw me into the light. Let me practice truth, not just believe it. Cleanse what I confess and give me courage to confess what I have hidden.',
+ 'Think of one thing on the floor you have been hiding — a shortcut, a half-truth, a pattern. Tell one trusted person and ask them to pray with you about it.',
+ false),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 19, 'The Helper Will Come', 'John 15:26', 'But when the Helper comes, whom I will send to you from the Father, the Spirit of truth, who proceeds from the Father, he will bear witness about me.', 'Jesus promises the Holy Spirit — the Helper, the Spirit of truth. Abiding is not a solo project. The Spirit enables it. He bears witness to Christ, reminds us of truth, convicts us of sin, and empowers us to obey. On the floor, amid noise and pressure, the Spirit is present, quietly bearing witness. You are never alone in the effort to live faithfully.', 'Have you asked the Holy Spirit for help today — specifically, for help with something on the floor? Try it now.'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 39 — Anger
+('2026-09-06',
+ 'The Anger of Man',
+ 'Proverbs 29:11',
+ 'A fool gives full vent to his spirit, but a wise man quietly holds it back.',
+ 'ESV',
+ 'The showroom floor is a laboratory for this proverb. How many times have you seen someone give full vent — shouting at a customer, throwing a clipboard, storming out of the tower — and watched the damage unfold? The fool lets it all out. The wise person holds it back. That is not suppression. It is control. The wise person feels the anger but does not let the anger drive. There is a difference between processing anger and venting it. Venting feels satisfying in the moment but almost always makes things worse. Processing takes time, prayer, and sometimes a trusted conversation. The wise person knows which is which. Holding back is not weakness. It is the fruit of a Spirit-controlled life, and it takes more strength than letting it fly.',
+ 'When was the last time you gave full vent on the floor? What did it cost you? What would holding back have looked like?',
+ 'Lord, the anger comes fast and the impulse to vent is strong. Give me the wisdom to hold back — not to suppress, but to process with you before I speak. Let my words on this floor be controlled by your Spirit, not my frustration.',
+ 'The next time you are angry on the floor, excuse yourself for five minutes before you say anything. Go outside. Breathe. Pray. Then decide what to say.',
+ false),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 20, 'You Also Will Bear Witness', 'John 15:27', 'And you also will bear witness, because you have been with me from the beginning.', 'The disciples will bear witness because they have been with Jesus. Our witness flows from the same source: time spent with him. The most powerful testimony on a sales floor is not a polished presentation of the gospel but a life that has been shaped by proximity to Christ. Integrity, patience, kindness, honesty — these bear witness without a word being spoken.', 'What is your life on the floor witnessing to? If someone only knew you from work, what would they conclude about what you believe?'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 40 — Money
+('2026-09-07',
+ 'The Rich Fool',
+ 'Luke 12:16-21',
+ 'But God said to him, "Fool! This night your soul is required of you, and the things you have prepared, whose will they be?" So is the one who lays up treasure for himself and is not rich toward God.',
+ 'ESV',
+ 'The rich fool had a problem: his land produced abundantly. That does not sound like a problem. But his response reveals his heart. He built bigger barns. He stored up for himself. He planned an easy retirement. And that night, he died. All his preparation was for a future he did not own. Jesus calls this man a fool not because he was successful but because he was rich toward himself and not toward God. The car business can make you the rich fool. The big months come and you think you have it figured out. You build bigger barns — the nicer car, the bigger house, the upgraded lifestyle. But you do not own tomorrow. The question is not whether you will accumulate money. It is whether you will be rich toward God with whatever you have. That means generosity. That means holding wealth loosely. That means remembering that your soul could be required tonight and your barns will go to someone else.',
+ 'Are you rich toward God, or just rich toward yourself? What does the difference look like in your actual life?',
+ 'God, I do not want to be the rich fool — successful in the world''s eyes and bankrupt before you. Teach me to be rich toward you. Let my finances reflect your priorities, not my anxieties.',
+ 'Give something away today — money, time, or attention — that you were planning to keep for yourself. Do it quietly.',
+ true),
 
-INSERT INTO reading_plan_days (plan_id, day_number, title, scripture_reference, scripture_text, body, application)
-SELECT id, 21, 'Abide — A Life of Staying', 'John 15:4-5', 'Abide in me, and I in you. As the branch cannot bear fruit by itself, unless it abides in the vine, neither can you, unless you abide in me.', 'We return to the central command. Abide. The Greek tense is continuous: keep on abiding. This is not a one-time decision but a way of life. The sales floor will pull you in a hundred directions. The discipline of abiding means returning, again and again, to the vine. It means starting the day in Scripture, pausing to pray between customers, confessing sin quickly, and resting in the love of Christ. Abiding is not glamorous. It is steady. And it produces fruit that lasts.', 'What is one rhythm you can build into your daily life that will help you abide? Start it tomorrow.'
-FROM reading_plans WHERE slug = 'abide-john-15';
+-- Day 41 — Family
+('2026-09-08',
+ 'Train Up a Child',
+ 'Proverbs 22:6',
+ 'Train up a child in the way he should go; even when he is old he will not depart from it.',
+ 'ESV',
+ 'This proverb is often quoted as a promise, but it is also a responsibility. Training a child takes time. It takes presence. It cannot be outsourced. For the salesperson working sixty hours a week, the tension is acute. You are providing financially but may be absent in the ways that matter most. Training up a child is not primarily about Sunday school or youth group. It is about the daily conversations, the modeled character, the way you handle stress and disappointment and success. Your children are learning what adulthood looks like by watching you. What are they seeing? A parent who is present and patient? Or a parent who is always working, always tired, always distracted? The promise is real: the training sticks. But the training requires you to be there.',
+ 'If your children described what matters most to you based only on how you spend your time, what would they say?',
+ 'Father, I want to train my children well, but the hours the floor demands make it hard. Give me wisdom about my schedule. Help me be present when I am home, not just physically but emotionally. Let my children see in me the kind of person I hope they become.',
+ 'Do one thing with your child (or a child in your life) this week that is about connection, not obligation. Put your phone away for the whole thing.',
+ false),
 
--- ── 1 SATURDAY READY ENTRY ─────────────────────────────────────────────────
+-- Day 42 — Fear
+('2026-09-09',
+ 'Cast Your Cares',
+ '1 Peter 5:6-7',
+ 'Humble yourselves, therefore, under the mighty hand of God so that at the proper time he may exalt you, casting all your anxieties on him, because he cares for you.',
+ 'ESV',
+ 'Peter connects humility with anxiety: the way to cast your cares on God is to humble yourself. This seems backward. Anxiety feels like something that happens to you, not a humility problem. But Peter sees a link. Anxiety is often rooted in the belief that you are responsible for outcomes that belong to God. It is a form of pride disguised as worry — the conviction that if you do not hold everything together, it will fall apart. Humility says: I am not God. I cannot control the month, the traffic, the credit approvals, the manager''s mood. I can do my work faithfully and entrust the results to the One who actually controls them. The reason you can cast your cares is not that the cares are imaginary. It is that he cares for you. The God who holds the universe is not indifferent to your anxiety. He invites you to hand it over — not because you should not care, but because he does.',
+ 'What care are you holding onto because you do not trust anyone else — including God — to handle it?',
+ 'Lord, I have been carrying cares that were never mine to carry. I humble myself. I am not God. I cannot control the outcome. I cast my anxieties on you, trusting that you care for me more than I care for myself.',
+ 'Write down your biggest anxiety about work on a piece of paper. Physically set it aside — in a drawer, under a Bible, somewhere symbolic — as an act of casting it on God.',
+ false),
 
-INSERT INTO saturday_ready (release_date, theme, scripture_reference, scripture_text, preparation_body, three_commitments, prayer)
-VALUES (
-  '2026-08-03',
-  'Walking onto the Lot With Integrity',
-  'Micah 6:8',
-  'He has told you, O man, what is good; and what does the Lord require of you but to do justice, and to love kindness, and to walk humbly with your God?',
-  'Saturday is the biggest day of the week on the lot. Traffic peaks. Tensions run high. The pressure to close is at its maximum — and so is the temptation to cut corners. Micah reduces God''s requirements to three things: do justice, love kindness, walk humbly. Justice means treating every customer fairly, regardless of what they can afford. Kindness means remembering that the person across the desk is not a deal but a human being with fears, hopes, and a family. Humility means acknowledging that you are not the hero of anyone''s story — you are a servant, placed in this moment to help someone make one of the largest financial decisions of their life. As you prepare for Saturday, ask yourself: Am I going onto the lot to take from people or to serve them? The answer to that question will shape every interaction you have. The numbers will be whatever they will be. Your character is the one thing no customer and no manager can take from you. Walk onto the lot tomorrow determined to keep it intact.',
-  '["I will not inflate a payment, omit a material fact, or misrepresent a vehicle''s condition — even if a manager asks me to.", "I will treat every customer with patience and respect, regardless of whether I think they will buy.", "I will pause at least once during the day to pray — for a customer, a coworker, or my own heart."]',
-  'Lord, Saturday is coming. The pressure will be real. The temptations will be specific. Go before me onto the lot. Let justice, kindness, and humility be the marks of my work tomorrow. When I am tempted to cut corners, remind me whose I am. When I am frustrated, give me patience. When I close a deal, let me close it honestly. When I lose one, let me lose it with grace. Protect my integrity and my witness. In Jesus''s name, Amen.'
-);
+-- Day 43 — Service
+('2026-09-10',
+ 'The Good Samaritan on the Lot',
+ 'Luke 10:33-34',
+ 'But a Samaritan, as he journeyed, came to where he was, and when he saw him, he had compassion. He went to him and bound up his wounds, pouring on oil and wine. Then he set him on his own animal and brought him to an inn and took care of him.',
+ 'ESV',
+ 'The Good Samaritan saw someone who had been beaten and left for dead. The priest and the Levite — religious professionals — passed by on the other side. The Samaritan — someone the injured man would have considered an enemy — stopped. He saw. He had compassion. He acted. On the sales floor, people are walking in wounded every day. The customer whose marriage is falling apart. The coworker whose kid is in trouble. The single mom who cannot afford the payment but needs a car to get to work. The veteran salesperson who is drinking too much and no one is saying anything. Most people on the lot will pass by — they have their own deals to worry about. But the person who stops, who sees, who has compassion, who does something — that person is living the gospel. You cannot help everyone. But you can help the person in front of you.',
+ 'Who is the wounded person on your lot right now that everyone else is walking past?',
+ 'Jesus, give me the eyes of the Samaritan — to see the wounded people everyone else ignores. Give me the courage to stop, to have compassion, to act. Do not let me pass by on the other side.',
+ 'Ask one person on your lot how they are really doing today. Listen without offering solutions. Just see them.',
+ false),
+
+-- Day 44 — Patience
+('2026-09-11',
+ 'The Patience of the Farmer',
+ 'James 5:7-8',
+ 'Be patient, therefore, brothers, until the coming of the Lord. See how the farmer waits for the precious fruit of the earth, being patient about it, until it receives the early and the late rains. You also, be patient. Establish your hearts, for the coming of the Lord is at hand.',
+ 'ESV',
+ 'The farmer cannot make crops grow faster. He can plant. He can water. He can weed. But he cannot hurry the harvest. He waits. The car business does not reward waiting. It rewards activity. Make the calls. Work the deal. Close it today. But James says patience is a spiritual discipline, not a sales liability. There are things in your life — and on your floor — that cannot be hurried. The relationship with the customer who needs time to trust you. The coworker who is slowly warming to conversations about faith. Your own growth in character, which happens imperceptibly over months and years, not in a single breakthrough. The farmer does not dig up the seeds every day to check if they are growing. He trusts the process and waits. You can do the same with the seeds God has planted in your life and on your floor.',
+ 'What is something in your life right now that cannot be hurried — and how are you handling the wait?',
+ 'Lord, I am impatient by nature and the floor rewards speed. Teach me the patience of the farmer — to plant faithfully, to tend what you have given me, and to trust the harvest to your timing.',
+ 'Identify one thing you have been trying to force — a relationship, a deal, a personal change. Instead of pushing harder, pray for patience and take one small faithful step.',
+ false),
+
+-- Day 45 — Integrity
+('2026-09-12',
+ 'The Lord Tests the Heart',
+ 'Proverbs 17:3',
+ 'The crucible is for silver, and the furnace is for gold, but the Lord tests the heart.',
+ 'ESV',
+ 'Silver and gold are refined by fire. Heat separates the precious metal from the impurities. Proverbs says the Lord does the same thing with the human heart — but his furnace is not a literal one. It is the pressure of daily decisions. The test is not a pop quiz you study for. It is the accumulated weight of small choices that reveal what you really believe. On the sales floor, the Lord is testing your heart every day. Will you be honest when lying would be easier? Will you serve the customer who cannot benefit you? Will you speak well of a competitor rather than trashing them to close a deal? Will you confess when you make a mistake rather than covering it up? None of these tests appear on the board. But they appear before God. The crucible of the floor is not punishment. It is refinement. God is purifying you through the very pressures that feel like they might destroy you.',
+ 'What pressure on the floor is refining your character right now — even if it does not feel like it?',
+ 'Lord, the floor feels like a furnace sometimes. The heat is real. Help me see it not as punishment but as refinement. Test my heart and purify what is impure. Let me come through the fire more like Jesus, not less.',
+ 'Identify the specific pressure that is testing you most right now. Name it. Acknowledge that God is using it — and ask him what he wants to refine through it.',
+ true),
+
+-- Day 46 — Burnout
+('2026-09-13',
+ 'In Returning and Rest',
+ 'Isaiah 30:15',
+ 'For thus said the Lord God, the Holy One of Israel, "In returning and rest you shall be saved; in quietness and in trust shall be your strength." But you were unwilling.',
+ 'ESV',
+ 'God offers Israel salvation through rest and quiet trust. Their response? Unwilling. They wanted horses and chariots — military solutions, human effort, visible power. God offered stillness. They refused. Salespeople face the same temptation. The solution to a bad month is always more: more calls, more hours, more hustle. God offers something different: returning and rest, quietness and trust. Not passivity. Not laziness. But a reorientation of the soul that acknowledges God as the source of salvation, not your effort. Strength comes through trust, not through striving. The tragedy of Israel was not that they lacked options but that they refused the one option that would actually save them. Do not make the same mistake. The floor will always tell you to do more. God may be telling you to be still.',
+ 'When you are facing a crisis on the floor, is your first response to hustle harder or to return to God in rest and trust?',
+ 'God, my instinct is always to do more, try harder, hustle longer. You offer rest and quiet trust. Forgive me for being unwilling. Teach me that my strength does not come from my striving but from my trusting.',
+ 'The next time you feel the urge to "do more" in response to stress, stop for five minutes of quiet before you act. Just sit. Trust. Then proceed.',
+ false),
+
+-- Day 47 — Anger
+('2026-09-14',
+ 'The End of the Rope',
+ 'Psalm 37:8-9',
+ 'Refrain from anger, and forsake wrath! Fret not yourself; it tends only to evil. For the evildoers shall be cut off, but those who wait for the Lord shall inherit the land.',
+ 'ESV',
+ 'The psalmist does not say anger is always unjustified. He says it tends only to evil. Even righteous anger, nursed too long, curdles into something destructive. Fretting — the low-grade, constant worry and irritation — is in the same category. It does not produce justice. It eats at you. On the floor, there is always something to be angry about. An unfair split. A broken promise. A customer who treated you like dirt. The psalmist''s advice is not to ignore injustice but to entrust it to God. Refrain from anger. Forsake wrath. Wait for the Lord. Those who wait will inherit the land — not those who fight for it. This is not passivity. It is the active discipline of refusing to let anger become your operating system. Justice belongs to God. Your job is faithfulness.',
+ 'What are you fretting about — the low-grade, constant irritation that follows you home from the floor?',
+ 'Lord, I am angry and I am fretting. About real things. About things that are unfair. Help me entrust justice to you instead of carrying it myself. Let me refrain from anger and wait for you to act.',
+ 'Name the specific thing you are angry or fretful about. Then pray: "God, this is yours. I release it." Say it out loud.',
+ false),
+
+-- Day 48 — Service
+('2026-09-15',
+ 'Faith Working Through Love',
+ 'Galatians 5:6',
+ 'For in Christ Jesus neither circumcision nor uncircumcision counts for anything, but only faith working through love.',
+ 'ESV',
+ 'Paul reduces the Christian life to one thing: faith working through love. Not faith alone as an abstract belief. Not love alone as a human effort. Faith that expresses itself in love. On the sales floor, this is the integration point. Your faith in Christ should produce visible love — for customers, coworkers, managers, competitors. The customer should be able to tell that something is different about how you treat them. The coworker should feel it in how you share credit, how you handle conflict, how you talk about people behind their back. Faith that does not work through love is not the kind of faith Paul is talking about. The test of your theology is not what you believe in your head. It is how you treat the person in front of you.',
+ 'If your faith were measured entirely by how you love the people on your floor, what grade would you get?',
+ 'Jesus, let my faith not be a private conviction but a public reality — visible in how I love the people on this floor. Let my coworkers and customers see something of you in how I treat them.',
+ 'Do one act of love on the floor today that costs you something — time, pride, or money — and is traceable to your faith.',
+ false),
+
+-- Day 49 — Money
+('2026-09-16',
+ 'Honor the Lord With Your Wealth',
+ 'Proverbs 3:9-10',
+ 'Honor the Lord with your wealth and with the firstfruits of all your produce; then your barns will be filled with plenty, and your vats will be bursting with wine.',
+ 'ESV',
+ 'The firstfruits principle is simple: give to God first, before you pay your bills, before you know what the month will bring. This is not a prosperity scheme — "give and you will get rich." It is a declaration of trust. Giving first says God is your provider, not your commission check. It says your security is in him, not in your pipeline. It breaks the grip of money on your heart by making generosity a priority rather than an afterthought. The promise of barns filled with plenty is not a guaranteed ROI. It is the assurance that a life ordered around honoring God with your resources will not lack what it needs. In a commission-based career, where income is unpredictable, giving first is especially countercultural — and especially faith-building.',
+ 'Do you honor God with your firstfruits, or do you give from what is left over after your expenses?',
+ 'Lord, I confess that money has too tight a grip on my heart. Teach me to give first — before I know what the month will hold, before I have calculated what I can afford. Let my giving be an act of trust, not a transaction.',
+ 'Before you pay any bills this month, set aside a firstfruits gift. Even if it is small, let it be first.',
+ false),
+
+-- Day 50 — Fear
+('2026-09-17',
+ 'Perfect Love Casts Out Fear',
+ '1 John 4:18',
+ 'There is no fear in love, but perfect love casts out fear. For fear has to do with punishment, and whoever fears has not been perfected in love.',
+ 'ESV',
+ 'John makes a direct link: fear has to do with punishment. When you are afraid of God — afraid of what he might do to you, afraid of being rejected, afraid of not measuring up — you have not yet understood his love. Perfect love — the love of God, fully received — drives out that kind of fear. On the sales floor, the fear is often not about God directly but about the consequences of failure. What if I do not make enough? What if I lose my job? What if I cannot provide? Underneath those fears is a deeper question: is God for me, or is he waiting for me to fail? John''s answer is that God''s love, when fully embraced, leaves no room for that fear. Not because bad things cannot happen — they can and do — but because you are held by a love that no circumstance can sever. The punishment you deserve fell on Christ. What remains for you is love.',
+ 'Do you secretly believe God is waiting for you to fail, or that he is for you — even in failure?',
+ 'Father, the fear of punishment still lingers. I am afraid of failing, afraid of not measuring up, afraid that one bad month means you have abandoned me. Drive out that fear with your perfect love. Let me rest in the finished work of Christ, not in my performance.',
+ 'Write down: "I am loved by God, not because of my performance but because of Christ." Put it where you will see it tomorrow morning.',
+ false),
+
+-- Day 51 — Burnout
+('2026-09-18',
+ 'Those Who Wait for the Lord Shall Renew Their Strength',
+ 'Isaiah 40:30-31',
+ 'Even youths shall faint and be weary, and young men shall fall exhausted; but they who wait for the Lord shall renew their strength; they shall mount up with wings like eagles; they shall run and not be weary; they shall walk and not faint.',
+ 'ESV',
+ 'Isaiah does not promise that the young and strong will avoid exhaustion. They will faint. They will fall. The promise is for those who wait for the Lord — they will renew their strength. The Hebrew word for wait implies active hope, not passive sitting. It is the posture of someone who is expecting God to act, who is oriented toward him like a watchman toward the horizon. On the floor, you will get tired. You will have days where you cannot imagine doing this for another year, let alone another decade. The question is not whether you will hit the wall. It is what you will do when you hit it. Those who wait for the Lord find strength that is not their own. They run without growing weary — not because they are superhuman, but because they are drawing from a source deeper than adrenaline.',
+ 'When you hit the wall on the floor — physically, emotionally, spiritually — where do you go for renewal?',
+ 'Lord, I am tired. The kind of tired that sleep does not fix. I wait for you. Renew my strength. Let me run without growing weary — not through my own effort, but through yours. Lift me up on wings that are not my own.',
+ 'Identify one thing you do to "renew your strength" that actually works, and one that does not. Do the one that works today.',
+ true),
+
+-- Day 52 — Integrity
+('2026-09-19',
+ 'Better Is a Little With Righteousness',
+ 'Proverbs 16:8',
+ 'Better is a little with righteousness than great revenues with injustice.',
+ 'ESV',
+ 'This proverb is a direct challenge to the car business. The entire industry is structured around revenue. More units. More gross. More per copy. The board does not track righteousness. It tracks numbers. And yet Proverbs says the person with a little and a clean conscience is better off than the person with great revenues gained unjustly. Not "equally well off." Better off. This is a values claim, not an earnings report. It will not show up on your W-2. But it determines the kind of person you are becoming. Every day on the floor, you face this trade-off. A little more gross in exchange for a little less honesty. A unit today in exchange for a customer''s trust. The cumulative effect of choosing righteousness over revenue is a life you can look back on without shame. The cumulative effect of the opposite is a ledger full of money and a soul full of regret.',
+ 'Where on the floor are you currently trading righteousness for revenue — even in small ways?',
+ 'Lord, the pressure to prioritize revenue over righteousness is relentless. Give me the courage to choose a little with integrity over great revenues with compromise. Let my ledger in heaven matter more to me than my numbers on the board.',
+ 'Identify one area of your sales process where revenue and righteousness are in tension. Decide in advance which one wins.',
+ false),
+
+-- Day 53 — Family
+('2026-09-20',
+ 'As for Me and My House',
+ 'Joshua 24:15',
+ 'And if it is evil in your eyes to serve the Lord, choose this day whom you will serve, whether the gods your fathers served in the region beyond the River, or the gods of the Amorites in whose land you dwell. But as for me and my house, we will serve the Lord.',
+ 'ESV',
+ 'Joshua draws a line. Choose. The gods of the culture around you, or the Lord. He does not pretend the choice is easy or cost-free. The culture is seductive. The gods of the Amorites — the gods of wealth, status, and success — are always recruiting. But Joshua has made his decision, and he has made it for his household too. In the car business, the gods of the culture are loud. The god of the board. The god of the gross. The god of the hustle. The god of whatever-it-takes-to-close. Joshua''s declaration is a line in the sand for salespeople too. You cannot serve both. You have to choose. And the choice is not just for you — it shapes your family, your witness, your legacy. As for me and my house: we will serve the Lord. Not the board. Not the month. Not the culture of the floor. The Lord.',
+ 'What gods of the car business are competing for your allegiance right now? Have you made a choice — or are you trying to serve both?',
+ 'Lord, the gods of this industry are loud and their rewards are visible. But I choose you. For me and my house, we will serve the Lord. Give me the daily courage to live that choice when the pressure says otherwise.',
+ 'Write down "As for me and my house, we will serve the Lord." Put it in your wallet or on your phone lock screen. Let it be your first filter for every decision today.',
+ false),
+
+-- Day 54 — Patience
+('2026-09-21',
+ 'Do Not Grow Weary in Doing Good',
+ 'Galatians 6:9',
+ 'And let us not grow weary of doing good, for in due season we will reap, if we do not give up.',
+ 'ESV',
+ 'Paul assumes you will be tempted to grow weary. Doing good is hard, and the results are often invisible. You are honest with a customer, and they still buy somewhere else. You help a coworker, and they take credit for your work. You serve faithfully, and the month still stinks. The temptation to give up is real. Paul''s encouragement is not that the results will come immediately but that they will come "in due season." The harvest has its own timeline. The farmer does not reap the day after planting. The gap between planting and harvesting is where faith lives. Do not give up. The due season is coming. Not because you earned it, but because God is faithful.',
+ 'Where are you tempted to give up doing good on the floor because the results are not visible?',
+ 'Lord, I am weary of doing good without seeing results. The honest deal that goes nowhere. The kindness that is not returned. Help me trust the harvest to your timing. Keep me from giving up.',
+ 'Identify one area where you have stopped doing good because you did not see results. Start again today — not for the outcome, but for the obedience.',
+ false),
+
+-- Day 55 — Service
+('2026-09-22',
+ 'Let Your Light Shine',
+ 'Matthew 5:14-16',
+ 'You are the light of the world. A city set on a hill cannot be hidden. Nor do people light a lamp and put it under a basket, but on a stand, and it gives light to all in the house. In the same way, let your light shine before others, so that they may see your good works and give glory to your Father who is in heaven.',
+ 'ESV',
+ 'Jesus does not tell his followers to become the light. He says they already are. The question is whether they will hide it. A lamp under a basket is pointless — it defeats the purpose. On the sales floor, it is tempting to hide your faith. The culture is often coarse. The language is rough. The ethics are flexible. Standing out can feel socially dangerous. But Jesus says your light is meant to be visible. Not obnoxious. Not preachy. Just visible — in the way you work, the way you speak, the way you treat people. The goal is not that people think highly of you. It is that they see your good works and give glory to your Father. The light is not about you. It is about pointing to the source. Let it shine.',
+ 'Is there a way you have been hiding your faith on the floor — not from wisdom, but from fear?',
+ 'Jesus, you called me the light of the world. Forgive me for hiding it under a basket of fear, of wanting to fit in, of not wanting to be "that person." Let my light shine — quietly, genuinely, in ways that point to you.',
+ 'Do one thing on the floor today that is consistent with your faith and visible to others — not a sermon, just a faithful act.',
+ false),
+
+-- Day 56 — Money
+('2026-09-23',
+ 'Give, and It Will Be Given to You',
+ 'Luke 6:38',
+ 'Give, and it will be given to you. Good measure, pressed down, shaken together, running over, will be put into your lap. For with the measure you use it will be measured back to you.',
+ 'ESV',
+ 'Jesus talks about giving with an image of abundance: good measure, pressed down, shaken together, running over. This is not a transaction — "give so you will get." It is a principle of the Kingdom: generosity enlarges your capacity to receive. Stinginess shrinks it. On the sales floor, this applies to more than money. Give attention to customers who will never buy from you. Give time to the new hire who needs training. Give credit to the coworker who helped with the deal. Give patience to the customer who is trying your last nerve. The measure you use — generous or stingy, open-handed or tight-fisted — will be the measure used for you. Not because God is keeping score, but because generosity shapes the kind of person you become. Generous people live in a larger world.',
+ 'What are you holding tightly — money, time, credit, recognition — that you could open your hand on today?',
+ 'Jesus, you gave everything. I clutch and hoard. Open my hands. Teach me to be generous — with money, with time, with credit, with grace. Let the measure I use be pressed down, shaken together, running over.',
+ 'Give something away today that you were planning to keep. Not money — time, credit, the last word, the better up.',
+ false),
+
+-- Day 57 — Purpose
+('2026-09-24',
+ 'You Are the Salt of the Earth',
+ 'Matthew 5:13',
+ 'You are the salt of the earth, but if salt has lost its taste, how shall its saltiness be restored? It is no longer good for anything except to be thrown out and trampled under people''s feet.',
+ 'ESV',
+ 'Salt preserves. Salt flavors. Salt makes a difference. Jesus says his followers are the salt of the earth — the preserving, flavoring agent in a decaying world. But salt can lose its taste. When it does, it is worthless. The warning is stark: a flavorless Christian is good for nothing. On the sales floor, what does it mean to be salty? It means your presence changes the environment. The conversation is less crude because you are there. The ethics are a little higher. The new guy feels a little less alone. The customer gets a fairer shake. You do not have to announce your saltiness. You just have to be different in a way that preserves what is good and pushes back against what is not. If you fit in so well that no one can tell you follow Jesus, you may have lost your saltiness. Be salt. Preserve. Flavor. Make a difference.',
+ 'Does your presence on the floor change the environment — or do you blend in so well that no one can tell the difference?',
+ 'Jesus, you called me salt — something that preserves, that flavors, that makes a difference. Forgive me for the times I have blended in instead. Restore my saltiness. Let my presence on this floor change the flavor of the place.',
+ 'Identify one way the culture of your floor needs preserving or flavoring. Be the salt in that specific area today.',
+ true),
+
+-- Day 58 — Fear
+('2026-09-25',
+ 'When I Am Afraid, I Put My Trust in You',
+ 'Psalm 56:3-4',
+ 'When I am afraid, I put my trust in you. In God, whose word I praise, in God I trust; I shall not be afraid. What can flesh do to me?',
+ 'ESV',
+ 'David does not say "I am never afraid." He says "when I am afraid." The fear is real. The response is a decision: to trust. Trust is not the absence of fear. It is the choice made in the presence of fear. David trusts in God''s word — his promises, his character, his track record. And from that trust, the fear begins to recede. "What can flesh do to me?" is not bravado. It is perspective. The worst a person can do — fire you, badmouth you, ruin your month — is temporary. God''s hold on you is permanent. On the floor, the fears are specific: I will not make enough. I will lose this job. I will fail my family. David''s pattern applies: when the fear comes — and it will — put your trust in God. Speak his promises back to the fear. Let trust grow louder than the anxiety.',
+ 'What specific fear do you need to respond to with trust today — not by pretending it is not there, but by choosing to trust in the middle of it?',
+ 'God, when I am afraid — and I am — I choose to trust in you. Your promises are true. Your character is steady. What can the floor, the numbers, the uncertainty do to me that you cannot handle? Let my trust grow louder than my fear.',
+ 'Identify one specific fear about work. Write down a promise from Scripture that speaks to it. Read it out loud. Let trust talk back to fear.',
+ false),
+
+-- Day 59 — Family
+('2026-09-26',
+ 'Do Not Provoke Your Children',
+ 'Colossians 3:21',
+ 'Fathers, do not provoke your children, lest they become discouraged.',
+ 'ESV',
+ 'Paul addresses fathers directly: do not provoke your children. The word "provoke" means to stir up, to irritate, to exasperate. How do fathers provoke? Through harshness. Through absence. Through impossible standards. Through bringing the stress of work home and taking it out on the family. Through prioritizing career over presence and then resenting the children for not understanding. The result is discouragement — children who lose heart. For the salesperson working long hours, the danger is acute. You come home tired. You come home stressed. You come home carrying the weight of the floor. And the people who get the worst of you are the ones who love you most. Paul''s command is not just about avoiding harm. It is about creating an environment where children can thrive — where they are not afraid of your mood, where they know they matter more than your job.',
+ 'Do your children — or the people closest to you — get the best of you or the leftovers after the floor has taken what it wants?',
+ 'Father, I confess that my family sometimes gets the tired, frustrated version of me while the floor gets my best energy. Help me leave the stress at work and bring my full self home. Let my children not be discouraged by my absence or my anger.',
+ 'Tonight, before you walk through the door, pause for sixty seconds. Leave the floor at the door. Walk in present.',
+ false),
+
+-- Day 60 — Purpose
+('2026-09-27',
+ 'Well Done, Good and Faithful Servant',
+ 'Matthew 25:21',
+ 'His master said to him, "Well done, good and faithful servant. You have been faithful over a little; I will set you over much. Enter into the joy of your master."',
+ 'ESV',
+ 'These are the words every follower of Jesus longs to hear. Not "well done, good and successful servant." Not "well done, good and productive servant." Faithful. The master commends faithfulness, not results. The servant was faithful over a little — small responsibilities, daily tasks, unglamorous work. Because he was faithful there, he was entrusted with more. The car business is an arena for faithfulness. Every customer interaction. Every deal. Every conversation in the break room. Every moment you could cut a corner and choose not to. Every day you show up and do honest work when no one is watching. These are the little things. And they matter. The master is watching. One day, you will stand before him not with your W-2s but with your life. The question will not be how many units you sold but whether you were faithful with what you were given. Live today so that one day you will hear: well done.',
+ 'If your life on the floor were evaluated today — not by the board, but by the Master — would you hear "well done"?',
+ 'Jesus, I want to hear "well done." Not for my production, but for my faithfulness. Help me be faithful in the little things — the small choices, the hidden moments, the interactions no one notices but you. Let my life on this floor be an offering that pleases you.',
+ 'Today, do your work as though the only evaluation that matters is the one you will hear from Jesus. Let that perspective shape every interaction.',
+ true),
+
+-- Day 61 (Buffer / Extra) — Integrity
+('2026-09-28',
+ 'The Worker Deserves His Wages',
+ '1 Timothy 5:18',
+ 'For the Scripture says, "You shall not muzzle an ox when it treads out the grain," and, "The laborer deserves his wages."',
+ 'ESV',
+ 'Paul quotes both Deuteronomy and the words of Jesus to make a simple point: workers should be paid. This is a justice issue. In the car business, pay plans are often complex, and it is not uncommon for deals to be "lost" or commissions to be "adjusted" in ways that benefit the house. Paul''s principle applies to both sides: the employer should pay fairly, and the employee should work honestly for those wages. If you are a manager or owner, your people deserve to be paid what they earned — on time, in full, without manipulation. If you are a salesperson, your work should be worthy of the wages you receive — honest, diligent, wholehearted. The laborer deserves his wages. The employer deserves honest labor. Both are matters of justice before God.',
+ 'Are you giving honest work for your wages? If you are a manager, are you paying your people what they deserve?',
+ 'Lord, you care about how workers are treated and how workers work. Let me be honest in my labor and fair in my dealings. Whether I am paying or being paid, let justice mark my conduct on this floor.',
+ 'Review your last pay stub. Did you earn it honestly? If you are a manager, ask yourself: are my people being paid fairly? Make any adjustment that is needed.',
+ false)
+
+ON CONFLICT (publish_date) DO NOTHING;

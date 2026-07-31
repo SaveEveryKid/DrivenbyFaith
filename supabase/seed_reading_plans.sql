@@ -1,7 +1,7 @@
 -- =============================================================================
--- Seed: 4 Additional Reading Plans (Abide is already in seed.sql)
+-- Seed: 6 Additional Reading Plans (Abide is already in seed.sql)
 -- The Honest Salesman, When the Month Is Dying, Serving the Customer You Don't Like,
--- Money Without Mastery
+-- Money Without Mastery, The Servant Leader, Walking in Integrity
 -- =============================================================================
 
 -- ── 1. THE HONEST SALESMAN (7 days): Proverbs and integrity on the floor ──────
