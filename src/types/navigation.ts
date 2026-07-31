@@ -1,6 +1,9 @@
 export type RootStackParamList = {
   '(tabs)': undefined;
   settings: undefined;
+  'settings/notifications': undefined;
+  'settings/security': undefined;
+  paywall: undefined;
   line: undefined;
   '28th': undefined;
   'devotional/[id]': { id: string };

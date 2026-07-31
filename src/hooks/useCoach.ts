@@ -65,6 +65,7 @@ export interface UseCoachUsageReturn {
   isLoading: boolean;
   isError: boolean;
   error: Error | null;
+  isOverLimit: boolean;
 }
 
 export class RateLimitError extends Error {
@@ -543,6 +544,9 @@ export function useCoachUsage(): UseCoachUsageReturn {
     isLoading,
     isError,
     error: error as Error | null,
+    isOverLimit:
+      (usage?.messagesUsedThisMonth ?? 0) >= (usage?.limit ?? 5) &&
+      !(usage?.isPremium ?? false),
   };
 }
 

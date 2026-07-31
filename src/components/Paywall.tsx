@@ -1,14 +1,36 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
 import { PrimaryButton } from './PrimaryButton';
+import { UIFontFamily, ScriptureFontFamily } from '@/constants/theme';
+import { useTheme } from '@/hooks/useTheme';
 
 interface PaywallProps {
   feature: string;
-  onSubscribe: () => void;
-  onDismiss: () => void;
+  onSubscribe?: () => void;
+  onDismiss?: () => void;
 }
 
 export function Paywall({ feature, onSubscribe, onDismiss }: PaywallProps): React.ReactElement {
+  const router = useRouter();
+  const { palette } = useTheme();
+
+  const handleSubscribe = (): void => {
+    if (onSubscribe) {
+      onSubscribe();
+    } else {
+      router.push('/paywall');
+    }
+  };
+
+  const handleDismiss = (): void => {
+    if (onDismiss) {
+      onDismiss();
+    } else if (router.canGoBack()) {
+      router.back();
+    }
+  };
+
   return (
     <View
       style={{
@@ -16,16 +38,16 @@ export function Paywall({ feature, onSubscribe, onDismiss }: PaywallProps): Reac
         alignItems: 'center',
         justifyContent: 'center',
         padding: 32,
-        backgroundColor: '#FDFBF7',
+        backgroundColor: palette.bg,
       }}
     >
       <Text style={{ fontSize: 48, marginBottom: 16 }}>🛡</Text>
       <Text
         style={{
-          fontFamily: 'Inter, system-ui, sans-serif',
+          fontFamily: UIFontFamily,
           fontSize: 20,
           fontWeight: '600',
-          color: '#3C3C3C',
+          color: palette.ink,
           textAlign: 'center',
           marginBottom: 8,
         }}
@@ -34,23 +56,45 @@ export function Paywall({ feature, onSubscribe, onDismiss }: PaywallProps): Reac
       </Text>
       <Text
         style={{
-          fontFamily: 'Inter, system-ui, sans-serif',
+          fontFamily: UIFontFamily,
           fontSize: 15,
-          color: '#9B9B9B',
+          color: palette.muted,
           textAlign: 'center',
           lineHeight: 22,
-          marginBottom: 24,
+          marginBottom: 8,
         }}
       >
-        {feature} is available with a Premium subscription. Your support helps keep the app free for those who need it most.
+        {feature} is available with a Premium subscription.
       </Text>
-      <PrimaryButton title="Subscribe" onPress={onSubscribe} />
-      <TouchableOpacity onPress={onDismiss} style={{ marginTop: 16 }}>
+      <Text
+        style={{
+          fontFamily: ScriptureFontFamily,
+          fontSize: 14,
+          color: palette.inkDim,
+          textAlign: 'center',
+          lineHeight: 20,
+          marginBottom: 24,
+          fontStyle: 'italic',
+        }}
+      >
+        Feed the work that feeds your soul.
+        Your support keeps the daily devotional free for those who need it most.
+      </Text>
+      <PrimaryButton
+        title="See plans"
+        onPress={handleSubscribe}
+        accessibilityLabel="See premium subscription plans"
+      />
+      <TouchableOpacity
+        onPress={handleDismiss}
+        style={{ marginTop: 16 }}
+        accessibilityLabel="Dismiss premium prompt"
+      >
         <Text
           style={{
-            fontFamily: 'Inter, system-ui, sans-serif',
+            fontFamily: UIFontFamily,
             fontSize: 14,
-            color: '#6F6F6F',
+            color: palette.muted,
           }}
         >
           Not now

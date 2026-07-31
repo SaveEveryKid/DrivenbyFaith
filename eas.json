@@ -4,16 +4,28 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_REVENUECAT_APPLE_API_KEY": "REVENUECAT_APPLE_API_KEY_PLACEHOLDER",
+        "EXPO_PUBLIC_REVENUECAT_GOOGLE_API_KEY": "REVENUECAT_GOOGLE_API_KEY_PLACEHOLDER"
+      },
       "ios": { "resourceClass": "m-medium" },
       "android": { "buildType": "apk" }
     },
     "preview": {
       "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_REVENUECAT_APPLE_API_KEY": "REVENUECAT_APPLE_API_KEY_PLACEHOLDER",
+        "EXPO_PUBLIC_REVENUECAT_GOOGLE_API_KEY": "REVENUECAT_GOOGLE_API_KEY_PLACEHOLDER"
+      },
       "ios": { "resourceClass": "m-medium" },
       "android": { "buildType": "apk" }
     },
     "production": {
       "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_REVENUECAT_APPLE_API_KEY": "REVENUECAT_APPLE_API_KEY_PLACEHOLDER",
+        "EXPO_PUBLIC_REVENUECAT_GOOGLE_API_KEY": "REVENUECAT_GOOGLE_API_KEY_PLACEHOLDER"
+      },
       "ios": { "resourceClass": "m-medium" },
       "android": { "buildType": "app-bundle" }
     }

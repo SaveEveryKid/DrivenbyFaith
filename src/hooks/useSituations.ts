@@ -95,7 +95,7 @@ async function fetchSavedIds(userId: string): Promise<string[]> {
 
 // ─── Hook: useSituations ──────────────────────────────────────────────────────
 
-export function useSituations(): UseSituationsReturn {
+export function useSituations(isPremium = false): UseSituationsReturn {
   const { user } = useAuth();
   const queryClient = useQueryClient();
   const [searchQuery, setSearchQueryState] = useState('');
@@ -182,6 +182,11 @@ export function useSituations(): UseSituationsReturn {
         s.title.toLowerCase().includes(lower) ||
         s.situation_body.toLowerCase().includes(lower),
     );
+  }
+
+  // Gate premium situations for free users
+  if (!isPremium) {
+    filtered = filtered.filter((s) => !s.is_premium);
   }
 
   return {
