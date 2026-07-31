@@ -169,12 +169,27 @@ export function getCountdownLabel(timezone: string): string | null {
 // ─── Fetchers ────────────────────────────────────────────────────────────────
 
 async function fetchSaturdayReady(
-  releaseDate: string,
+  _releaseDate: string,
 ): Promise<SaturdayReadyRow | null> {
+  // Primary: call the rotating-content RPC
+  const { data: rpcResult, error: rpcError } = await supabase
+    .rpc('get_current_saturday_ready')
+    .maybeSingle();
+
+  if (!rpcError && rpcResult) {
+    return rpcResult as SaturdayReadyRow;
+  }
+
+  if (rpcError) {
+    console.warn('[useSaturdayReady] RPC get_current_saturday_ready failed, falling back:', rpcError.message);
+  }
+
+  // Fallback: query the newest Saturday Ready entry
   const { data, error } = await supabase
     .from('saturday_ready')
     .select('*')
-    .eq('release_date', releaseDate)
+    .order('release_date', { ascending: false })
+    .limit(1)
     .maybeSingle();
 
   if (error) throw error;
@@ -183,13 +198,16 @@ async function fetchSaturdayReady(
 
 async function fetchSaturdayReadyResponse(
   userId: string,
-  saturdayReadyId: string,
+  _saturdayReadyId: string,
 ): Promise<SaturdayReadyResponseRow | null> {
+  // After migration 006, responses are keyed by (user_id, response_date).
+  // Look up by today's date since at most one per calendar day.
+  const today = new Date().toISOString().slice(0, 10);
   const { data, error } = await supabase
     .from('saturday_ready_responses')
     .select('*')
     .eq('user_id', userId)
-    .eq('saturday_ready_id', saturdayReadyId)
+    .eq('response_date', today)
     .maybeSingle();
 
   if (error) throw error;
@@ -202,16 +220,20 @@ async function upsertSaturdayReadyResponse(
   commitmentsSelected: string[],
   notes: string | null,
 ): Promise<SaturdayReadyResponseRow> {
+  const today = new Date().toISOString().slice(0, 10);
+
+  // After migration 006, responses are keyed by (user_id, response_date).
   const { data: existing } = await supabase
     .from('saturday_ready_responses')
     .select('id')
     .eq('user_id', userId)
-    .eq('saturday_ready_id', saturdayReadyId)
+    .eq('response_date', today)
     .maybeSingle();
 
   const payload = {
     user_id: userId,
     saturday_ready_id: saturdayReadyId,
+    response_date: today,
     commitments_selected: commitmentsSelected,
     notes,
     completed_at: new Date().toISOString(),

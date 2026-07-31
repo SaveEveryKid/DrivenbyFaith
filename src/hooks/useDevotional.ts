@@ -49,16 +49,32 @@ interface UseDevotionalStreakReturn {
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 /**
- * Fetches the devotional for today's date from the server.
- * Uses TODAY's UTC date, so the app always matches the server date.
+ * Fetches today's devotional via the get_todays_devotional() RPC.
+ * The RPC rotates through all devotionals by day offset, so the app
+ * never runs out of content regardless of library size.
+ *
+ * Fallback: if the RPC returns null, query the newest devotional directly.
  */
 async function fetchTodayDevotional(): Promise<DevotionalRow | null> {
-  const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD in UTC
+  // Primary: call the rotating-content RPC
+  const { data: rpcResult, error: rpcError } = await supabase
+    .rpc('get_todays_devotional')
+    .maybeSingle();
 
+  if (!rpcError && rpcResult) {
+    return rpcResult as DevotionalRow;
+  }
+
+  if (rpcError) {
+    console.warn('[useDevotional] RPC get_todays_devotional failed, falling back:', rpcError.message);
+  }
+
+  // Fallback: query the newest devotional by publish_date
   const { data, error } = await supabase
     .from('devotionals')
     .select('*')
-    .eq('publish_date', today)
+    .order('publish_date', { ascending: false })
+    .limit(1)
     .maybeSingle();
 
   if (error) {
@@ -87,17 +103,23 @@ async function fetchCompletions(userId: string): Promise<DevotionalCompletionRow
 
 /**
  * Upserts a devotional completion record.
+ *
+ * After migration 006, completions are keyed by (user_id, completed_date)
+ * instead of (user_id, devotional_id). We look up the existing row by
+ * today's date and upsert accordingly.
  */
 async function upsertCompletion(
   userId: string,
   devotionalId: string,
   data: CompleteDevotionalData,
 ): Promise<DevotionalCompletionRow> {
+  const today = new Date().toISOString().slice(0, 10);
+
   const { data: existing, error: fetchError } = await supabase
     .from('devotional_completions')
     .select('id, reflection_response, challenge_accepted, challenge_completed, prayer_duration_seconds')
     .eq('user_id', userId)
-    .eq('devotional_id', devotionalId)
+    .eq('completed_date', today)
     .maybeSingle();
 
   if (fetchError) {
@@ -107,6 +129,7 @@ async function upsertCompletion(
   const payload: Record<string, unknown> = {
     user_id: userId,
     devotional_id: devotionalId,
+    completed_date: today,
   };
 
   if (data.reflection_response !== undefined) {
@@ -178,11 +201,18 @@ async function upsertCompletion(
 }
 
 /**
- * Computes a user's devotional streak from an array of completion dates.
+ * Computes a user's devotional streak from an array of completions.
+ * Uses completed_date (DATE) as the source of truth for day tracking.
  */
 function computeStreak(completions: DevotionalCompletionRow[]): DevotionalStreak {
   const completedDaysSet = new Set(
-    completions.map((c) => c.completed_at.slice(0, 10)),
+    completions.map((c) => {
+      // Prefer completed_date (DATE) if available; fall back to completed_at
+      if ((c as Record<string, unknown>).completed_date) {
+        return (c as Record<string, unknown>).completed_date as string;
+      }
+      return c.completed_at.slice(0, 10);
+    }),
   );
   const completedDays = Array.from(completedDaysSet).sort();
 
@@ -253,7 +283,9 @@ export function useTodayDevotional(): UseTodayDevotionalReturn {
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
 
-  // Fetch today's completion if user is authenticated
+  // Fetch today's completion if user is authenticated.
+  // After migration 006, completions are keyed by (user_id, completed_date)
+  // instead of (user_id, devotional_id), so at most one per calendar day.
   const {
     data: completion,
     isLoading: isCompletionLoading,
@@ -268,7 +300,7 @@ export function useTodayDevotional(): UseTodayDevotionalReturn {
         .from('devotional_completions')
         .select('*')
         .eq('user_id', user.id)
-        .eq('devotional_id', devotional.id)
+        .eq('completed_date', today)
         .maybeSingle();
 
       if (error) throw error;
