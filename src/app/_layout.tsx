@@ -194,6 +194,76 @@ function RootLayoutInner(): React.ReactElement {
             headerTitle: 'Review Verse',
           }}
         />
+        <Stack.Screen
+          name="prayer/groups"
+          options={{
+            presentation: 'modal',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="prayer/groups/new"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'New Group',
+          }}
+        />
+        <Stack.Screen
+          name="prayer/groups/join"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'Join Group',
+          }}
+        />
+        <Stack.Screen
+          name="prayer/groups/[id]"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: '',
+          }}
+        />
+        <Stack.Screen
+          name="prayer/requests/new"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'New Request',
+          }}
+        />
+        <Stack.Screen
+          name="discussions/index"
+          options={{
+            presentation: 'modal',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="discussions/[category]"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: '',
+          }}
+        />
+        <Stack.Screen
+          name="discussions/[category]/new"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'New Thread',
+          }}
+        />
+        <Stack.Screen
+          name="discussions/thread/[id]"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: '',
+          }}
+        />
       </Stack>
     </AuthGuard>
   );

@@ -15,6 +15,15 @@ export type RootStackParamList = {
   'plans/day/[id]': { id: string };
   'memory/index': undefined;
   'memory/review/[id]': { id: string };
+  'prayer/groups': undefined;
+  'prayer/groups/new': undefined;
+  'prayer/groups/join': undefined;
+  'prayer/groups/[id]': { id: string };
+  'prayer/requests/new': { groupId?: string };
+  'discussions/index': undefined;
+  'discussions/[category]': { category: string };
+  'discussions/[category]/new': { category: string };
+  'discussions/thread/[id]': { id: string };
 };
 
 export type AuthStackParamList = {

@@ -79,3 +79,49 @@ export type {
   AddMemoryVerseInput,
   ReviewMode,
 } from './useMemory';
+export {
+  usePrayerGroups,
+  usePrayerGroup,
+  usePrayerRequests,
+  useAnsweredRequests,
+  useCreateGroup,
+  useJoinGroup,
+  useLeaveGroup,
+  useCreatePrayerRequest,
+  useInteractPrayer,
+  useMarkAnswered,
+  useReportContent,
+  useRemoveMember,
+  useRemovePrayerRequest,
+} from './usePrayer';
+export type {
+  PrayerGroupWithMeta,
+  PrayerGroupMember,
+  PrayerRequestSafe,
+  CreateGroupInput,
+  CreateRequestInput,
+  MarkAnsweredInput,
+  UsePrayerGroupsReturn,
+  UsePrayerGroupReturn,
+  UsePrayerRequestsReturn,
+} from './usePrayer';
+export {
+  useDiscussionCategories,
+  useDiscussionThreads,
+  useDiscussionThread,
+  useCreateThread,
+  useCreateReply,
+  useEditThread,
+  useEditReply,
+  useDeleteThread,
+  useDeleteReply,
+  CATEGORIES,
+} from './useDiscussions';
+export type {
+  DiscussionCategory,
+  DiscussionThreadWithMeta,
+  DiscussionReplyWithMeta,
+  CategoryInfo,
+  CreateThreadInput,
+  CreateReplyInput,
+} from './useDiscussions';
