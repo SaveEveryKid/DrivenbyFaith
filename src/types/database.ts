@@ -21,6 +21,12 @@ export interface ProfileRow {
   translation: string;
   line_wont_cross: string | null;
   line_wont_cross_updated_at: string | null;
+  devotional_reminder_enabled: boolean;
+  devotional_reminder_time: string;
+  saturday_ready_reminder_enabled: boolean;
+  prayer_reminder_enabled: boolean;
+  memory_reminder_enabled: boolean;
+  memory_reminder_time: string;
   created_at: string;
   updated_at: string;
 }
@@ -41,6 +47,12 @@ export interface ProfileInsert {
   notification_preferences?: Record<string, unknown> | null;
   translation?: string;
   line_wont_cross?: string | null;
+  devotional_reminder_enabled?: boolean;
+  devotional_reminder_time?: string;
+  saturday_ready_reminder_enabled?: boolean;
+  prayer_reminder_enabled?: boolean;
+  memory_reminder_enabled?: boolean;
+  memory_reminder_time?: string;
 }
 
 export interface ProfileUpdate {
@@ -59,6 +71,12 @@ export interface ProfileUpdate {
   translation?: string;
   line_wont_cross?: string | null;
   line_wont_cross_updated_at?: string | null;
+  devotional_reminder_enabled?: boolean;
+  devotional_reminder_time?: string;
+  saturday_ready_reminder_enabled?: boolean;
+  prayer_reminder_enabled?: boolean;
+  memory_reminder_enabled?: boolean;
+  memory_reminder_time?: string;
 }
 
 // ─── Devotional ──────────────────────────────────────────────────────────────

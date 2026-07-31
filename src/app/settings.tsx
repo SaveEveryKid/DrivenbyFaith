@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import { useRouter } from 'expo-router';
 import { useThemeStore, type ThemeMode } from '@/stores/themeStore';
 import type { TextSizeLevel } from '@/constants/theme';
 import { UIFontFamily } from '@/constants/theme';
@@ -23,6 +24,7 @@ export default function SettingsScreen(): React.ReactElement {
   const { explicitTheme, textSize, setExplicitTheme, setTextSize } = useThemeStore();
   const { signOut, deleteAccount, profile } = useAuth();
   const { palette } = useTheme();
+  const router = useRouter();
   const [isSigningOut, setIsSigningOut] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -221,6 +223,78 @@ export default function SettingsScreen(): React.ReactElement {
             )}
           </TouchableOpacity>
         ))}
+      </View>
+
+      {/* Preferences section */}
+      <Text
+        style={{
+          fontFamily: UIFontFamily,
+          fontSize: 14,
+          fontWeight: '600',
+          color: palette.muted,
+          textTransform: 'uppercase',
+          letterSpacing: 0.5,
+          marginBottom: 12,
+        }}
+      >
+        Preferences
+      </Text>
+
+      <View
+        style={{
+          backgroundColor: palette.surface,
+          borderRadius: 10,
+          overflow: 'hidden',
+          marginBottom: 24,
+        }}
+      >
+        <TouchableOpacity
+          onPress={() => router.push('/settings/notifications')}
+          accessibilityLabel="Notification settings"
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            paddingHorizontal: 16,
+            paddingVertical: 14,
+            borderBottomWidth: 1,
+            borderBottomColor: palette.line,
+          }}
+        >
+          <Text
+            style={{
+              fontFamily: UIFontFamily,
+              fontSize: 16,
+              color: palette.ink,
+            }}
+          >
+            Notifications
+          </Text>
+          <Text style={{ color: palette.inkDim, fontSize: 18 }}>›</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => router.push('/settings/security')}
+          accessibilityLabel="Security settings"
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            paddingHorizontal: 16,
+            paddingVertical: 14,
+          }}
+        >
+          <Text
+            style={{
+              fontFamily: UIFontFamily,
+              fontSize: 16,
+              color: palette.ink,
+            }}
+          >
+            Security
+          </Text>
+          <Text style={{ color: palette.inkDim, fontSize: 18 }}>›</Text>
+        </TouchableOpacity>
       </View>
 
       {/* Account section */}

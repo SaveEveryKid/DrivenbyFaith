@@ -189,11 +189,11 @@ async function upsertPlanProgress(
 
 // ─── Hooks ───────────────────────────────────────────────────────────────────
 
-export function useReadingPlans(): UseReadingPlansReturn {
+export function useReadingPlans(isPremium = false): UseReadingPlansReturn {
   const { user } = useAuth();
 
   const {
-    data: plans,
+    data: allPlans,
     isLoading: plansLoading,
     isError: plansError,
     error: plansErr,
@@ -202,6 +202,11 @@ export function useReadingPlans(): UseReadingPlansReturn {
     queryFn: fetchAllPlans,
     staleTime: 10 * 60 * 1000,
   });
+
+  // Gate premium plans for free users
+  const plans = isPremium
+    ? (allPlans ?? [])
+    : (allPlans ?? []).filter((p) => !p.is_premium);
 
   const {
     data: progressList,
