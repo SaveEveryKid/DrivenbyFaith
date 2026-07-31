@@ -146,6 +146,54 @@ function RootLayoutInner(): React.ReactElement {
             headerTitle: 'Situation',
           }}
         />
+        <Stack.Screen
+          name="saturday-ready/[id]"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'Saturday Ready',
+          }}
+        />
+        <Stack.Screen
+          name="plans/index"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'Reading Plans',
+          }}
+        />
+        <Stack.Screen
+          name="plans/[slug]"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'Reading Plan',
+          }}
+        />
+        <Stack.Screen
+          name="plans/day/[id]"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'Day',
+          }}
+        />
+        <Stack.Screen
+          name="memory/index"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'Memory Verses',
+          }}
+        />
+        <Stack.Screen
+          name="memory/review/[id]"
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            headerTitle: 'Review Verse',
+          }}
+        />
       </Stack>
     </AuthGuard>
   );

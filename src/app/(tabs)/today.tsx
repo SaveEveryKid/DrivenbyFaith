@@ -19,6 +19,9 @@ import { useTodayDevotional, useDevotionalStreak } from '@/hooks/useDevotional';
 import { useLine } from '@/hooks/useLine';
 import { use28th } from '@/hooks/use28th';
 import { useAuth } from '@/hooks/useAuth';
+import { useSaturdayReady } from '@/hooks/useSaturdayReady';
+import { useReadingPlans } from '@/hooks/useReadingPlans';
+import { useMemoryVerses } from '@/hooks/useMemory';
 import { UIFontFamily } from '@/constants/theme';
 
 // ─── Skeleton placeholder ─────────────────────────────────────────────────────
@@ -397,6 +400,272 @@ function StreakDisplay(): React.ReactElement {
   );
 }
 
+// ─── Saturday Ready Card ──────────────────────────────────────────────────────
+
+function SaturdayReadyCard(): React.ReactElement | null {
+  const { palette, typography } = useTheme();
+  const router = useRouter();
+  const { saturdayReady, response, isActive, countdownLabel, isLoading } = useSaturdayReady();
+
+  // Don't show if loading or no data
+  if (isLoading) return null;
+
+  // Locked countdown state
+  if (!isActive && countdownLabel) {
+    return (
+      <TouchableOpacity
+        disabled
+        accessibilityLabel={countdownLabel}
+        style={{
+          backgroundColor: palette.surface,
+          borderRadius: 10,
+          padding: 16,
+          marginBottom: 16,
+          borderWidth: 1,
+          borderColor: palette.line,
+          opacity: 0.7,
+        }}
+      >
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 8 }}>
+          <Text style={{ fontSize: 18, marginRight: 8 }}>🕐</Text>
+          <Text
+            style={{
+              fontFamily: UIFontFamily,
+              fontSize: typography.ui.sizes.sm,
+              fontWeight: '600',
+              color: palette.muted,
+              textTransform: 'uppercase',
+              letterSpacing: 0.5,
+            }}
+          >
+            Saturday Ready
+          </Text>
+        </View>
+        <Text
+          style={{
+            fontFamily: UIFontFamily,
+            fontSize: typography.ui.sizes.sm,
+            color: palette.muted,
+            lineHeight: 20,
+          }}
+        >
+          {countdownLabel}
+        </Text>
+      </TouchableOpacity>
+    );
+  }
+
+  // Active state — show card if we have data
+  if (isActive && saturdayReady) {
+    const isCompleted = !!response;
+
+    return (
+      <TouchableOpacity
+        onPress={() =>
+          router.push({
+            pathname: '/saturday-ready/[id]',
+            params: { id: saturdayReady.id },
+          })
+        }
+        accessibilityLabel={`Saturday Ready: ${saturdayReady.theme}`}
+        style={{
+          backgroundColor: palette.sage + '10',
+          borderRadius: 10,
+          padding: 16,
+          marginBottom: 16,
+          borderWidth: 1,
+          borderColor: palette.sage + '30',
+        }}
+      >
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 6 }}>
+          {isCompleted ? (
+            <View
+              style={{
+                width: 24,
+                height: 24,
+                borderRadius: 12,
+                backgroundColor: palette.sage,
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginRight: 8,
+              }}
+            >
+              <Text style={{ color: '#FFFFFF', fontSize: 12, fontWeight: '700' }}>✓</Text>
+            </View>
+          ) : (
+            <Text style={{ fontSize: 18, marginRight: 8 }}>🛡</Text>
+          )}
+          <Text
+            style={{
+              fontFamily: UIFontFamily,
+              fontSize: typography.ui.sizes.sm,
+              fontWeight: '600',
+              color: palette.sage,
+              textTransform: 'uppercase',
+              letterSpacing: 0.5,
+            }}
+          >
+            Saturday Ready
+          </Text>
+        </View>
+        <Text
+          style={{
+            fontFamily: typography.scripture.fontFamily,
+            fontSize: typography.ui.sizes.base,
+            fontWeight: '600',
+            color: palette.ink,
+            marginBottom: 4,
+          }}
+        >
+          {saturdayReady.theme}
+        </Text>
+        <Text
+          style={{
+            fontFamily: UIFontFamily,
+            fontSize: typography.ui.sizes.sm,
+            color: palette.muted,
+            lineHeight: 20,
+          }}
+        >
+          {isCompleted ? 'You have completed this week\'s preparation.' : 'Prepare your heart for Saturday on the lot.'}
+        </Text>
+      </TouchableOpacity>
+    );
+  }
+
+  return null;
+}
+
+// ─── Reading Plan Progress Card ───────────────────────────────────────────────
+
+function ReadingPlanProgressCard(): React.ReactElement | null {
+  const { palette, typography } = useTheme();
+  const router = useRouter();
+  const { plans, progress, isLoading } = useReadingPlans();
+
+  if (isLoading || plans.length === 0) return null;
+
+  // Find first active plan (started but not completed)
+  const activePlan = plans.find((p) => {
+    const prog = progress[p.id];
+    return prog && !prog.completed_at;
+  });
+
+  if (!activePlan) return null;
+
+  const prog = progress[activePlan.id];
+  const completedCount: number = Array.isArray(prog?.days_completed)
+    ? (prog.days_completed as number[]).length
+    : 0;
+
+  return (
+    <TouchableOpacity
+      onPress={() =>
+        router.push({
+          pathname: '/plans/[slug]',
+          params: { slug: activePlan.slug },
+        })
+      }
+      accessibilityLabel={`Reading plan: ${activePlan.title}, ${completedCount} of ${activePlan.day_count} days`}
+      style={{
+        backgroundColor: palette.surface,
+        borderRadius: 10,
+        padding: 16,
+        marginBottom: 16,
+        borderWidth: 1,
+        borderColor: palette.line,
+      }}
+    >
+      <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 6 }}>
+        <Text style={{ fontSize: 18, marginRight: 8 }}>📖</Text>
+        <Text
+          style={{
+            fontFamily: UIFontFamily,
+            fontSize: typography.ui.sizes.sm,
+            fontWeight: '600',
+            color: palette.muted,
+            textTransform: 'uppercase',
+            letterSpacing: 0.5,
+          }}
+        >
+          Reading Plan
+        </Text>
+      </View>
+      <Text
+        style={{
+          fontFamily: typography.scripture.fontFamily,
+          fontSize: typography.ui.sizes.base,
+          fontWeight: '600',
+          color: palette.ink,
+          marginBottom: 4,
+        }}
+      >
+        {activePlan.title}
+      </Text>
+      <Text
+        style={{
+          fontFamily: UIFontFamily,
+          fontSize: typography.ui.sizes.sm,
+          color: palette.sage,
+          fontWeight: '600',
+        }}
+      >
+        {completedCount} of {activePlan.day_count} days
+      </Text>
+    </TouchableOpacity>
+  );
+}
+
+// ─── Memory Review Count Card ─────────────────────────────────────────────────
+
+function MemoryReviewCard(): React.ReactElement | null {
+  const { palette, typography } = useTheme();
+  const router = useRouter();
+  const { dueCount, isLoading } = useMemoryVerses();
+
+  if (isLoading || dueCount === 0) return null;
+
+  return (
+    <TouchableOpacity
+      onPress={() => router.push('/memory/index')}
+      accessibilityLabel={`${dueCount} memory verse${dueCount !== 1 ? 's' : ''} due for review`}
+      style={{
+        backgroundColor: palette.clay + '08',
+        borderRadius: 10,
+        padding: 16,
+        marginBottom: 16,
+        borderWidth: 1,
+        borderColor: palette.clay + '25',
+        flexDirection: 'row',
+        alignItems: 'center',
+      }}
+    >
+      <Text style={{ fontSize: 18, marginRight: 10 }}>📝</Text>
+      <View style={{ flex: 1 }}>
+        <Text
+          style={{
+            fontFamily: UIFontFamily,
+            fontSize: typography.ui.sizes.sm,
+            fontWeight: '600',
+            color: palette.clay,
+          }}
+        >
+          {dueCount} verse{dueCount !== 1 ? 's' : ''} due for review
+        </Text>
+      </View>
+      <Text
+        style={{
+          fontFamily: typography.ui.fontFamily,
+          fontSize: typography.ui.sizes.lg,
+          color: palette.line,
+        }}
+      >
+        ›
+      </Text>
+    </TouchableOpacity>
+  );
+}
+
 // ─── Month-End Integrity Card ─────────────────────────────────────────────────
 
 function MonthEndCard(): React.ReactElement | null {
@@ -592,6 +861,15 @@ export default function TodayScreen(): React.ReactElement {
 
       {/* Streak */}
       <StreakDisplay />
+
+      {/* Saturday Ready Card */}
+      <SaturdayReadyCard />
+
+      {/* Reading Plan Progress */}
+      <ReadingPlanProgressCard />
+
+      {/* Memory Review */}
+      <MemoryReviewCard />
 
       {/* Month-End Integrity Card */}
       <MonthEndCard />

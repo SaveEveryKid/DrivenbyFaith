@@ -9,6 +9,12 @@ export type RootStackParamList = {
   'debrief/[id]': { id: string };
   'situation/index': undefined;
   'situation/[slug]': { slug: string };
+  'saturday-ready/[id]': { id: string };
+  'plans/index': undefined;
+  'plans/[slug]': { slug: string };
+  'plans/day/[id]': { id: string };
+  'memory/index': undefined;
+  'memory/review/[id]': { id: string };
 };
 
 export type AuthStackParamList = {
