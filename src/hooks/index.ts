@@ -147,3 +147,5 @@ export type {
   UseCreateConversationReturn,
   UseCoachUsageReturn,
 } from './useCoach';
+export { useProgressDashboard, useYearInReview } from './useProgress';
+export type { ProgressDashboard, YearInReviewData } from './useProgress';

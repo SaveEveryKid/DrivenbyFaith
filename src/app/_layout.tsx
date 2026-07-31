@@ -229,6 +229,22 @@ function RootLayoutInner(): React.ReactElement {
             }}
           />
           <Stack.Screen
+            name="settings/privacy"
+            options={{
+              presentation: 'modal',
+              headerShown: true,
+              headerTitle: 'Privacy Policy',
+            }}
+          />
+          <Stack.Screen
+            name="settings/terms"
+            options={{
+              presentation: 'modal',
+              headerShown: true,
+              headerTitle: 'Terms of Service',
+            }}
+          />
+          <Stack.Screen
             name="paywall"
             options={{
               presentation: 'modal',
@@ -413,6 +429,14 @@ function RootLayoutInner(): React.ReactElement {
               presentation: 'modal',
               headerShown: true,
               headerTitle: '',
+            }}
+          />
+          <Stack.Screen
+            name="progress/year-in-review"
+            options={{
+              presentation: 'modal',
+              headerShown: true,
+              headerTitle: 'Year in Review',
             }}
           />
         </Stack>

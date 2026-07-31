@@ -3,6 +3,8 @@ export type RootStackParamList = {
   settings: undefined;
   'settings/notifications': undefined;
   'settings/security': undefined;
+  'settings/privacy': undefined;
+  'settings/terms': undefined;
   paywall: undefined;
   line: undefined;
   '28th': undefined;
@@ -27,6 +29,7 @@ export type RootStackParamList = {
   'discussions/[category]': { category: string };
   'discussions/[category]/new': { category: string };
   'discussions/thread/[id]': { id: string };
+  'progress/year-in-review': undefined;
 };
 
 export type AuthStackParamList = {
