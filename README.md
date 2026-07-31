@@ -86,6 +86,22 @@ supabase/
 - **Motion**: 200-300ms ease-out; respects reduced-motion
 - **Copy**: Plain-spoken, short, respectful. No prosperity-gospel language
 
+## Content
+
+`supabase/seed.sql` ships with a full content library, ESV quotations verified
+against Bible Gateway:
+
+- **54 daily devotionals** (4 premium) — continuous coverage from 2026-07-30
+  through 2026-09-21, so Today has something to show for two months without
+  repeating.
+- **21 situation guides**, 3 in each of the 7 categories (customer,
+  management, coworker, self, family, money, ethics), each with a scripted
+  practical response, not just commentary.
+- **3 reading plans** (37 days total): *Abide* (John 15, 21 days), *Fruit on
+  the Floor* (Galatians 5, 9 days), and *A Business Proverb a Day* (Proverbs
+  16, 7 days, premium).
+- **9 Saturday Ready entries**, one per week.
+
 ## Status
 
 Auth, devotionals, the situation library, reading plans, AI coaching, prayer
