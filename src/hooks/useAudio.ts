@@ -73,13 +73,7 @@ export function useAudioPlayer(audioUrl?: string): UseAudioPlayerReturn {
     unloadAsync: () => Promise<void>;
   } | null>(null);
 
-  const SoundConstructorRef = useRef<{
-    createAsync: (
-      source: { uri: string },
-      initialStatus: Record<string, unknown>,
-      onPlaybackStatusUpdate: (status: Record<string, unknown>) => void,
-    ) => Promise<typeof soundRef.current>;
-  } | null>(null);
+  const SoundConstructorRef = useRef<any>(null);
 
   const updateIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 

@@ -31,7 +31,7 @@ export const darkPalette = {
   scripture: '#E8E4DF',
 } as const;
 
-export type Palette = typeof lightPalette;
+export type Palette = typeof lightPalette | typeof darkPalette;
 
 // ─── Legacy colors (backward compat) ────────────────────────────────────────
 

@@ -5,9 +5,16 @@
 import { Platform } from 'react-native';
 import { supabase } from './supabase';
 
-let NotificationsModule: typeof import('expo-notifications') | null = null;
+// Lazy-loaded module type — avoids hard dependency for type checking
+interface NotificationsModuleType {
+  getPermissionsAsync(): Promise<{ status: string }>;
+  requestPermissionsAsync(): Promise<{ status: string }>;
+  getExpoPushTokenAsync(options?: { projectId?: string }): Promise<{ data: string; type: string }>;
+}
 
-async function getNotificationsModule(): Promise<typeof import('expo-notifications') | null> {
+let NotificationsModule: NotificationsModuleType | null = null;
+
+async function getNotificationsModule(): Promise<NotificationsModuleType | null> {
   if (NotificationsModule) return NotificationsModule;
   try {
     NotificationsModule = await import('expo-notifications');

@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Alert,
+  Share,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { ScriptureBlock } from '@/components/ScriptureBlock';
@@ -326,10 +327,16 @@ export default function SituationDetailScreen(): React.ReactElement {
         </Text>
       </View>
 
-      {/* Share stub */}
+      {/* Share */}
       <TouchableOpacity
-        onPress={() => {
-          Alert.alert('Share', 'Sharing will be available in a future update.');
+        onPress={async () => {
+          if (!situation) return;
+          try {
+            const message = `"${situation.title}" — ${situation.scripture_refs.map((r) => r.reference).join(', ')}\n\n${situation.biblical_principle}\n\nFrom the Driven by Faith app.`;
+            await Share.share({ message });
+          } catch {
+            // User cancelled or share failed
+          }
         }}
         accessibilityLabel="Share this situation"
         style={{

@@ -4,9 +4,21 @@
 
 import * as SecureStore from 'expo-secure-store';
 
-let LocalAuthentication: typeof import('expo-local-authentication') | null = null;
+// Lazy-loaded module type — avoids hard dependency for type checking
+interface LocalAuthModule {
+  hasHardwareAsync(): Promise<boolean>;
+  isEnrolledAsync(): Promise<boolean>;
+  authenticateAsync(options?: {
+    promptMessage?: string;
+    fallbackLabel?: string;
+    cancelLabel?: string;
+    disableDeviceFallback?: boolean;
+  }): Promise<{ success: boolean; error?: string }>;
+}
 
-async function getLocalAuth(): Promise<typeof import('expo-local-authentication') | null> {
+let LocalAuthentication: LocalAuthModule | null = null;
+
+async function getLocalAuth(): Promise<LocalAuthModule | null> {
   if (LocalAuthentication) return LocalAuthentication;
   try {
     LocalAuthentication = await import('expo-local-authentication');

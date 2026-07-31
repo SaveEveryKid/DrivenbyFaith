@@ -6,8 +6,10 @@ import {
   ScrollView,
   TouchableOpacity,
   Animated,
+  ActivityIndicator,
   Alert,
   Platform,
+  Share,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import * as Haptics from 'expo-haptics';
@@ -678,7 +680,7 @@ function ChallengeSection({
   );
 }
 
-// ─── Share Button (stub) ─────────────────────────────────────────────────────
+// ─── Share Button ─────────────────────────────────────────────────────────────
 
 function ShareButton({
   onPress,
@@ -878,15 +880,15 @@ export default function DevotionalReaderScreen(): React.ReactElement {
     setChallengeCompleted(true);
   }, []);
 
-  // Share stub
-  const handleShare = useCallback(() => {
-    // Integration point for expo-sharing / react-native-view-shot
-    // Capture the Scripture + reflection as an image and open the share sheet
-    Alert.alert(
-      'Share',
-      'Sharing will be available in a future update.',
-    );
-  }, []);
+  const handleShare = useCallback(async () => {
+    if (!devotional) return;
+    try {
+      const message = `"${devotional.title}" — ${devotional.scripture_reference}\n\n${devotional.scripture_text}\n\nFrom the Driven by Faith app.`;
+      await Share.share({ message });
+    } catch {
+      // User cancelled or share failed — nothing to do
+    }
+  }, [devotional]);
 
   // ── Loading state ────────────────────────────────────────────────────────
 

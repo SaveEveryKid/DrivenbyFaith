@@ -18,7 +18,7 @@ export function useTheme() {
     useThemeStore();
 
   const resolvedMode: 'light' | 'dark' =
-    explicitTheme === 'system' ? (colorScheme ?? 'light') : explicitTheme;
+    explicitTheme === 'system' ? ((colorScheme as 'light' | 'dark' | null | undefined) ?? 'light') : explicitTheme;
 
   const palette: Palette = resolvedMode === 'dark' ? darkPalette : lightPalette;
   const colors = legacyColors[resolvedMode];

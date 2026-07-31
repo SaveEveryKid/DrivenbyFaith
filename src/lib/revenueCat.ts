@@ -5,7 +5,8 @@
 import { Platform } from 'react-native';
 
 // RevenueCat is lazy-loaded so the app doesn't crash when keys aren't configured
-let Purchases: typeof import('react-native-purchases').default | null = null;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let Purchases: any = null;
 let isConfigured = false;
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -41,7 +42,8 @@ export interface OfferingPackage {
 export interface OfferingsData {
   monthly: OfferingPackage | null;
   annual: OfferingPackage | null;
-  current: import('react-native-purchases').PurchasesOfferings | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  current: any;
 }
 
 export interface PurchaseResult {

@@ -154,7 +154,7 @@ async function fetchUserPrayerGroups(userId: string): Promise<PrayerGroupWithMet
       });
       const membership = memberships.find((m) => m.group_id === g.id);
       return {
-        ...g,
+        ...(g as Record<string, unknown>),
         member_count: (count as number) ?? 0,
         user_role: membership?.role ?? 'member',
       };
@@ -396,7 +396,7 @@ export function usePrayerGroup(groupId: string): UsePrayerGroupReturn {
 
       return {
         group: {
-          ...groupData,
+          ...(groupData as Record<string, unknown>),
           member_count: (count as number) ?? 0,
           user_role: (membership?.role as 'member' | 'leader') ?? 'member',
         } as PrayerGroupWithMeta,

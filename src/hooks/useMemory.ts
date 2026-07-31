@@ -109,9 +109,8 @@ async function updateMemoryVerseReview(
 
 // ─── Review Mode Helpers ─────────────────────────────────────────────────────
 
-// Re-export RecallQuality from sm2 for convenience
-export type RecallQuality = import('@/lib/sm2').RecallQuality;
 export { sm2 } from '@/lib/sm2';
+export type { RecallQuality } from '@/lib/sm2';
 
 export type ReviewMode = 'read' | 'firstLetters' | 'fillBlanks' | 'typeFromMemory';
 
