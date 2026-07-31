@@ -54,6 +54,14 @@ supabase db reset       # apply migrations + seed
 supabase functions serve coach --no-verify-jwt  # local function dev
 ```
 
+The `coach` function calls the Anthropic API when an `ANTHROPIC_API_KEY` secret is
+set on the function; without it, the coach falls back to a static response so the
+app still runs end-to-end:
+
+```bash
+supabase secrets set ANTHROPIC_API_KEY=sk-ant-...
+```
+
 ## Project Structure
 
 ```
@@ -77,6 +85,19 @@ supabase/
 - **Typography**: Warm serif (Georgia) for Scripture; geometric sans (Inter) for UI
 - **Motion**: 200-300ms ease-out; respects reduced-motion
 - **Copy**: Plain-spoken, short, respectful. No prosperity-gospel language
+
+## Status
+
+Auth, devotionals, the situation library, reading plans, AI coaching, prayer
+groups, and progress/debrief tracking are wired end-to-end against the Supabase
+schema in `/supabase`. Two pieces are intentionally not wired yet, since they
+depend on accounts this repo can't provision:
+
+- **RevenueCat purchases**: the `Paywall` component and premium-content gating
+  are in place, but `Subscribe` doesn't call a real store purchase flow yet.
+- **Offline sync (Expo SQLite)**: the dependency and `client_updated_at`
+  columns are there for it, but there's no local write queue yet — the app is
+  online-only for now.
 
 ## TypeScript
 

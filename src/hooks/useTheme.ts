@@ -7,7 +7,7 @@ export function useTheme() {
   const { mode, textSize, setMode, setTextSize } = useThemeStore();
 
   const resolvedMode: 'light' | 'dark' =
-    mode === 'system' ? (colorScheme ?? 'light') : mode;
+    mode === 'system' ? (colorScheme === 'dark' ? 'dark' : 'light') : mode;
 
   return {
     mode,

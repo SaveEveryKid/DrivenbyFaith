@@ -2,6 +2,7 @@ export { Card } from './Card';
 export { ScriptureBlock } from './ScriptureBlock';
 export { SectionHeader } from './SectionHeader';
 export { PrimaryButton } from './PrimaryButton';
+export { TextField } from './TextField';
 export { GhostButton } from './GhostButton';
 export { EmptyState } from './EmptyState';
 export { ErrorBoundary } from './ErrorBoundary';

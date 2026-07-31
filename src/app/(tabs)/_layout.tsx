@@ -1,6 +1,11 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { Tabs } from 'expo-router';
 import { useTheme } from '@/hooks/useTheme';
+
+function TabIcon({ emoji, focused }: { emoji: string; focused: boolean }): React.ReactElement {
+  return <Text style={{ fontSize: 20, opacity: focused ? 1 : 0.5 }}>{emoji}</Text>;
+}
 
 export default function TabLayout(): React.ReactElement {
   const { colors } = useTheme();
@@ -25,35 +30,35 @@ export default function TabLayout(): React.ReactElement {
         name="today"
         options={{
           title: 'Today',
-          tabBarIcon: () => null,
+          tabBarIcon: ({ focused }) => <TabIcon emoji="📖" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="library"
         options={{
           title: 'Library',
-          tabBarIcon: () => null,
+          tabBarIcon: ({ focused }) => <TabIcon emoji="📚" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="coach"
         options={{
           title: 'Coach',
-          tabBarIcon: () => null,
+          tabBarIcon: ({ focused }) => <TabIcon emoji="💬" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="prayer"
         options={{
           title: 'Prayer',
-          tabBarIcon: () => null,
+          tabBarIcon: ({ focused }) => <TabIcon emoji="🙏" focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="progress"
         options={{
           title: 'Progress',
-          tabBarIcon: () => null,
+          tabBarIcon: ({ focused }) => <TabIcon emoji="📊" focused={focused} />,
         }}
       />
     </Tabs>

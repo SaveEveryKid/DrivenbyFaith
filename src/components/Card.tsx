@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, type ViewProps } from 'react-native';
+import { View, type ViewProps } from 'react-native';
 
 interface CardProps extends ViewProps {
   variant?: 'default' | 'elevated' | 'pressable';

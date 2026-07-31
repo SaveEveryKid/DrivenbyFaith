@@ -23,9 +23,7 @@ export function EmptyState({ icon, title, subtitle, action, style, ...props }: E
       ]}
       {...props}
     >
-      {icon && (
-        <Text style={{ fontSize: 48, marginBottom: 16 }}>{icon}</Text>
-      )}
+      {icon && <Text style={{ fontSize: 48, marginBottom: 16 }}>{icon}</Text>}
       <Text
         style={{
           fontFamily: 'Inter, system-ui, sans-serif',

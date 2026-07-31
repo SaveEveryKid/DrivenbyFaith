@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { router } from 'expo-router';
 import { useThemeStore } from '@/stores/themeStore';
 import type { ThemeMode, TextSize } from '@/stores/themeStore';
+import { useAuthStore } from '@/stores/authStore';
 
 const MODE_OPTIONS: { label: string; value: ThemeMode }[] = [
   { label: 'Light', value: 'light' },
@@ -17,6 +19,15 @@ const SIZE_OPTIONS: { label: string; value: TextSize }[] = [
 
 export default function SettingsScreen(): React.ReactElement {
   const { mode, textSize, setMode, setTextSize } = useThemeStore();
+  const signOut = useAuthStore((s) => s.signOut);
+  const [signingOut, setSigningOut] = useState(false);
+
+  const handleSignOut = async (): Promise<void> => {
+    setSigningOut(true);
+    await signOut();
+    setSigningOut(false);
+    router.replace('/(auth)/login');
+  };
 
   return (
     <ScrollView
@@ -68,9 +79,7 @@ export default function SettingsScreen(): React.ReactElement {
             >
               {opt.label}
             </Text>
-            {mode === opt.value && (
-              <Text style={{ color: '#9B7343', fontSize: 18 }}>✓</Text>
-            )}
+            {mode === opt.value && <Text style={{ color: '#9B7343', fontSize: 18 }}>✓</Text>}
           </TouchableOpacity>
         ))}
       </View>
@@ -120,20 +129,21 @@ export default function SettingsScreen(): React.ReactElement {
             >
               {opt.label}
             </Text>
-            {textSize === opt.value && (
-              <Text style={{ color: '#9B7343', fontSize: 18 }}>✓</Text>
-            )}
+            {textSize === opt.value && <Text style={{ color: '#9B7343', fontSize: 18 }}>✓</Text>}
           </TouchableOpacity>
         ))}
       </View>
 
       <TouchableOpacity
+        onPress={handleSignOut}
+        disabled={signingOut}
         style={{
           backgroundColor: '#FFFFFF',
           borderRadius: 10,
           paddingHorizontal: 16,
           paddingVertical: 14,
           marginBottom: 24,
+          opacity: signingOut ? 0.5 : 1,
         }}
       >
         <Text

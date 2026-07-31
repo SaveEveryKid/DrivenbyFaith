@@ -42,7 +42,8 @@ export function Paywall({ feature, onSubscribe, onDismiss }: PaywallProps): Reac
           marginBottom: 24,
         }}
       >
-        {feature} is available with a Premium subscription. Your support helps keep the app free for those who need it most.
+        {feature} is available with a Premium subscription. Your support helps keep the app free for
+        those who need it most.
       </Text>
       <PrimaryButton title="Subscribe" onPress={onSubscribe} />
       <TouchableOpacity onPress={onDismiss} style={{ marginTop: 16 }}>

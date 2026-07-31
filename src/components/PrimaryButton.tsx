@@ -1,5 +1,10 @@
 import React from 'react';
-import { TouchableOpacity, Text, ActivityIndicator, type TouchableOpacityProps } from 'react-native';
+import {
+  TouchableOpacity,
+  Text,
+  ActivityIndicator,
+  type TouchableOpacityProps,
+} from 'react-native';
 
 interface PrimaryButtonProps extends TouchableOpacityProps {
   title: string;

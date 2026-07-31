@@ -175,42 +175,49 @@ Guidelines:
 - Keep responses concise (under 300 words) unless the user asks for more depth.
 - If a user describes unethical behavior, gently call it out while extending grace.`;
 
-    const messages: ChatMessage[] = [
-      { role: 'assistant', content: systemPrompt },
-    ];
+    const messages: ChatMessage[] = (history ?? []).map((msg) => ({
+      role: msg.role as 'user' | 'assistant',
+      content: msg.content,
+    }));
 
-    // Add conversation history
-    if (history) {
-      for (const msg of history) {
-        messages.push({ role: msg.role as 'user' | 'assistant', content: msg.content });
+    const anthropicApiKey = Deno.env.get('ANTHROPIC_API_KEY');
+    let assistantContent: string;
+
+    if (anthropicApiKey) {
+      const anthropicResponse = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'x-api-key': anthropicApiKey,
+          'anthropic-version': '2023-06-01',
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-5',
+          max_tokens: 500,
+          system: systemPrompt,
+          messages: messages.map((m) => ({ role: m.role, content: m.content })),
+        }),
+      });
+
+      if (!anthropicResponse.ok) {
+        console.error('Anthropic API error:', await anthropicResponse.text());
+        assistantContent = 'I am having trouble responding right now. Please try again in a moment.';
+      } else {
+        const anthropicData = await anthropicResponse.json();
+        assistantContent =
+          anthropicData.content
+            ?.filter((block: { type: string }) => block.type === 'text')
+            ?.map((block: { text: string }) => block.text)
+            ?.join('\n') ??
+          'I apologize, but I was unable to generate a response. Please try again.';
       }
+    } else {
+      // No AI provider configured — set ANTHROPIC_API_KEY as a secret on this
+      // function (supabase secrets set ANTHROPIC_API_KEY=...) to enable real replies.
+      assistantContent =
+        'Thank you for sharing. I am here to listen and to help you see your situation through the lens of Scripture. ' +
+        'Could you tell me more about what is weighing on you?';
     }
-
-    // --- AI PROVIDER INTEGRATION POINT ---
-    // Replace the block below with your chosen AI provider (OpenAI, Anthropic, etc.)
-    // Example using OpenAI:
-    //
-    // const openaiResponse = await fetch('https://api.openai.com/v1/chat/completions', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Authorization': `Bearer ${Deno.env.get('OPENAI_API_KEY')}`,
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     model: 'gpt-4o',
-    //     messages: messages.map(m => ({ role: m.role, content: m.content })),
-    //     max_tokens: 500,
-    //     temperature: 0.7,
-    //   }),
-    // });
-    //
-    // const aiData = await openaiResponse.json();
-    // const assistantContent = aiData.choices?.[0]?.message?.content ?? 'I apologize, but I was unable to generate a response. Please try again.';
-
-    // --- PLACEHOLDER RESPONSE (remove after wiring AI provider) ---
-    const assistantContent =
-      'Thank you for sharing. I am here to listen and to help you see your situation through the lens of Scripture. ' +
-      'Could you tell me more about what is weighing on you?';
 
     // --- 8. Save assistant message ---
     const { error: asstMsgError } = await supabase.from('coach_messages').insert({
